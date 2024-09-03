@@ -1,20 +1,35 @@
 import * as React from 'react';
-import { Button } from 'tectonica-ui';
+import { graphql } from 'gatsby';
+import SeoDatoCMS from '../ui/components/seo-datocms';
+import BlockBuilder from '../ui/components/block-builder';
+import { Hero } from 'tectonica-ui';
 
-const IndexPage = () => {
+const IndexPage = ({ data: { homepage, favicon } }) => {
+  const { title, seo } = homepage;
+
   return (
-    <main>
-      <h1>New Pluralists</h1>
-      <Button
-        block={{
-          title: 'Click me!',
-          link: 'https://tectonica.co',
-        }}
-      />
-    </main>
+    <>
+      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <Hero title={title} />
+      <BlockBuilder components={[]} />
+    </>
   );
 };
 
 export default IndexPage;
 
-export const Head = () => <title>New Pluralists</title>;
+export const HomepageQuery = graphql`
+  query HomepageQuery {
+    favicon: datoCmsSite {
+      faviconMetaTags {
+        ...GatsbyDatoCmsFaviconMetaTags
+      }
+    }
+    homepage: datoCmsHomepage {
+      title
+      seo: seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
+    }
+  }
+`;

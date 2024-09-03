@@ -6,7 +6,7 @@ configDotenv({ path: `.env` });
  */
 module.exports = {
   siteMetadata: {
-    title: `gatsby-new-pluralists`,
+    title: `New Pluralists`,
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [
