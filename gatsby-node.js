@@ -123,7 +123,7 @@ exports.createPages = async ({ actions, graphql }) => {
     const { id, slug, oldUrl } = node;
 
     createPage({
-      path: `/blog/${slug}`,
+      path: `/blogs/${slug}`,
       component: blogTemplate,
       context: { id: id, slug: slug },
     });
@@ -132,7 +132,7 @@ exports.createPages = async ({ actions, graphql }) => {
     if (oldUrl) {
       createRedirect({
         fromPath: getURL(oldUrl),
-        toPath: `/blog/${slug}`,
+        toPath: `/blogs/${slug}`,
         isPermanent: true,
       });
     }

@@ -1,17 +1,28 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
-import { Hero } from 'tectonica-ui';
+import { CustomImage, Hero } from 'tectonica-ui';
 import StructuredTextDefault from '../ui/components/structured-text-default';
 
 const FunderDetail = ({ data: { funder, favicon } }) => {
-  const { title, seo, content } = funder;
+  const { title, funderPosition, image, content, seo } = funder;
 
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <Hero title={title} />
-      <StructuredTextDefault content={content} />
+
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6">
+            <CustomImage image={image} />
+          </div>
+          <div className="col-md-6">
+            <h2>{funderPosition}</h2>
+            <StructuredTextDefault content={content} />
+          </div>
+        </div>
+      </div>
     </>
   );
 };
@@ -27,6 +38,14 @@ export const FunderDetailQuery = graphql`
     }
     funder: datoCmsFunder(id: { eq: $id }) {
       title
+      funderPosition
+      image {
+        alt
+        url
+        fluid(maxWidth: 800) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
       content {
         value
         blocks {

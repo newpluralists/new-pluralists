@@ -1,17 +1,28 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
-import { Hero } from 'tectonica-ui';
+import { CustomImage, Hero } from 'tectonica-ui';
 import StructuredTextDefault from '../ui/components/structured-text-default';
 
 const BuilderDetail = ({ data: { builder, favicon } }) => {
-  const { title, seo, content } = builder;
+  const { title, builderPosition, image, content, seo } = builder;
 
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <Hero title={title} />
-      <StructuredTextDefault content={content} />
+
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6">
+            <CustomImage image={image} />
+          </div>
+          <div className="col-md-6">
+            <h2>{builderPosition}</h2>
+            <StructuredTextDefault content={content} />
+          </div>
+        </div>
+      </div>
     </>
   );
 };
@@ -27,6 +38,14 @@ export const BuilderDetailQuery = graphql`
     }
     builder: datoCmsBuilder(id: { eq: $id }) {
       title
+      builderPosition
+      image {
+        alt
+        url
+        fluid(maxWidth: 800) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
       content {
         value
         blocks {
