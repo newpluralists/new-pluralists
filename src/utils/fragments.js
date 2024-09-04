@@ -261,4 +261,23 @@ export const DatoCMS = graphql`
       }
     }
   }
+
+  fragment BlockImage on DatoCmsImage {
+    __typename
+    id: originalId
+    image {
+      url
+      alt
+      title
+      width
+      height
+      gatsbyImageData
+    }
+  }
+
+  fragment BlockEmbedIframe on DatoCmsEmbedIframe {
+    __typename
+    id: originalId
+    code
+  }
 `;

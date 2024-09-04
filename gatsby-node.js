@@ -1,7 +1,12 @@
 const path = require('path');
 
+const getURL = (rawUrl) => {
+  const urlObj = new URL(rawUrl);
+  return urlObj.pathname;
+};
+
 exports.createPages = async ({ actions, graphql }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
 
   const pageTemplate = path.resolve('./src/templates/page.jsx');
   const blogListTemplate = path.resolve('./src/templates/blog-list.jsx');
@@ -12,6 +17,8 @@ exports.createPages = async ({ actions, graphql }) => {
   const investmentTemplate = path.resolve('./src/templates/investment.jsx');
   const resourceListTemplate = path.resolve('./src/templates/resource-list.jsx');
   const resourceTemplate = path.resolve('./src/templates/resource.jsx');
+  const builderListTemplate = path.resolve('./src/templates/builder-list.jsx');
+  const builderTemplate = path.resolve('./src/templates/builder.jsx');
 
   const result = await graphql(`
     query AllBasicPages {
@@ -32,6 +39,7 @@ exports.createPages = async ({ actions, graphql }) => {
           node {
             id
             slug
+            oldUrl
           }
         }
       }
@@ -44,6 +52,7 @@ exports.createPages = async ({ actions, graphql }) => {
           node {
             id
             slug
+            oldUrl
           }
         }
       }
@@ -68,6 +77,19 @@ exports.createPages = async ({ actions, graphql }) => {
           node {
             id
             slug
+          }
+        }
+      }
+      datoCmsFieldBuildersList {
+        id
+        slug
+      }
+      allDatoCmsBuilder {
+        edges {
+          node {
+            id
+            slug
+            oldUrl
           }
         }
       }
@@ -98,13 +120,22 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // Blog Posts
   result.data.allDatoCmsPost.edges.forEach(({ node }) => {
-    const { id, slug } = node;
+    const { id, slug, oldUrl } = node;
 
     createPage({
       path: `/blog/${slug}`,
       component: blogTemplate,
       context: { id: id, slug: slug },
     });
+
+    // Redirects
+    if (oldUrl) {
+      createRedirect({
+        fromPath: getURL(oldUrl),
+        toPath: `/blog/${slug}`,
+        isPermanent: true,
+      });
+    }
   });
 
   // Funder List
@@ -120,13 +151,22 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // Funder Pages
   result.data.allDatoCmsFunder.edges.forEach(({ node }) => {
-    const { id, slug } = node;
+    const { id, slug, oldUrl } = node;
 
     createPage({
       path: `/funders/${slug}`,
       component: funderTemplate,
       context: { id: id, slug: slug },
     });
+
+    // Redirects
+    if (oldUrl) {
+      createRedirect({
+        fromPath: getURL(oldUrl),
+        toPath: `/funders/${slug}`,
+        isPermanent: true,
+      });
+    }
   });
 
   // Investment List
@@ -171,5 +211,36 @@ exports.createPages = async ({ actions, graphql }) => {
       component: resourceTemplate,
       context: { id: id, slug: slug },
     });
+  });
+
+  // Field Builders List
+  if (result.data.datoCmsFieldBuildersList) {
+    const { id, slug } = result.data.datoCmsFieldBuildersList;
+
+    createPage({
+      path: slug,
+      component: builderListTemplate,
+      context: { id: id, slug: slug },
+    });
+  }
+
+  // Field Builders Pages
+  result.data.allDatoCmsBuilder.edges.forEach(({ node }) => {
+    const { id, slug, oldUrl } = node;
+
+    createPage({
+      path: `/builders/${slug}`,
+      component: builderTemplate,
+      context: { id: id, slug: slug },
+    });
+
+    // Redirects
+    if (oldUrl) {
+      createRedirect({
+        fromPath: getURL(oldUrl),
+        toPath: `/builders/${slug}`,
+        isPermanent: true,
+      });
+    }
   });
 };

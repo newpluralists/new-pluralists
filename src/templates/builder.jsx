@@ -4,8 +4,8 @@ import SeoDatoCMS from '../ui/components/seo-datocms';
 import { Hero } from 'tectonica-ui';
 import StructuredTextDefault from '../ui/components/structured-text-default';
 
-const FunderDetail = ({ data: { funder, favicon } }) => {
-  const { title, seo, content } = funder;
+const BuilderDetail = ({ data: { builder, favicon } }) => {
+  const { title, seo, content } = builder;
 
   return (
     <>
@@ -16,16 +16,16 @@ const FunderDetail = ({ data: { funder, favicon } }) => {
   );
 };
 
-export default FunderDetail;
+export default BuilderDetail;
 
-export const FunderDetailQuery = graphql`
-  query FunderDetailQuery($id: String) {
+export const BuilderDetailQuery = graphql`
+  query BuilderDetailQuery($id: String) {
     favicon: datoCmsSite {
       faviconMetaTags {
         ...GatsbyDatoCmsFaviconMetaTags
       }
     }
-    funder: datoCmsFunder(id: { eq: $id }) {
+    builder: datoCmsBuilder(id: { eq: $id }) {
       title
       content {
         value

@@ -2,14 +2,16 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import { Hero } from 'tectonica-ui';
+import StructuredTextDefault from '../ui/components/structured-text-default';
 
 const BlogDetail = ({ data: { blog, favicon } }) => {
-  const { title, seo } = blog;
+  const { title, seo, content } = blog;
 
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <Hero title={title} />
+      <StructuredTextDefault content={content} />
     </>
   );
 };
@@ -25,6 +27,14 @@ export const BlogDetailQuery = graphql`
     }
     blog: datoCmsPost(id: { eq: $id }) {
       title
+      content {
+        value
+        blocks {
+          __typename
+          ...BlockImage
+          ...BlockEmbedIframe
+        }
+      }
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
