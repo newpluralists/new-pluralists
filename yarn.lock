@@ -1172,6 +1172,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@formkit/auto-animate@^0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@formkit/auto-animate/-/auto-animate-0.8.2.tgz#24a56e816159fd5585405dcee6bb992f81c27585"
+  integrity sha512-SwPWfeRa5veb1hOIBMdzI+73te5puUBHmqqaF1Bu7FjvxlYSz/kJcZKSa9Cg60zL0uRNeJL2SbRxV6Jp6Q1nFQ==
+
 "@gatsbyjs/parcel-namer-relative-to-cwd@^2.13.1":
   version "2.13.1"
   resolved "https://registry.yarnpkg.com/@gatsbyjs/parcel-namer-relative-to-cwd/-/parcel-namer-relative-to-cwd-2.13.1.tgz#79d2692330a942394200c9bf3e820a4e55075ffb"
@@ -11271,11 +11276,12 @@ tar-stream@^3.1.5:
     fast-fifo "^1.2.0"
     streamx "^2.15.0"
 
-tectonica-ui@1.0.59:
-  version "1.0.59"
-  resolved "https://registry.yarnpkg.com/tectonica-ui/-/tectonica-ui-1.0.59.tgz#49360420d2a4003ac22a175075c0f6975f696278"
-  integrity sha512-px+jGyVcBpkngrP244c4Uk17KpauGY4e2gENMVFvot3ujvF7IcsUJgaxl7CY+CI/2qxjdTKu3MtgW8GOCR/cQg==
+tectonica-ui@1.0.63:
+  version "1.0.63"
+  resolved "https://registry.yarnpkg.com/tectonica-ui/-/tectonica-ui-1.0.63.tgz#ff6362b6eb247273613cf491b7a59ef9172a94af"
+  integrity sha512-iAAwyPCeyir8Kq+Z13I/qM6H6ktbowhJDsNiWu9kP++fizs/067VR4egaL26NK8x+SEXkKYxKMt+WogNz/F2aQ==
   dependencies:
+    "@formkit/auto-animate" "^0.8.2"
     "@gsap/react" "^2.1.1"
     "@mapbox/mapbox-gl-geocoder" "4.7.4"
     "@mux/mux-player" "2.8.0"

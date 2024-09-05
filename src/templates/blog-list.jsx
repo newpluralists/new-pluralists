@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import BlockBuilder from '../ui/components/block-builder';
 import { Hero } from 'tectonica-ui';
+import BlogCard from '../ui/components/blog-card/blog-card';
 
 const BlogList = ({ data: { blogList, blogs, favicon } }) => {
   const { title, seo } = blogList;
@@ -15,16 +16,7 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
         <div className="row g-5 mt-5">
           {blogs.edges.map(({ node }) => (
             <div key={node.id} className="col-12 col-md-6 col-lg-4">
-              <div className="funder-card">
-                {node.mainImage && <img src={node.mainImage.url} alt={node.mainImage.alt} className="img-full" />}
-                <div className="card-body">
-                  <h5 className="card-title">{node.title}</h5>
-                  <p className="card-text">{node.funderPosition}</p>
-                  <Link to={`/blogs/${node.slug}`} className="btn btn-primary">
-                    Read more
-                  </Link>
-                </div>
-              </div>
+              <BlogCard blog={node} />
             </div>
           ))}
         </div>
@@ -61,6 +53,9 @@ export const BlogListQuery = graphql`
             width
             height
             alt
+          }
+          model {
+            apiKey
           }
         }
       }
