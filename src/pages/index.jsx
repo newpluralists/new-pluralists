@@ -5,13 +5,15 @@ import BlockBuilder from '../ui/components/block-builder';
 import { Hero } from 'tectonica-ui';
 
 const IndexPage = ({ data: { homepage, favicon } }) => {
-  const { title, seo } = homepage;
+  const { title, blocks = [], seo } = homepage;
 
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <Hero title={title} />
-      <BlockBuilder components={[]} />
+      <div className="container my-5 py-5">
+        <BlockBuilder components={blocks} />
+      </div>
     </>
   );
 };
@@ -27,6 +29,13 @@ export const HomepageQuery = graphql`
     }
     homepage: datoCmsHomepage {
       title
+      blocks {
+        __typename
+        ...BlockAccordion
+        ...BlockImageGallery
+        ...BlockNarrativeBlock
+        ...BlockNarrativeBlockAdvanced
+      }
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }

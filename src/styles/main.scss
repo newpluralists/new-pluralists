@@ -1,7 +1,13 @@
+@import url('/node_modules/bootstrap/dist/css/bootstrap.min.css');
 @import url('./normalize.css');
 
 html {
   --primary-1: red;
+}
+
+img {
+  max-width: 100%;
+  object-fit: contain;
 }
 
 // Test

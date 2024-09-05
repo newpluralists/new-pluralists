@@ -7,6 +7,9 @@ export const DatoCMS = graphql`
     position
     isButton
     isSearchButton
+    megaMenu {
+      id
+    }
     path {
       __typename
       ... on DatoCmsBasicPage {
@@ -279,5 +282,89 @@ export const DatoCMS = graphql`
     __typename
     id: originalId
     code
+  }
+
+  fragment BlockCta on DatoCmsCta {
+    id
+    title
+    variant
+    size
+    icon {
+      width
+      height
+      alt
+      url
+    }
+    link {
+      ...GlobalLink
+    }
+  }
+
+  fragment BlockAccordion on DatoCmsAcordion {
+    id
+    items {
+      ... on DatoCmsAcordionItem {
+        id
+        title
+        text
+      }
+    }
+  }
+
+  fragment BlockImageGallery on DatoCmsImageGallery {
+    id
+    headline
+    images {
+      url
+      width
+      height
+      alt
+    }
+  }
+
+  fragment BlockNarrativeBlock on DatoCmsNarrativeBlock {
+    id
+    title
+    preTitle
+    backgroundColor
+    content
+    image {
+      width
+      height
+      alt
+      url
+    }
+    imageMobile {
+      width
+      height
+      alt
+      url
+    }
+    alignmentImage
+    ctas {
+      ...BlockCta
+    }
+  }
+
+  fragment BlockNarrativeBlockAdvanced on DatoCmsNarrativeBlockAdvanced {
+    id
+    title
+    preTitle
+    backgroundColor
+    content
+    images {
+      width
+      height
+      alt
+      url
+    }
+    carrouselSettingsAutoloop
+    carrouselSettingsArrows
+    carrouselSettingsNavigation
+    alignmentImage
+    displayForm
+    ctas {
+      ...BlockCta
+    }
   }
 `;

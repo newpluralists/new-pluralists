@@ -11,7 +11,9 @@ const BlogDetail = ({ data: { blog, favicon } }) => {
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <Hero title={title} />
-      <StructuredTextDefault content={content} />
+      <div className="container">
+        <StructuredTextDefault content={content} />
+      </div>
     </>
   );
 };
