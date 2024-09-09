@@ -3,10 +3,10 @@ import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import BlockBuilder from '../ui/components/block-builder';
 import { Hero } from 'tectonica-ui';
-import BlogCard from '../ui/components/blog-card/blog-card';
+import TeamCard from '../ui/components/team-card/team-card';
 
-const BlogList = ({ data: { blogList, blogs, favicon } }) => {
-  const { title, seo } = blogList;
+const TeamList = ({ data: { teamList, teams, favicon } }) => {
+  const { title, seo } = teamList;
 
   return (
     <>
@@ -14,9 +14,9 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
       <Hero title={title} />
       <div className="container">
         <div className="row g-5 mt-5">
-          {blogs.edges.map(({ node }) => (
+          {teams.edges.map(({ node }) => (
             <div key={node.id} className="col-12 col-md-6 col-lg-4">
-              <BlogCard blog={node} />
+              <TeamCard team={node} />
             </div>
           ))}
         </div>
@@ -27,36 +27,26 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
   );
 };
 
-export default BlogList;
+export default TeamList;
 
-export const BlogListQuery = graphql`
-  query BlogListQuery {
+export const TeamListQuery = graphql`
+  query TeamListQuery {
     favicon: datoCmsSite {
       faviconMetaTags {
         ...GatsbyDatoCmsFaviconMetaTags
       }
     }
-    blogList: datoCmsBlogPostsList {
+    teamList: datoCmsTeamList {
       title
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
     }
-    blogs: allDatoCmsPost(sort: { date: DESC }) {
+    teams: allDatoCmsTeam {
       edges {
         node {
           id
           slug
-          title
-          mainImage {
-            url
-            width
-            height
-            alt
-          }
-          model {
-            apiKey
-          }
         }
       }
     }

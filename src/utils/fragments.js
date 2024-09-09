@@ -89,6 +89,20 @@ export const DatoCMS = graphql`
           apiKey
         }
       }
+      ... on DatoCmsEventList {
+        id
+        slug
+        model {
+          apiKey
+        }
+      }
+      ... on DatoCmsTeamList {
+        id
+        slug
+        model {
+          apiKey
+        }
+      }
     }
     treeChildren {
       ... on DatoCmsMenuItem {
@@ -168,6 +182,20 @@ export const DatoCMS = graphql`
             }
           }
           ... on DatoCmsResourcesList {
+            id
+            slug
+            model {
+              apiKey
+            }
+          }
+          ... on DatoCmsEventList {
+            id
+            slug
+            model {
+              apiKey
+            }
+          }
+          ... on DatoCmsTeamList {
             id
             slug
             model {
@@ -256,6 +284,34 @@ export const DatoCMS = graphql`
         }
       }
       ... on DatoCmsResourcesList {
+        id
+        slug
+        model {
+          apiKey
+        }
+      }
+      ... on DatoCmsEventList {
+        id
+        slug
+        model {
+          apiKey
+        }
+      }
+      ... on DatoCmsEvent {
+        id
+        slug
+        model {
+          apiKey
+        }
+      }
+      ... on DatoCmsTeamList {
+        id
+        slug
+        model {
+          apiKey
+        }
+      }
+      ... on DatoCmsTeam {
         id
         slug
         model {
