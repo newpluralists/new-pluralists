@@ -11263,10 +11263,10 @@ tar-stream@^3.1.5:
     fast-fifo "^1.2.0"
     streamx "^2.15.0"
 
-tectonica-ui@1.0.66:
-  version "1.0.66"
-  resolved "https://registry.yarnpkg.com/tectonica-ui/-/tectonica-ui-1.0.66.tgz#f3ea4ece428043413c6f9a2c15e7b56769930566"
-  integrity sha512-VgCJ/fwIRFZm5cz0mZELQ66L0DXVZmu/2Y+5E7kIRf5aQQFMhqZjUMYzjfR+y1sbpC+ZrImkKd6Fcz/4/GWzHg==
+tectonica-ui@1.0.67:
+  version "1.0.67"
+  resolved "https://registry.yarnpkg.com/tectonica-ui/-/tectonica-ui-1.0.67.tgz#c845b1d4c8ee2c9d9de739e6e5ac7b2d69b8b6e7"
+  integrity sha512-EPyrzoazMiBNL+W5i5FksxvdJwtZUN48H54coz9ZarYYuqUSd0BCfiYZPnsu1R0/UjrwagNcEtm4Y8Y4Cy/gKA==
   dependencies:
     "@formkit/auto-animate" "0.8.2"
     "@gsap/react" "2.1.1"
