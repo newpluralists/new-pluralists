@@ -1,0 +1,79 @@
+.ui-story-card {
+  height: 100%;
+
+  .ui-card {
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.09);
+
+    .image {
+      height: 353px;
+
+      img {
+        object-fit: cover !important;
+      }
+    }
+
+    .card-content {
+      padding: 35px 20px 50px 20px;
+
+      .card-data {
+        display: flex;
+        flex-direction: column;
+
+        .tags-date-wrapper {
+          order: 2;
+          margin-bottom: 20px;
+
+          .tags {
+            position: unset;
+          }
+        }
+
+        h3 {
+          order: 1;
+          color: var(--neutral-black);
+          font-family: var(--main-font);
+          font-size: 49px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 110%;
+          margin: 0;
+          margin-bottom: 15px;
+        }
+
+        .introduction {
+          order: 3;
+          color: var(--neutral-black);
+          font-family: var(--main-font);
+          font-size: 22px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 135%;
+
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    &.orange {
+      background: var(--orange);
+    }
+
+    &.green {
+      background: var(--alternative-green);
+    }
+
+    &.yellow {
+      background: var(--yellow);
+    }
+
+    &.blue {
+      background: var(--blue);
+    }
+
+    &.pink {
+      background: var(--pink);
+    }
+  }
+}

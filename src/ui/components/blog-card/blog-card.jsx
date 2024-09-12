@@ -1,17 +1,21 @@
 import React from 'react';
-import { CustomLink } from 'tectonica-ui';
+import { Card } from 'tectonica-ui';
+
+import './styles.scss';
 
 const BlogCard = ({ blog }) => {
+  const { title, slug, model, mainImage } = blog;
+
   return (
     <div className="ui-blog-card">
-      {blog.mainImage && <img src={blog.mainImage.url} alt={blog.mainImage.alt} className="img-full" />}
-      <div className="card-body">
-        <h5 className="card-title">{blog.title}</h5>
-        <p className="card-text">{blog.funderPosition}</p>
-        <CustomLink to={{ path: blog }} className="btn btn-primary">
-          Read more
-        </CustomLink>
-      </div>
+      <Card
+        card={{
+          title,
+          image: mainImage,
+          cta: { link: { path: { slug, model } } },
+          date: null,
+        }}
+      />
     </div>
   );
 };

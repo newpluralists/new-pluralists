@@ -1,20 +1,124 @@
 @import url('/node_modules/bootstrap/dist/css/bootstrap.min.css');
 @import url('./normalize.css');
+@import url('./fonts.css');
 
 html {
-  --primary-1: red;
+  // Colors
+  --yellow: #FFCD69;
+  --lavander: #A2A2F8;
+  --lavander-alternative: #7D7DF0;
+  --pink: #F2C0F2;
+  --green: #95DAB3;
+  --alternative-green: #60C28B;
+  --orange: #FF9A56;
+  --blue: #80AAFF;
+  --neutral-white: #ffffff;
+  --neutral-black: #000;
+  --np-neutral-1: #BEBEB3;
+  --np-neutral-2: #F2F2EA;
+  --np-neutral-3: #F9F9F2;
+  --np-neutral-4: #E3E3FF;
+
+  // Fonts
+  --main-font: 'Inria Sans', sans-serif !important;
+  --secondary-font: 'Inter', sans-serif !important;
+
+  // Default font
+  font-family: var(--main-font);
+  overflow-x: hidden;
 }
 
-img {
-  max-width: 100%;
-  object-fit: contain;
-}
+#np-layout {
+  .ui-navbar {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    min-height: unset;
+    background-color: transparent;
 
-// Test
-.ui-navbar {
-  // background-color: #333 !important;
-}
+    .container {
+      display: flex;
+      align-items: center;
+      background-color: var(--np-neutral-3);
+      padding: 25px;
+      border-radius: 4px;
+      box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.35);
+    }
 
-.ui-footer {
-  // background-color: black !important;
+    .links-wrapper ul.links {
+      height: auto;
+
+      .btn-search {
+        padding: 0;
+        background: transparent;
+      }
+
+      .dropdown-menu {
+        width: auto;
+
+        .dropdown-item {
+          width: fit-content;
+
+          &:first-child {
+            padding-top: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .ui-narrative-block-component {
+    background-color: #E3E3FD;
+
+    .meta {
+      padding: 145px 0 150px 0;
+
+      h3 {
+        color: var(--neutral-black);
+        font-family: var(--main-font);
+        font-size: 49px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 110%;
+        text-transform: unset;
+        margin-bottom: 25px;
+      }
+
+      .content {
+        color: var(--neutral-black);
+        font-family: var(--main-font);
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 135%;
+        margin-bottom: 35px;
+      }
+    }
+
+    .image {
+      background-color: var(--neutral-white);
+
+      .image-wrapper {
+        height: 100%;
+
+        img {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .button-block {
+    &.default {
+      color: var(--neutral-white);
+      background-color: var(--lavander);
+    }
+  }
+
+  img {
+    max-width: 100%;
+    object-fit: contain;
+  }
 }

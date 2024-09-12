@@ -1,0 +1,19 @@
+.block-stories {
+  padding: 50px 0 0 0;
+  background-color: rgba(247, 247, 247, .5);
+
+  h3 {
+    color: var(--neutral-black);
+    font-family: var(--main-font);
+    font-size: 31px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    margin-bottom: 25px;
+  }
+
+  .button-list {
+    margin-top: 56px;
+    margin-bottom: 90px;
+  }
+}

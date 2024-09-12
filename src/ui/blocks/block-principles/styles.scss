@@ -1,0 +1,110 @@
+.block-principles {
+  padding: 121px 0 82px 0;
+  background: var(--np-neutral-2);
+
+  .top-section {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: 1fr 1fr;
+
+    .meta {
+      .headlines {
+        color: var(--neutral-black);
+        font-family: var(--main-font);
+        font-size: 49px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 110%;
+        margin-bottom: 25px;
+
+        transition: opacity 0.5s ease-in-out;
+
+        b,
+        strong {
+          color: var(--lavander-alternative);
+        }
+
+        p {
+          margin: 0;
+        }
+
+        .headline {
+          opacity: 1;
+          transition: opacity 0.5s ease-in-out;
+
+          .fade-in {
+            opacity: 1;
+          }
+
+          .fade-out {
+            opacity: 0;
+          }
+        }
+      }
+
+      .introduction {
+        color: var(--neutral-black);
+        font-family: var(--main-font);
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 135%;
+        margin-bottom: 31px;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .box-section {
+    border-radius: 4px;
+    padding: 31px 36px;
+    background: var(--neutral-white);
+    box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.02);
+
+    display: grid;
+    gap: 54px;
+    align-items: center;
+    grid-template-columns: 450px 1fr;
+
+    .meta {
+      max-width: 560px;
+
+      .headline {
+        color: var(--neutral-black);
+        font-family: var(--main-font);
+        font-size: 39px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%;
+        margin-bottom: 25px;
+
+        b,
+        strong {
+          color: var(--lavander-alternative);
+          font-family: var(--main-font);
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+
+      .introduction {
+        color: var(--neutral-black);
+        font-family: var(--main-font);
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 135%;
+        margin-bottom: 31px;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

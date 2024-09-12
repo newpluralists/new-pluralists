@@ -4,11 +4,11 @@ import FooterWrapper from './footer/footer-wrapper';
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <div id="np-layout">
       <HeaderWrapper />
       <main>{children}</main>
       <FooterWrapper />
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,69 @@
+.np-ui-hero {
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  .container {
+    position: relative;
+    z-index: 2;
+
+    .main {
+      padding-top: 30dvh;
+      padding-bottom: 135px;
+      max-width: 670px;
+
+      .title {
+        color: var(--np-neutral-4);
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-family: var(--main-font);
+        font-size: 72px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 110%;
+        margin-bottom: 19px;
+      }
+
+      .introduction {
+        color: var(--neutral-white);
+        font-family: var(--main-font);
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%;
+      }
+    }
+
+    .extra-text {
+      padding-top: 38px;
+      border-top: 1px solid var(--neutral-white);
+      display: flex;
+      align-items: center;
+      gap: 160px;
+
+      .introduction {
+        color: var(--neutral-white);
+        font-family: var(--main-font);
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 135%;
+      }
+
+      button {
+        background-color: transparent;
+        border: unset;
+      }
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
