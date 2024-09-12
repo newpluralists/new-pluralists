@@ -33,6 +33,7 @@
     "react-datocms": "^7.0.1",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "sass": "^1.77.8"
+    "sass": "^1.77.8",
+    "tectonica-ui": "1.0.68"
   }
 }
