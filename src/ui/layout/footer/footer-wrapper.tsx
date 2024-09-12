@@ -31,8 +31,6 @@ const FooterWrapper = () => {
     }
   `);
 
-  console.log({ footer });
-
   return <Footer data={footer} />;
 };
 

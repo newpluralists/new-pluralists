@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Header } from 'tectonica-ui';
+import { Header, Notification } from 'tectonica-ui';
 
 const HeaderWrapper = () => {
   const menus = useStaticQuery(graphql`
@@ -12,6 +12,18 @@ const HeaderWrapper = () => {
           alt
           url
         }
+        showTopAlert
+        content: message {
+          value
+          blocks
+          links {
+            id
+            slug
+            model {
+              apiKey
+            }
+          }
+        }
       }
       mainMenu: allDatoCmsMenuItem(filter: { root: { eq: true } }, sort: { position: ASC }) {
         nodes {
@@ -21,7 +33,17 @@ const HeaderWrapper = () => {
     }
   `);
 
-  return <Header menu={menus.mainMenu} logo={menus.configuration.logo} location={{}} />;
+  return (
+    <>
+      <Notification
+        variant="blue"
+        block={{
+          content: menus.configuration.content.value,
+        }}
+      />
+      <Header menu={menus.mainMenu} logo={menus.configuration.logo} location={{}} />
+    </>
+  );
 };
 
 export default HeaderWrapper;

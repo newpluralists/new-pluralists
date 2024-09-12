@@ -330,7 +330,7 @@ export const DatoCMS = graphql`
       title
       width
       height
-      gatsbyImageData
+      # gatsbyImageData
     }
   }
 
@@ -502,7 +502,7 @@ export const DatoCMS = graphql`
           height
           alt
           url
-          gatsbyImageData
+          # gatsbyImageData
         }
         slug
         model {
@@ -538,7 +538,7 @@ export const DatoCMS = graphql`
           height
           alt
           url
-          gatsbyImageData
+          # gatsbyImageData
         }
       }
     }

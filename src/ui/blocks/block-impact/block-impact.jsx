@@ -6,8 +6,6 @@ import './styles.scss';
 const BlockImpact = ({ block }) => {
   const { headline, introduction, ctas = [], leftTitles = [] } = block;
 
-  console.log({ ctas });
-
   return (
     <section className="block-impact">
       <div className="container">
