@@ -92,9 +92,11 @@ const BlogDetail = ({ blog, related, listLink }) => {
             <h1>{title}</h1>
             <p className="date">{formatDate(date)}</p>
 
-            <div className="main-image">
-              <img src={mainImage.url} alt={mainImage.alt} />
-            </div>
+            {mainImage?.url && (
+              <div className="main-image">
+                <img src={mainImage.url} alt={mainImage.alt} />
+              </div>
+            )}
 
             {authorName && (
               <div className="author-name">
