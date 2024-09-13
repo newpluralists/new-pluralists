@@ -23,6 +23,8 @@ exports.createPages = async ({ actions, graphql }) => {
   const teamTemplate = path.resolve('./src/templates/team.jsx');
   const eventListTemplate = path.resolve('./src/templates/events-list.jsx');
   const eventTemplate = path.resolve('./src/templates/event.jsx');
+  const thePromiseOfPluralismTemplate = path.resolve('./src/templates/the-promise-of-pluralism.jsx');
+  const ourImpactTemplate = path.resolve('./src/templates/our-impact.jsx');
 
   const result = await graphql(`
     query AllBasicPages {
@@ -120,6 +122,14 @@ exports.createPages = async ({ actions, graphql }) => {
             slug
           }
         }
+      }
+      datoCmsThePromiseOfPluralism {
+        id
+        slug
+      }
+      datoCmsOurImpact {
+        id
+        slug
       }
     }
   `);
@@ -333,4 +343,22 @@ exports.createPages = async ({ actions, graphql }) => {
       });
     }
   });
+
+  if (result.data.datoCmsThePromiseOfPluralism) {
+    const { id, slug } = result.data.datoCmsThePromiseOfPluralism;
+    createPage({
+      path: slug,
+      component: thePromiseOfPluralismTemplate,
+      context: { id: id, slug: slug },
+    });
+  }
+
+  if (result.data.datoCmsOurImpact) {
+    const { id, slug } = result.data.datoCmsOurImpact;
+    createPage({
+      path: slug,
+      component: ourImpactTemplate,
+      context: { id: id, slug: slug },
+    });
+  }
 };

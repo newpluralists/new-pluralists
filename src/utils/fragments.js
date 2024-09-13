@@ -103,6 +103,27 @@ export const DatoCMS = graphql`
           apiKey
         }
       }
+      ... on DatoCmsOurImpact {
+        id
+        slug
+        model {
+          apiKey
+        }
+      }
+      ... on DatoCmsStoriesImpact {
+        id
+        slug
+        model {
+          apiKey
+        }
+      }
+      ... on DatoCmsThePromiseOfPluralism {
+        id
+        slug
+        model {
+          apiKey
+        }
+      }
     }
     treeChildren {
       ... on DatoCmsMenuItem {
@@ -196,6 +217,27 @@ export const DatoCMS = graphql`
             }
           }
           ... on DatoCmsTeamList {
+            id
+            slug
+            model {
+              apiKey
+            }
+          }
+          ... on DatoCmsOurImpact {
+            id
+            slug
+            model {
+              apiKey
+            }
+          }
+          ... on DatoCmsStoriesImpact {
+            id
+            slug
+            model {
+              apiKey
+            }
+          }
+          ... on DatoCmsThePromiseOfPluralism {
             id
             slug
             model {
@@ -312,6 +354,27 @@ export const DatoCMS = graphql`
         }
       }
       ... on DatoCmsTeam {
+        id
+        slug
+        model {
+          apiKey
+        }
+      }
+      ... on DatoCmsOurImpact {
+        id
+        slug
+        model {
+          apiKey
+        }
+      }
+      ... on DatoCmsStoriesImpact {
+        id
+        slug
+        model {
+          apiKey
+        }
+      }
+      ... on DatoCmsThePromiseOfPluralism {
         id
         slug
         model {
