@@ -543,4 +543,19 @@ export const DatoCMS = graphql`
       }
     }
   }
+
+  fragment BlockPartners on DatoCmsPartnersBlock {
+    id
+    headline
+    introduction
+    ctas {
+      ...BlockCta
+    }
+    logos {
+      width
+      height
+      alt
+      url
+    }
+  }
 `;

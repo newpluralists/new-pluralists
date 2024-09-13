@@ -33,7 +33,9 @@
     "react-datocms": "^7.0.1",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-slick": "^0.30.2",
     "sass": "^1.77.8",
+    "slick-carousel": "^1.8.1",
     "tectonica-ui": "1.0.68"
   }
 }

@@ -31,6 +31,7 @@
         .headline {
           opacity: 0;
           transition: opacity 0.5s ease-in-out;
+          min-height: 220px;
 
           &.fade-in {
             opacity: 1;

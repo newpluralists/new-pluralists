@@ -1,6 +1,7 @@
 @import url('/node_modules/bootstrap/dist/css/bootstrap.min.css');
 @import url('./normalize.css');
-@import url('./fonts.css');
+// @import url('./fonts.css');
+@import url('https://use.typekit.net/pzu4hew.css"');
 
 html {
   // Colors
@@ -16,11 +17,12 @@ html {
   --neutral-black: #000;
   --np-neutral-1: #BEBEB3;
   --np-neutral-2: #F2F2EA;
+  --np-neutral-2-alternative: #F7F7F7;
   --np-neutral-3: #F9F9F2;
   --np-neutral-4: #E3E3FF;
 
   // Fonts
-  --main-font: 'Inria Sans', sans-serif !important;
+  --main-font: "inria-sans", 'Arial' !important;
   --secondary-font: 'Inter', sans-serif !important;
 
   // Default font
@@ -135,9 +137,21 @@ html {
   }
 
   .button-block {
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%;
+    padding: 8px 16px;
+
     &.default {
       color: var(--neutral-white);
       background-color: var(--lavander);
+    }
+
+    &.secondary {
+      color: var(--lavander-alternative);
+
+      background-color: transparent;
     }
   }
 

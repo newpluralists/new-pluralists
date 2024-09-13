@@ -42,14 +42,12 @@ export const HomepageQuery = graphql`
       backgroundOpacity
       blocks {
         __typename
-        ...BlockAccordion
-        ...BlockImageGallery
         ...BlockNarrativeBlock
-        ...BlockNarrativeBlockAdvanced
         ...BlockPrinciples
         ...BlockImpact
         ...BlockStories
         ...BlockUpdates
+        ...BlockPartners
       }
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags

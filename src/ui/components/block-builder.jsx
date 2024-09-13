@@ -1,38 +1,10 @@
 import React from 'react';
-import {
-  Accordion,
-  AudioPlayer,
-  Breadcrumbs,
-  Button,
-  ButtonList,
-  Card,
-  CardGrid,
-  Carousel,
-  FloatingButton,
-  FloatingShareButtons,
-  Footer,
-  HandlerButton,
-  Hero,
-  HubspotForm,
-  ImageGallery,
-  ListPaginated,
-  LoadingButton,
-  MapboxPopup,
-  MapboxWrapper,
-  NarrativeBlock,
-  NarrativeBlockAdvanced,
-  Notification,
-  ParallaxContentSection,
-  PeopleDetail,
-  ShareButtons,
-  SidebarWrapper,
-  Tabs,
-  VideoModal,
-} from 'tectonica-ui';
+import { Accordion, ImageGallery, NarrativeBlock, NarrativeBlockAdvanced } from 'tectonica-ui';
 import BlockPrinciples from '../blocks/block-principles/block-principles';
 import BlockImpact from '../blocks/block-impact/block-impact';
 import BlockStories from '../blocks/block-stories/block-stories';
 import BlockUpdates from '../blocks/block-updates/block-updates';
+import BlockPartners from '../blocks/block-partners/block-partners';
 
 export default function BlocksBuilder({ components }) {
   return (
@@ -62,6 +34,9 @@ export default function BlocksBuilder({ components }) {
 
           case 'DatoCmsUpdatesBlock':
             return <BlockUpdates block={block} key={block.id} />;
+
+          case 'DatoCmsPartnersBlock':
+            return <BlockPartners block={block} key={block.id} />;
 
           default:
             return null;
