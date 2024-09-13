@@ -5,6 +5,7 @@ import BlockImpact from '../blocks/block-impact/block-impact';
 import BlockStories from '../blocks/block-stories/block-stories';
 import BlockUpdates from '../blocks/block-updates/block-updates';
 import BlockPartners from '../blocks/block-partners/block-partners';
+import BlockNarrativeFull from '../blocks/block-narrative-full/block-narrative-full';
 
 export default function BlocksBuilder({ components }) {
   return (
@@ -37,6 +38,9 @@ export default function BlocksBuilder({ components }) {
 
           case 'DatoCmsPartnersBlock':
             return <BlockPartners block={block} key={block.id} />;
+
+          case 'DatoCmsNarrativeBlockFull':
+            return <BlockNarrativeFull block={block} key={block.id} />;
 
           default:
             return null;

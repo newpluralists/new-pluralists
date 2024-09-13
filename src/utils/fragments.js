@@ -558,4 +558,27 @@ export const DatoCMS = graphql`
       url
     }
   }
+
+  fragment BlockNarrativeBlockFull on DatoCmsNarrativeBlockFull {
+    id
+    title
+    introduction
+    mainImage {
+      width
+      height
+      alt
+      url
+    }
+    decoratorImage {
+      width
+      height
+      alt
+      url
+    }
+  }
+
+  fragment Tag on DatoCmsTag {
+    id
+    name
+  }
 `;

@@ -42,7 +42,7 @@ export const HomepageQuery = graphql`
       backgroundOpacity
       blocks {
         __typename
-        ...BlockNarrativeBlock
+        ...BlockNarrativeBlockFull
         ...BlockPrinciples
         ...BlockImpact
         ...BlockStories

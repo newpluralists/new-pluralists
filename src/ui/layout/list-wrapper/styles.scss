@@ -1,0 +1,42 @@
+.list-wrapper {
+  position: relative;
+  min-height: 100dvh;
+
+  .waves-decorator {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .children {
+    padding-top: 300px;
+    padding-bottom: 300px;
+
+    h1 {
+      color: var(--neutral-black);
+      font-family: var(--main-font);
+      font-size: 72px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 110%;
+      margin-bottom: 65px;
+    }
+
+    .row {
+      --bs-gutter-x: 24px;
+      --bs-gutter-y: 54px;
+    }
+  }
+
+  &.blue {
+    background-color: rgba(128, 170, 255, .2);
+  }
+
+  &.lavander {
+    background-color: rgba(227, 227, 255, .7);
+
+    .waves-decorator svg path {
+      fill: #7D7DF0;
+    }
+  }
+}

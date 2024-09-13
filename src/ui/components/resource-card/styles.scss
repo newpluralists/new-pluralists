@@ -1,24 +1,9 @@
-.ui-blog-card {
+.ui-resource-card {
   height: 100%;
 
   .ui-card {
-    border-radius: unset;
-
-    .image {
-      height: 270px;
-
-      .image-wrapper {
-        height: 270px;
-
-        img {
-          object-fit: cover !important;
-        }
-      }
-    }
-
     .card-content {
-      padding: 20px 20px 40px 20px;
-      fill: var(--C2-White, #FFF);
+      padding: 30px 20px;
 
       .card-data {
         h3 {
@@ -28,7 +13,6 @@
           font-style: normal;
           font-weight: 700;
           line-height: 120%;
-          margin-bottom: 0;
         }
       }
     }

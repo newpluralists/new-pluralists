@@ -1,0 +1,37 @@
+.block-resources {
+  padding: 95px 0 60px 0;
+  background: var(--C2-Neutral-2, #F2F2EA);
+
+  h3 {
+    color: var(--C2-Black, #000);
+
+    font-family: var(--main-font);
+    font-size: 49px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+    margin-bottom: 39px;
+  }
+
+  .button-list {
+    margin-top: 59px;
+    margin-bottom: 100px;
+  }
+
+}
+
+@media screen and (max-width: 992px) {
+  .block-resources {
+    padding: 50px 0;
+
+    h3 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .button-list {
+      margin-top: 40px;
+      margin-bottom: 0;
+    }
+  }
+}

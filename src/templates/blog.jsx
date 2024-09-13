@@ -1,24 +1,20 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
-import { Hero } from 'tectonica-ui';
-import StructuredTextDefault from '../ui/components/structured-text-default';
+import BlogDetail from '../ui/layout/details/blog-detail';
 
-const BlogDetail = ({ data: { blog, favicon } }) => {
-  const { title, seo, content } = blog;
+const BlogDetailPage = ({ data: { blog, related, blogList, favicon } }) => {
+  const { seo } = blog;
 
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
-      <Hero title={title} />
-      <div className="container">
-        <StructuredTextDefault content={content} />
-      </div>
+      <BlogDetail blog={blog} related={related} listLink={blogList} />
     </>
   );
 };
 
-export default BlogDetail;
+export default BlogDetailPage;
 
 export const BlogDetailQuery = graphql`
   query BlogDetailQuery($id: String) {
@@ -29,6 +25,17 @@ export const BlogDetailQuery = graphql`
     }
     blog: datoCmsPost(id: { eq: $id }) {
       title
+      date
+      mainImage {
+        width
+        height
+        alt
+        url
+      }
+      tags {
+        ...Tag
+      }
+      authorName
       content {
         value
         blocks {
@@ -39,6 +46,28 @@ export const BlogDetailQuery = graphql`
       }
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
+      }
+    }
+    related: allDatoCmsPost(filter: { id: { ne: $id } }, limit: 3, sort: { date: DESC }) {
+      nodes {
+        id
+        title
+        slug
+        date
+        mainImage {
+          alt
+          url
+        }
+        model {
+          apiKey
+        }
+      }
+    }
+    blogList: datoCmsBlogPostsList {
+      id
+      slug
+      model {
+        apiKey
       }
     }
   }

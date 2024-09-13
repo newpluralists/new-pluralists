@@ -136,6 +136,41 @@ html {
     }
   }
 
+  .ui-breadcrumb {
+    margin-bottom: 39px;
+
+    ul li {
+      color: var(--lavander-alternative);
+      font-family: var(--main-font);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 135%;
+
+      a {
+        color: var(--lavander-alternative);
+        text-decoration: none;
+        border: unset;
+      }
+
+      &.active {
+        color: var(--neutral-black);
+      }
+    }
+  }
+
+  .tag {
+    padding: 3px 7px;
+    background: var(--neutral-black);
+    color: var(--neutral-white);
+    font-family: var(--main-font);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    text-transform: uppercase;
+  }
+
   .button-block {
     font-size: 22px;
     font-style: normal;
@@ -143,7 +178,8 @@ html {
     line-height: 135%;
     padding: 8px 16px;
 
-    &.default {
+    &.default,
+    &.primary {
       color: var(--neutral-white);
       background-color: var(--lavander);
     }
