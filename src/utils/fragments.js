@@ -211,7 +211,7 @@ export const DatoCMS = graphql`
     id
     title
     externalUrl
-    content {
+    path: content {
       __typename
       ... on DatoCmsBasicPage {
         id
