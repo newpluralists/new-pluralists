@@ -191,8 +191,17 @@ html {
         font-style: normal;
         font-weight: 400;
         line-height: 135%;
-        text-decoration-line: underline;
         margin: 0;
+      }
+
+      a {
+        font-weight: 700;
+        color: var(--neutral-white);
+        text-decoration: underline;
+
+        &:hover {
+          opacity: 0.8;
+        }
       }
     }
 
@@ -225,6 +234,30 @@ html {
 
       &.active {
         color: var(--neutral-black);
+      }
+    }
+  }
+
+  .ui-floating-share-buttons {
+    align-items: flex-end;
+
+    button {
+      background: var(--lavander-alternative);
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    .social-networks {
+      z-index: 1;
+
+      svg path {
+        fill: var(--lavander-alternative)
+      }
+
+      .close svg path {
+        stroke: var(--lavander-alternative)
       }
     }
   }

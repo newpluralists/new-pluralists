@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumbs, formatDate, Tags, truncateText } from 'tectonica-ui';
+import { Breadcrumbs, FloatingShareButtons, formatDate, Tags, truncateText } from 'tectonica-ui';
 import StructuredTextDefault from '../../components/structured-text-default';
 import BlockResources from '../../blocks/block-resources/block-resources';
 
@@ -93,6 +93,10 @@ const ResourceDetail = ({ resource, related, listLink }) => {
 
             <div className="inner-container">
               <h1>{title}</h1>
+            </div>
+
+            <div className="share-buttons">
+              <FloatingShareButtons />
             </div>
           </div>
         </div>
