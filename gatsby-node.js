@@ -26,6 +26,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const thePromiseOfPluralismTemplate = path.resolve('./src/templates/the-promise-of-pluralism.jsx');
   const ourImpactTemplate = path.resolve('./src/templates/our-impact.jsx');
   const storiesTemplate = path.resolve('./src/templates/stories.jsx');
+  const granteeListTemplate = path.resolve('./src/templates/grantees-list.jsx');
 
   const result = await graphql(`
     query AllBasicPages {
@@ -139,6 +140,10 @@ exports.createPages = async ({ actions, graphql }) => {
             slug
           }
         }
+      }
+      datoCmsGranteesList {
+        id
+        slug
       }
     }
   `);
@@ -383,4 +388,15 @@ exports.createPages = async ({ actions, graphql }) => {
       context: { id: id, slug: slug },
     });
   });
+
+  // Grantees List
+  if (result.data.datoCmsGranteesList) {
+    const { id, slug } = result.data.datoCmsGranteesList;
+
+    createPage({
+      path: slug,
+      component: granteeListTemplate,
+      context: { id: id, slug: slug },
+    });
+  }
 };

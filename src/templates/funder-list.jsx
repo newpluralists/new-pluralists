@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
-import BlockBuilder from '../ui/components/block-builder';
-import { Hero } from 'tectonica-ui';
 import FunderCard from '../ui/components/funder-card/funder-card';
+import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 
 const FunderList = ({ data: { funderList, funders, favicon } }) => {
   const { title, seo } = funderList;
@@ -11,8 +10,9 @@ const FunderList = ({ data: { funderList, funders, favicon } }) => {
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
-      <Hero title={title} />
-      <div className="container">
+      <ListWrapper variant="lavander">
+        <h1>{title}</h1>
+
         <div className="row g-5">
           {funders.edges.map(({ node }) => (
             <div key={node.id} className="col-12 col-md-6 col-lg-4">
@@ -20,9 +20,7 @@ const FunderList = ({ data: { funderList, funders, favicon } }) => {
             </div>
           ))}
         </div>
-
-        <BlockBuilder components={[]} />
-      </div>
+      </ListWrapper>
     </>
   );
 };

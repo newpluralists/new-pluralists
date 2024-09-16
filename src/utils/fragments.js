@@ -124,6 +124,13 @@ export const DatoCMS = graphql`
           apiKey
         }
       }
+      ... on DatoCmsGranteesList {
+        id
+        slug
+        model {
+          apiKey
+        }
+      }
     }
     treeChildren {
       ... on DatoCmsMenuItem {
@@ -238,6 +245,13 @@ export const DatoCMS = graphql`
             }
           }
           ... on DatoCmsThePromiseOfPluralism {
+            id
+            slug
+            model {
+              apiKey
+            }
+          }
+          ... on DatoCmsGranteesList {
             id
             slug
             model {
