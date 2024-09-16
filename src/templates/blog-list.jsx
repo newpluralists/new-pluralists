@@ -18,12 +18,29 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
     return Array.from(years);
   }, [blogs.edges]);
 
+  const topicsForFilter = React.useMemo(() => {
+    const topics = new Set();
+    blogs.edges.forEach(({ node }) => {
+      node.topics.forEach((topic) => topics.add(topic));
+    });
+    return Array.from(topics);
+  }, [blogs.edges]);
+
   const filters = [
     {
       key: 'topic',
       label: 'Filter by topic',
-      FilterComponent: ({ value, onChange }) => <Dropdown options={[]} onSelect={onChange} value={value} />,
-      filterFunction: (item, topic) => item.node.model.apiKey === topic,
+      FilterComponent: ({ value, onChange }) => (
+        <Dropdown
+          options={topicsForFilter.map((topic) => ({ label: topic.name, value: topic.id }))}
+          onSelect={onChange}
+          value={value}
+        />
+      ),
+      filterFunction: (item, topic) => {
+        const topics = item.node.topics;
+        return topics.some((t) => t.id === topic);
+      },
     },
     {
       key: 'year',
@@ -91,6 +108,9 @@ export const BlogListQuery = graphql`
             width
             height
             alt
+          }
+          topics {
+            ...Topic
           }
           model {
             apiKey

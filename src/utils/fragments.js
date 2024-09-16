@@ -644,4 +644,9 @@ export const DatoCMS = graphql`
     id
     name
   }
+
+  fragment Topic on DatoCmsTopic {
+    id
+    name
+  }
 `;

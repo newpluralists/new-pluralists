@@ -18,12 +18,29 @@ const ResourceList = ({ data: { resourceList, resources, favicon } }) => {
     return Array.from(years);
   }, [resources.edges]);
 
+  const topicsForFilter = React.useMemo(() => {
+    const topics = new Set();
+    resources.edges.forEach(({ node }) => {
+      node.topics.forEach((topic) => topics.add(topic));
+    });
+    return Array.from(topics);
+  }, [resources.edges]);
+
   const filters = [
     {
       key: 'topic',
       label: 'Filter by topic',
-      FilterComponent: ({ value, onChange }) => <Dropdown options={[]} onSelect={onChange} value={value} />,
-      filterFunction: (item, topic) => item.node.model.apiKey === topic,
+      FilterComponent: ({ value, onChange }) => (
+        <Dropdown
+          options={topicsForFilter.map((topic) => ({ label: topic.name, value: topic.id }))}
+          onSelect={onChange}
+          value={value}
+        />
+      ),
+      filterFunction: (item, topic) => {
+        const topics = item.node.topics;
+        return topics.some((t) => t.id === topic);
+      },
     },
     {
       key: 'year',
@@ -85,8 +102,12 @@ export const ResourceListQuery = graphql`
           id
           title
           slug
+          date
           tags {
             ...Tag
+          }
+          topics {
+            ...Topic
           }
           model {
             apiKey
