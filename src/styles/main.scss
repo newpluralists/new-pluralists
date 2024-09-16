@@ -55,10 +55,34 @@ html {
       .btn-search {
         padding: 0;
         background: transparent;
+
+        &:hover {
+          svg path {
+            stroke: var(--lavander-alternative);
+          }
+        }
       }
 
       .nav-item {
         padding: 25px 0;
+
+        a {
+          color: var(--neutral-black);
+          font-family: var(--main-font);
+          font-size: 22px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 135%;
+
+          &:hover {
+
+            svg path {
+              stroke: var(--lavander-alternative);
+            }
+
+            color: var(--lavander-alternative);
+          }
+        }
       }
 
       .dropdown-menu {
@@ -72,11 +96,16 @@ html {
           width: fit-content;
 
           a {
+            font-size: 17px;
             color: var(--neutral-black);
             font-family: var(--main-font);
             font-style: normal;
             font-weight: 400;
             line-height: 135%;
+
+            &:hover {
+              color: var(--lavander-alternative);
+            }
           }
         }
       }
