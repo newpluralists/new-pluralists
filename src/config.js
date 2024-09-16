@@ -17,6 +17,8 @@ export const initConfig = () => {
       return `/blogs/${slug}`;
     } else if (apiKey === 'resource') {
       return `/resources/${slug}`;
+    } else if (apiKey === 'stories_impact') {
+      return `/stories/${slug}`;
     } else {
       return `/${slug}`;
     }

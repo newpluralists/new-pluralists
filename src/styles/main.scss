@@ -75,12 +75,11 @@ html {
           line-height: 135%;
 
           &:hover {
-
-            svg path {
-              stroke: var(--lavander-alternative);
-            }
-
             color: var(--lavander-alternative);
+          }
+
+          &:hover svg path {
+            stroke: var(--lavander-alternative);
           }
         }
       }
