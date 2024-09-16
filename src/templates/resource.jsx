@@ -56,6 +56,7 @@ export const ResourceDetailQuery = graphql`
     }
     resourceList: datoCmsResourcesList {
       slug
+      title
       model {
         apiKey
       }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
-import { Hero } from 'tectonica-ui';
+import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 
 const BasicPage = ({ data: { page, favicon } }) => {
   const { title, seo } = page;
@@ -9,7 +9,9 @@ const BasicPage = ({ data: { page, favicon } }) => {
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
-      <Hero title={title} />
+      <ListWrapper variant="lavander">
+        <h1>{title}</h1>
+      </ListWrapper>
     </>
   );
 };

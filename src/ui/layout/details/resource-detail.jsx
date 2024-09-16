@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumbs, formatDate, Tags } from 'tectonica-ui';
+import { Breadcrumbs, formatDate, Tags, truncateText } from 'tectonica-ui';
 import StructuredTextDefault from '../../components/structured-text-default';
 import BlockResources from '../../blocks/block-resources/block-resources';
 
@@ -83,7 +83,13 @@ const ResourceDetail = ({ resource, related, listLink }) => {
 
         <div className="inner-header">
           <div className="container">
-            <Breadcrumbs currentPage={title} />
+            <Breadcrumbs
+              breadcrumb={{
+                slug: `/${listLink.slug}`,
+                title: listLink.title,
+              }}
+              currentPage={truncateText(title)}
+            />
 
             <div className="inner-container">
               <h1>{title}</h1>

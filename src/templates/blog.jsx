@@ -66,6 +66,7 @@ export const BlogDetailQuery = graphql`
     blogList: datoCmsBlogPostsList {
       id
       slug
+      title
       model {
         apiKey
       }
