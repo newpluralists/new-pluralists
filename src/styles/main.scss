@@ -216,6 +216,11 @@ html {
         color: var(--lavander-alternative);
         text-decoration: none;
         border: unset;
+
+        &:hover {
+          color: var(--lavander);
+          text-decoration: underline;
+        }
       }
 
       &.active {
