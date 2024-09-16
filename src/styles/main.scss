@@ -1,7 +1,7 @@
 @import url('/node_modules/bootstrap/dist/css/bootstrap.min.css');
 @import url('./normalize.css');
 // @import url('./fonts.css');
-@import url('https://use.typekit.net/pzu4hew.css"');
+@import url('https://use.typekit.net/pzu4hew.css');
 
 html {
   // Colors
@@ -22,7 +22,7 @@ html {
   --np-neutral-4: #E3E3FF;
 
   // Fonts
-  --main-font: "inria-sans", 'Arial' !important;
+  --main-font: "inria-sans", Arial !important;
   --secondary-font: 'Inter', sans-serif !important;
 
   // Default font
