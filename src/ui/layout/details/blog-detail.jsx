@@ -81,15 +81,21 @@ const BlogDetail = ({ blog, related, listLink }) => {
           </svg>
         </div>
 
-        <div className="inner-header">
+        <div className={`inner-header ${mainImage?.url ? 'with-image' : ''}`}>
           <div className="container">
             <Breadcrumbs currentPage={title} />
+
+            {!mainImage?.url && (
+              <div className="main-title">
+                <h1>{title}</h1>
+              </div>
+            )}
           </div>
         </div>
 
         <div className="container">
-          <div className="inner-container">
-            <h1>{title}</h1>
+          <div className={`inner-container ${mainImage?.url ? 'with-image' : ''}`}>
+            {mainImage?.url && <h1>{title}</h1>}
             <p className="date">{formatDate(date)}</p>
 
             {mainImage?.url && (

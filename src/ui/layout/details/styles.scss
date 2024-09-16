@@ -9,16 +9,38 @@
   }
 
   .inner-header {
-    min-height: 80dvh;
+    min-height: 48dvh;
     padding-top: 200px;
     background-color: rgba(128, 170, 255, .2);
+    padding-bottom: 3rem;
+    margin-bottom: 5rem;
+
+    &.with-image {
+      min-height: 80dvh;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .main-title {
+      max-width: 860px;
+      margin: 0 auto;
+
+      h1 {
+        color: var(--neutral-black);
+        font-family: var(--main-font);
+        font-size: 61px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 105%;
+        margin-bottom: 27px;
+      }
+    }
   }
 
   .inner-container {
     max-width: 860px;
     margin: 0 auto;
-    top: -400px;
-    position: relative;
+    padding-bottom: 200px;
 
     h1 {
       color: var(--neutral-black);
@@ -144,6 +166,11 @@
 
     .tags {
       margin-top: 45px;
+    }
+
+    &.with-image {
+      top: -400px;
+      position: relative;
     }
   }
 
