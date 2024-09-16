@@ -8,14 +8,16 @@ const BlockPartners = ({ block }) => {
   const { headline, introduction, ctas = [], logos = [] } = block;
 
   const settings = {
+    centerMode: true,
     infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
+    centerPadding: '60px',
+    slidesToShow: 2,
     speed: 2000,
+    rows: 3,
+    slidesPerRow: 2,
+    autoplay: true,
     autoplaySpeed: 0,
     cssEase: 'linear',
-    centerMode: true,
   };
 
   const logosColumns = logos.reduce(
@@ -32,29 +34,31 @@ const BlockPartners = ({ block }) => {
     <section className="block-partners">
       <div className="container">
         <div className="row">
-          <div className="col-lg-4">
-            {headline && <h3>{headline}</h3>}
-            {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
-            {ctas && <ButtonList buttons={ctas} />}
+          <div className="col-lg-5">
+            <div className="meta">
+              {headline && <h3>{headline}</h3>}
+              {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
+              {ctas && <ButtonList buttons={ctas} />}
+            </div>
           </div>
 
-          <div className="col-lg-8 logos">
+          <div className="col-lg-7 logos">
             <Slider {...settings}>
-              <div className="logo-wrapper">
-                {[...column1, ...column1].map((logo) => (
+              {[...column1, ...column1].map((logo) => (
+                <div className="logo-wrapper">
                   <img key={logo.id} src={logo.url} alt={logo.alt} />
-                ))}
-              </div>
-              <div className="logo-wrapper">
-                {[...column2, ...column2].map((logo) => (
+                </div>
+              ))}
+              {[...column2, ...column2].map((logo) => (
+                <div className="logo-wrapper">
                   <img key={logo.id} src={logo.url} alt={logo.alt} />
-                ))}
-              </div>
-              <div className="logo-wrapper">
-                {[...column3, ...column3].map((logo) => (
+                </div>
+              ))}
+              {[...column3, ...column3].map((logo) => (
+                <div className="logo-wrapper">
                   <img key={logo.id} src={logo.url} alt={logo.alt} />
-                ))}
-              </div>
+                </div>
+              ))}
             </Slider>
           </div>
         </div>

@@ -2,40 +2,38 @@
   padding: 88px 0 150px 0;
   background: var(--np-neutral-2-alternative);
 
-  .row {
-    // --bs-gutter-x: ;
-  }
+  .meta {
+    max-width: 407px;
 
-  h3 {
-    color: var(--neutral-black);
-    font-family: var(--main-font);
-    font-size: 49px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 110%;
-    margin-bottom: 25px;
-  }
+    h3 {
+      color: var(--neutral-black);
+      font-family: var(--main-font);
+      font-size: 49px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 110%;
+      margin-bottom: 25px;
+    }
 
-  .introduction {
-    color: var(--neutral-black);
-    font-family: var(--main-font);
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 135%;
-    margin-bottom: 39px;
-  }
+    .introduction {
+      color: var(--neutral-black);
+      font-family: var(--main-font);
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 135%;
+      margin-bottom: 39px;
+    }
 
-  .button-list {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 39px;
+    .button-list {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 39px;
+    }
   }
 
   .logos {
     .slick-slider {
-      position: relative;
-
       &::before {
         content: '';
         display: block;
@@ -59,25 +57,11 @@
         top: 0;
         right: 0;
       }
-
-      .slick-slide {
-        width: 168px !important;
-        margin-right: 5px !important;
-
-        * {
-          width: fit-content !important;
-        }
-      }
-
     }
 
     .logo-wrapper {
-      width: fit-content !important;
-
-      display: flex !important;
-      flex-direction: row;
-      align-items: center;
-      gap: 5px;
+      padding-bottom: 0px;
+      padding-right: 10px;
     }
   }
 }

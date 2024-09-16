@@ -123,7 +123,7 @@ const BlogDetail = ({ blog, related, listLink }) => {
             ctas: [
               {
                 title: 'ALL UPDATES AND INSIGHTS → ',
-                link: listLink,
+                link: { path: listLink },
                 variant: 'primary',
               },
             ],

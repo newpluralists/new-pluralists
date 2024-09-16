@@ -112,7 +112,7 @@ const ResourceDetail = ({ resource, related, listLink }) => {
             ctas: [
               {
                 title: 'All Resources →',
-                link: listLink,
+                link: { path: listLink },
                 variant: 'primary',
               },
             ],

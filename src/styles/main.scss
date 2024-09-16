@@ -182,6 +182,12 @@ html {
     &.primary {
       color: var(--neutral-white);
       background-color: var(--lavander);
+
+      &:hover {
+        border: 2px solid var(--lavander-alternative);
+        color: var(--lavander-alternative);
+        background: rgba(125, 125, 240, 0.10);
+      }
     }
 
     &.secondary {
