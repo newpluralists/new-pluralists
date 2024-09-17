@@ -10,7 +10,7 @@ const FunderList = ({ data: { funderList, funders, favicon } }) => {
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
-      <ListWrapper variant="lavander">
+      <ListWrapper variant="">
         <h1>{title}</h1>
 
         <div className="row g-5">
@@ -40,29 +40,16 @@ export const FunderListQuery = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
     }
-    funders: allDatoCmsFunder {
+    funders: allDatoCmsFunderLogo {
       edges {
         node {
           id
-          slug
-          title
-          funderPosition
-          image {
+          name
+          logo {
             width
             height
             alt
             url
-          }
-          content {
-            value
-            blocks {
-              __typename
-              ...BlockImage
-              ...BlockEmbedIframe
-            }
-          }
-          model {
-            apiKey
           }
         }
       }
