@@ -646,12 +646,6 @@ export const DatoCMS = graphql`
       alt
       url
     }
-    decoratorImage {
-      width
-      height
-      alt
-      url
-    }
   }
 
   fragment Tag on DatoCmsTag {

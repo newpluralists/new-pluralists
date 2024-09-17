@@ -1,4 +1,4 @@
-import { setPathToModel } from 'tectonica-ui';
+import { setPathToModel, setTriggerId, setDatoCmsClient } from 'tectonica-ui';
 
 export const initConfig = () => {
   setPathToModel((model, slug) => {
@@ -23,4 +23,7 @@ export const initConfig = () => {
       return `/${slug}`;
     }
   });
+
+  setDatoCmsClient('71094af4b2a2474b559e968af56a25');
+  setTriggerId('34070');
 };

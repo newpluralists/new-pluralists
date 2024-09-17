@@ -29,44 +29,4 @@
       line-height: 145%;
     }
   }
-
-  .parent-image {
-    background-color: var(--neutral-white);
-    height: 100%;
-  }
-
-  .image-wrapper {
-    position: relative;
-    height: 100%;
-
-    .image {
-      height: 100%;
-      position: relative;
-      z-index: 1;
-
-      img {
-        height: 100%;
-        object-fit: cover !important;
-      }
-
-      &::after {
-        content: '';
-        display: block;
-        width: 100dvh;
-        height: 100%;
-        top: 0;
-        right: -100dvh;
-        background-color: #fff;
-        position: absolute;
-      }
-    }
-
-    .decorator {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-    }
-  }
 }
