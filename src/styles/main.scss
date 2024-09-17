@@ -296,6 +296,72 @@ html {
     }
   }
 
+  .ui-accordion-block {
+    .item {
+      border-radius: 5px;
+      border: 2px solid #C3C3F8;
+      background: var(--C2-Neutral-4, #E3E3FF);
+      padding: 25px 30px;
+      margin-bottom: 25px;
+
+      .accordion-title {
+        h3 {
+          color: var(--neutral-black);
+          font-family: var(--main-font);
+          font-size: 25px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 120%;
+        }
+      }
+
+      .accordion-content {}
+
+      &.active {
+        border-radius: 5px;
+        border-color: var(--neutral-white);
+        background: var(--neutral-white);
+
+        .accordion-title {
+          margin-bottom: 20px;
+        }
+
+        .accordion-content {
+          padding: 0;
+
+          ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+              margin-bottom: 2rem;
+
+              h3 {
+                color: var(--neutral-black);
+                font-family: var(--main-font);
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 135%;
+                margin-bottom: 0;
+              }
+
+              span {
+                color: var(--neutral-black);
+                font-family: var(--main-font);
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 135%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+
   .tag {
     padding: 3px 7px;
     background: var(--neutral-black);
@@ -346,5 +412,10 @@ html {
   img {
     max-width: 100%;
     object-fit: contain;
+  }
+
+  // Utils
+  .max-container-840 {
+    max-width: 840px;
   }
 }

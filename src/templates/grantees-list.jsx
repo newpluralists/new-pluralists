@@ -15,22 +15,25 @@ const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) =
         <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
         <h1>{title}</h1>
 
-        <Accordion
-          block={{
-            items: grantees.edges.map((grantee) => ({
-              title: grantee.node.name,
-              content: (
-                <ul>
-                  {grantee.node.projects.map((project) => (
-                    <li key={project.id}>
-                      {project.name} ({project.portfolio.name})
-                    </li>
-                  ))}
-                </ul>
-              ),
-            })),
-          }}
-        />
+        <div className="max-container-840">
+          <Accordion
+            block={{
+              items: grantees.edges.map((grantee) => ({
+                title: grantee.node.name,
+                children: (
+                  <ul>
+                    {grantee.node.projects.map((project) => (
+                      <li key={project.id}>
+                        <h3>{project.name}</h3>
+                        <span>{project.portfolio.name}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ),
+              })),
+            }}
+          />
+        </div>
       </ListWrapper>
     </>
   );
