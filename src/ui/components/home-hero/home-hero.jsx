@@ -3,13 +3,13 @@ import HomeHeroVideo from '../../../../static/np-hero-home.mp4';
 
 import './styles.scss';
 
-const HomeHero = ({ title, introduction, extraText, asset, backgroundOpacity }) => {
+const HomeHero = ({ title, introduction, extraText, backgroundOpacity }) => {
   const [showVideoModal, setShowVideoModal] = React.useState(false);
 
   const opacity = backgroundOpacity ? backgroundOpacity / 100 : 0.5;
 
   const handleOnToggleVideo = () => {
-    document.body.style.overflow = showVideoModal ? 'auto' : 'hidden';
+    document.documentElement.style.overflowY = showVideoModal ? 'auto' : 'hidden';
     setShowVideoModal((prev) => !prev);
   };
 
