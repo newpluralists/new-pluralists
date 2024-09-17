@@ -1,8 +1,14 @@
 const path = require('path');
+const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
 
 const getURL = (rawUrl) => {
   const urlObj = new URL(rawUrl);
   return urlObj.pathname;
+};
+
+const getMenuPosition = (menus, key) => {
+  const menuId = menus.find((item) => item?.treeChildren.find((t) => t.path?.id === key));
+  return menuId?.id ? menuId.id : '';
 };
 
 exports.createPages = async ({ actions, graphql }) => {
@@ -145,8 +151,69 @@ exports.createPages = async ({ actions, graphql }) => {
         id
         slug
       }
+      navTree: allDatoCmsMenuItem {
+        nodes {
+          id
+          treeChildren {
+            path {
+              ... on DatoCmsBasicPage {
+                id
+              }
+              ... on DatoCmsBlogPostsList {
+                id
+              }
+              ... on DatoCmsPost {
+                id
+              }
+              ... on DatoCmsInvestmentsList {
+                id
+              }
+              ... on DatoCmsInvestment {
+                id
+              }
+              ... on DatoCmsFieldBuildersList {
+                id
+              }
+              ... on DatoCmsBuilder {
+                id
+              }
+              ... on DatoCmsFundersList {
+                id
+              }
+              ... on DatoCmsFunder {
+                id
+              }
+              ... on DatoCmsResource {
+                id
+              }
+              ... on DatoCmsResourcesList {
+                id
+              }
+              ... on DatoCmsEventList {
+                id
+              }
+              ... on DatoCmsTeamList {
+                id
+              }
+              ... on DatoCmsOurImpact {
+                id
+              }
+              ... on DatoCmsStoriesImpact {
+                id
+              }
+              ... on DatoCmsThePromiseOfPluralism {
+                id
+              }
+              ... on DatoCmsGranteesList {
+                id
+              }
+            }
+          }
+        }
+      }
     }
   `);
+  const navTree = result.data.navTree.nodes;
 
   // Basic pages
   result.data.allDatoCmsBasicPage.edges.forEach(({ node }) => {
@@ -155,7 +222,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: pageTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
   });
 
@@ -166,7 +233,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: blogListTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
   }
 
@@ -177,7 +244,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `/blogs/${slug}`,
       component: blogTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
 
     // Redirects
@@ -197,7 +264,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: funderListTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
   }
 
@@ -208,7 +275,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `/funders/${slug}`,
       component: funderTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
 
     // Redirects
@@ -228,7 +295,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: investmentListTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
   }
 
@@ -239,7 +306,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `/investments/${slug}`,
       component: investmentTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
   });
 
@@ -250,7 +317,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: resourceListTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
   }
 
@@ -261,7 +328,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `/resources/${slug}`,
       component: resourceTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
   });
 
@@ -272,7 +339,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: builderListTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
   }
 
@@ -283,7 +350,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `/builders/${slug}`,
       component: builderTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
 
     // Redirects
@@ -303,7 +370,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: teamListTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
   }
 
@@ -314,7 +381,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `/team/${slug}`,
       component: teamTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
 
     // Redirects
@@ -334,7 +401,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: eventListTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
   }
 
@@ -345,7 +412,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `/events/${slug}`,
       component: eventTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
 
     // Redirects
@@ -364,7 +431,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: thePromiseOfPluralismTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
   }
 
@@ -374,7 +441,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: ourImpactTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
   }
 
@@ -385,7 +452,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `/stories/${slug}`,
       component: storiesTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
   });
 
@@ -396,7 +463,17 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: granteeListTemplate,
-      context: { id: id, slug: slug },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
     });
   }
+};
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    plugins: [
+      new FilterWarningsPlugin({
+        exclude: /mini-css-extract-plugin[^]*Conflicting order. Following module has been added:/,
+      }),
+    ],
+  });
 };

@@ -657,4 +657,9 @@ export const DatoCMS = graphql`
     id
     name
   }
+
+  fragment Breadcrumb on DatoCmsMenuItem {
+    id
+    title
+  }
 `;

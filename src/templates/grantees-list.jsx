@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
-import { Breadcrumbs, ListPaginated } from 'tectonica-ui';
+import { Accordion, Breadcrumbs } from 'tectonica-ui';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 
-const GranteeList = ({ data: { granteeList, grantees, favicon } }) => {
+const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) => {
   const { title, seo } = granteeList;
 
   return (
@@ -12,23 +12,24 @@ const GranteeList = ({ data: { granteeList, grantees, favicon } }) => {
       <SeoDatoCMS seo={seo} favicon={favicon} />
 
       <ListWrapper variant="lavander">
-        <Breadcrumbs currentPage={title} />
+        <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
         <h1>{title}</h1>
 
-        <ListPaginated
-          list={grantees.edges}
-          renderItem={(grantee) => (
-            <div className="p-5" key={grantee.node.id}>
-              <h2>{grantee.node.name}</h2>
-              <ul>
-                {grantee.node.projects.map((project) => (
-                  <li key={project.id}>
-                    {project.name} ({project.portfolio.name})
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+        <Accordion
+          block={{
+            items: grantees.edges.map((grantee) => ({
+              title: grantee.node.name,
+              content: (
+                <ul>
+                  {grantee.node.projects.map((project) => (
+                    <li key={project.id}>
+                      {project.name} ({project.portfolio.name})
+                    </li>
+                  ))}
+                </ul>
+              ),
+            })),
+          }}
         />
       </ListWrapper>
     </>
@@ -38,7 +39,7 @@ const GranteeList = ({ data: { granteeList, grantees, favicon } }) => {
 export default GranteeList;
 
 export const GranteeListQuery = graphql`
-  query GranteeListQuery {
+  query GranteeListQuery($menuPos: String) {
     favicon: datoCmsSite {
       faviconMetaTags {
         ...GatsbyDatoCmsFaviconMetaTags
@@ -69,6 +70,9 @@ export const GranteeListQuery = graphql`
           }
         }
       }
+    }
+    breadcrumb: datoCmsMenuItem(id: { eq: $menuPos }) {
+      ...Breadcrumb
     }
   }
 `;

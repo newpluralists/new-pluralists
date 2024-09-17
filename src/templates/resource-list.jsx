@@ -6,7 +6,7 @@ import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import FilterableList from '../ui/components/filterable-list/filterable-list';
 import ResourceCard from '../ui/components/resource-card/resource-card';
 
-const ResourceList = ({ data: { resourceList, resources, favicon } }) => {
+const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }) => {
   const { title, seo } = resourceList;
 
   const yearsForFilter = React.useMemo(() => {
@@ -64,7 +64,7 @@ const ResourceList = ({ data: { resourceList, resources, favicon } }) => {
       <SeoDatoCMS seo={seo} favicon={favicon} />
 
       <ListWrapper variant="lavander">
-        <Breadcrumbs currentPage={title} />
+        <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
         <h1>{title}</h1>
 
         <FilterableList
@@ -84,7 +84,7 @@ const ResourceList = ({ data: { resourceList, resources, favicon } }) => {
 export default ResourceList;
 
 export const ResourceListQuery = graphql`
-  query ResourceListQuery {
+  query ResourceListQuery($menuPos: String) {
     favicon: datoCmsSite {
       faviconMetaTags {
         ...GatsbyDatoCmsFaviconMetaTags
@@ -114,6 +114,9 @@ export const ResourceListQuery = graphql`
           }
         }
       }
+    }
+    breadcrumb: datoCmsMenuItem(id: { eq: $menuPos }) {
+      ...Breadcrumb
     }
   }
 `;

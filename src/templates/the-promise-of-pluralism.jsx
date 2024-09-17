@@ -4,7 +4,7 @@ import SeoDatoCMS from '../ui/components/seo-datocms';
 import { Breadcrumbs } from 'tectonica-ui';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 
-const ThePromiseOfPluralism = ({ data: { page, favicon } }) => {
+const ThePromiseOfPluralism = ({ data: { page, breadcrumb, favicon } }) => {
   const { title, seo } = page;
 
   return (
@@ -12,7 +12,7 @@ const ThePromiseOfPluralism = ({ data: { page, favicon } }) => {
       <SeoDatoCMS seo={seo} favicon={favicon} />
 
       <ListWrapper variant="lavander">
-        <Breadcrumbs currentPage={title} />
+        <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
         <h1>{title}</h1>
       </ListWrapper>
     </>
@@ -22,7 +22,7 @@ const ThePromiseOfPluralism = ({ data: { page, favicon } }) => {
 export default ThePromiseOfPluralism;
 
 export const ThePromiseOfPluralismListQuery = graphql`
-  query ThePromiseOfPluralismQuery {
+  query ThePromiseOfPluralismQuery($menuPos: String) {
     favicon: datoCmsSite {
       faviconMetaTags {
         ...GatsbyDatoCmsFaviconMetaTags
@@ -33,6 +33,9 @@ export const ThePromiseOfPluralismListQuery = graphql`
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
+    }
+    breadcrumb: datoCmsMenuItem(id: { eq: $menuPos }) {
+      ...Breadcrumb
     }
   }
 `;

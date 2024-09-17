@@ -11301,10 +11301,10 @@ tar-stream@^3.1.5:
     fast-fifo "^1.2.0"
     streamx "^2.15.0"
 
-tectonica-ui@1.0.68:
-  version "1.0.68"
-  resolved "https://registry.yarnpkg.com/tectonica-ui/-/tectonica-ui-1.0.68.tgz#fea28673964195413dcae5e2a6e40092aced6635"
-  integrity sha512-PQGxWZCRZVbp28HTLJBf0jb0uLJYE23jMo30pyarfM3r+w9HO621E3ndNfmN9a7nLCBhsCZcta1dck2InhxVTA==
+tectonica-ui@1.0.69:
+  version "1.0.69"
+  resolved "https://registry.yarnpkg.com/tectonica-ui/-/tectonica-ui-1.0.69.tgz#d6aeba549f2e526639c0b2c4c70437e7054b1081"
+  integrity sha512-O3f/m1vvY+gf7/4TllGupCIzJPdBtcwnKRQettqmo/AQR1wrW3oGwybbE3+Me/etdJRfuidgxtz1yiBKHtn1QA==
   dependencies:
     "@formkit/auto-animate" "0.8.2"
     "@gsap/react" "2.1.1"
@@ -11319,6 +11319,7 @@ tectonica-ui@1.0.68:
     react-h5-audio-player "^3.9.3"
     react-map-gl "7.1.7"
     react-slick "0.30.2"
+    react-svg "^16.1.34"
     slick-carousel "1.8.1"
     supercluster "8.0.1"
     use-supercluster "1.2.0"
@@ -11943,6 +11944,11 @@ webpack-dev-middleware@^4.3.0:
     mime-types "^2.1.30"
     range-parser "^1.2.1"
     schema-utils "^3.0.0"
+
+webpack-filter-warnings-plugin@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/webpack-filter-warnings-plugin/-/webpack-filter-warnings-plugin-1.2.1.tgz#dc61521cf4f9b4a336fbc89108a75ae1da951cdb"
+  integrity sha512-Ez6ytc9IseDMLPo0qCuNNYzgtUl8NovOqjIq4uAU8LTD4uoa1w1KpZyyzFtLTEMZpkkOkLfL9eN+KGYdk1Qtwg==
 
 webpack-merge@^5.9.0:
   version "5.10.0"

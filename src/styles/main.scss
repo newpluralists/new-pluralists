@@ -259,6 +259,13 @@ html {
         }
       }
 
+      &:hover {
+        a:not([href]) {
+          color: var(--lavander-alternative);
+          text-decoration: none;
+        }
+      }
+
       &.active {
         color: var(--neutral-black);
       }

@@ -83,13 +83,7 @@ const ResourceDetail = ({ resource, related, listLink }) => {
 
         <div className="inner-header">
           <div className="container">
-            <Breadcrumbs
-              breadcrumb={{
-                slug: `/${listLink.slug}`,
-                title: listLink.title,
-              }}
-              currentPage={truncateText(title)}
-            />
+            <Breadcrumbs breadcrumb={{ title: listLink.title, path: listLink }} currentPage={truncateText(title)} />
 
             <div className="inner-container">
               <h1>{title}</h1>

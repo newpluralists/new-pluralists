@@ -4,7 +4,7 @@ import SeoDatoCMS from '../ui/components/seo-datocms';
 import { Breadcrumbs } from 'tectonica-ui';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 
-const OurImpact = ({ data: { page, favicon } }) => {
+const OurImpact = ({ data: { page, breadcrumb, favicon } }) => {
   const { title, seo } = page;
 
   return (
@@ -12,7 +12,7 @@ const OurImpact = ({ data: { page, favicon } }) => {
       <SeoDatoCMS seo={seo} favicon={favicon} />
 
       <ListWrapper variant="lavander">
-        <Breadcrumbs currentPage={title} />
+        <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
         <h1>{title}</h1>
       </ListWrapper>
     </>
@@ -22,7 +22,7 @@ const OurImpact = ({ data: { page, favicon } }) => {
 export default OurImpact;
 
 export const OurImpactListQuery = graphql`
-  query OurImpactQuery {
+  query OurImpactQuery($menuPos: String) {
     favicon: datoCmsSite {
       faviconMetaTags {
         ...GatsbyDatoCmsFaviconMetaTags
@@ -33,6 +33,9 @@ export const OurImpactListQuery = graphql`
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
+    }
+    breadcrumb: datoCmsMenuItem(id: { eq: $menuPos }) {
+      ...Breadcrumb
     }
   }
 `;

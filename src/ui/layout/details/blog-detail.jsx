@@ -83,13 +83,7 @@ const BlogDetail = ({ blog, related, listLink }) => {
 
         <div className={`inner-header ${mainImage?.url ? 'with-image' : ''}`}>
           <div className="container">
-            <Breadcrumbs
-              breadcrumb={{
-                slug: `/${listLink.slug}`,
-                title: listLink.title,
-              }}
-              currentPage={truncateText(title)}
-            />
+            <Breadcrumbs breadcrumb={{ title: listLink.title, path: listLink }} currentPage={truncateText(title)} />
 
             {!mainImage?.url && (
               <div className="main-title">
