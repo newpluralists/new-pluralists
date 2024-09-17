@@ -32,5 +32,17 @@
         }
       }
     }
+
+    &:hover {
+      background-color: var(--lavander-alternative);
+
+      .card-content {
+        .card-data {
+          h3 {
+            color: var(--neutral-white);
+          }
+        }
+      }
+    }
   }
 }

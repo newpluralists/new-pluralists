@@ -42,10 +42,10 @@ const FilterableList = ({ data, filters, renderItem }) => {
             />
           </div>
         ))}
-        <button className="submit" onClick={applyFilters}>
+        <button className="button-block primary" onClick={applyFilters}>
           Apply Filters
         </button>
-        <button className="reset" onClick={resetFilters}>
+        <button className="button-block secondary" onClick={resetFilters}>
           Reset Filters
         </button>
       </div>

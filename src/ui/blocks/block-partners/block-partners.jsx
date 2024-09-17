@@ -12,7 +12,7 @@ const BlockPartners = ({ block }) => {
     infinite: true,
     centerPadding: '60px',
     slidesToShow: 2,
-    speed: 2000,
+    speed: 5000,
     rows: 3,
     slidesPerRow: 2,
     autoplay: true,
