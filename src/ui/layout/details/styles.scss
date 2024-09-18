@@ -128,6 +128,10 @@
         color: var(--neutral-white);
         text-decoration: none !important;
         background-color: var(--lavander-alternative);
+
+        &:hover {
+          opacity: 0.8;
+        }
       }
 
       blockquote {
@@ -177,6 +181,7 @@
     &.with-image {
       top: -400px;
       position: relative;
+      padding-bottom: 0;
     }
   }
 
@@ -192,15 +197,10 @@
     .inner-container {
       position: unset;
       top: unset;
-      padding-bottom: 0;
-
-      .main-content {
-        padding-bottom: 200px;
-      }
     }
 
     .waves-decorator svg path {
-      fill: #7D7DF0;
+      fill: var(--lavander-alternative);
     }
   }
 }

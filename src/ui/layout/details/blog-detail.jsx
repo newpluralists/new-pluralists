@@ -132,7 +132,7 @@ const BlogDetail = ({ blog, related, listLink }) => {
             highlightPosts: related.nodes,
             ctas: [
               {
-                title: 'ALL UPDATES AND INSIGHTS → ',
+                title: 'ALL UPDATES AND INSIGHTS',
                 link: { path: listLink },
                 variant: 'primary',
               },

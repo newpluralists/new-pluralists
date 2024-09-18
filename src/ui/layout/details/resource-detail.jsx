@@ -115,7 +115,7 @@ const ResourceDetail = ({ resource, related, listLink }) => {
             highlightResources: related.nodes,
             ctas: [
               {
-                title: 'All Resources →',
+                title: 'All Resources',
                 link: { path: listLink },
                 variant: 'primary',
               },

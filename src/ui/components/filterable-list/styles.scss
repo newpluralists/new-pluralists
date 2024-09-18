@@ -35,31 +35,6 @@
         }
       }
     }
-
-    .submit {
-      border-radius: 5px;
-      background: var(--lavander-alternative);
-      padding: 8px 16px;
-      color: var(--neutral-white);
-      font-family: var(--main-font);
-      font-size: 22px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 135%;
-      border: unset;
-    }
-
-    .reset {
-      padding: 8px 16px;
-      border: unset;
-      background-color: transparent;
-      color: var(--lavander-alternative);
-      font-family: var(--main-font);
-      font-size: 22px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 135%;
-    }
   }
 
   .load-more {
