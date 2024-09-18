@@ -226,6 +226,10 @@
           }
         }
       }
+
+      &::before {
+        display: none;
+      }
     }
   }
 }

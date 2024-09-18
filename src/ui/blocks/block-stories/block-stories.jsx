@@ -13,7 +13,12 @@ const BlockStories = ({ block }) => {
         {headline && <h3>{headline}</h3>}
 
         <div className="row">
-          <Carousel items={stories} renderItem={(story) => <StoryCard story={story} />} slidesToShow={2} />
+          <Carousel
+            items={stories}
+            renderItem={(story) => <StoryCard story={story} />}
+            slidesToShow={2}
+            swipeToSlide={true}
+          />
         </div>
 
         {ctas && <ButtonList buttons={ctas} />}

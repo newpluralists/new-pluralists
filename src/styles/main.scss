@@ -455,6 +455,24 @@ html {
   }
 }
 
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+  #np-layout {
+    .ui-navbar {
+      .container {
+        .links-wrapper .links {
+          gap: 20px;
+
+          .nav-item {
+            a {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 992px) {
   #np-layout {
     .tag {
@@ -507,11 +525,14 @@ html {
     .ui-navbar {
       top: 0;
       height: auto;
+      position: fixed;
+      background-color: var(--np-neutral-3);
+      box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.35);
 
       .container {
         padding: 18px;
         border-radius: unset;
-
+        box-shadow: unset;
         justify-content: space-between;
 
         .navbar-toggler {
@@ -551,7 +572,9 @@ html {
       }
 
       &.expanded {
+
         .container {
+          position: relative;
           align-items: flex-start;
           flex-direction: column;
 

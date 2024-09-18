@@ -5,7 +5,6 @@ import './styles.scss';
 
 const HomeHero = ({ title, introduction, extraText, backgroundOpacity }) => {
   const [showVideoModal, setShowVideoModal] = React.useState(false);
-
   const opacity = backgroundOpacity ? backgroundOpacity / 100 : 0.5;
 
   const handleOnToggleVideo = () => {
@@ -14,8 +13,8 @@ const HomeHero = ({ title, introduction, extraText, backgroundOpacity }) => {
   };
 
   return (
-    <div className="np-ui-hero">
-      <video autoPlay muted loop playsInline className="background-video">
+    <div className={`np-ui-hero ${showVideoModal ? 'with-video' : ''}`}>
+      <video autoPlay muted loop playsInline controls={showVideoModal} className="background-video">
         <source src={HomeHeroVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -43,35 +42,19 @@ const HomeHero = ({ title, introduction, extraText, backgroundOpacity }) => {
           </button>
         </div>
       </div>
+      <div className="overlay" style={{ background: `rgba(0, 0, 0, ${opacity})` }} />
 
-      <div
-        className="overlay"
-        style={{
-          background: `rgba(0, 0, 0, ${opacity})`,
-        }}
-      />
-
-      {/* Video Modal */}
-      {showVideoModal && (
-        <div className="video-modal">
-          <video controls>
-            <source src={HomeHeroVideo} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-
-          <button onClick={handleOnToggleVideo}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M6 18L18 6M6 6L18 18"
-                stroke="#262626"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
-      )}
+      <button className="close-video" onClick={handleOnToggleVideo}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M6 18L18 6M6 6L18 18"
+            stroke="#262626"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
     </div>
   );
 };
