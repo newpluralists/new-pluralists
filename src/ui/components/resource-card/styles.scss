@@ -30,3 +30,19 @@
     }
   }
 }
+
+@media screen and (max-width: 992px) {
+  .ui-resource-card {
+    .ui-card {
+      .card-content {
+        padding: 10px 10px 20px 10px;
+
+        .card-data {
+          h3 {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}

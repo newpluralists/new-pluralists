@@ -130,6 +130,7 @@
           line-height: 135%;
           border: unset;
           width: fit-content;
+          border: 2px solid var(--neutral-white);
 
           &:hover {
             border: 2px solid var(--neutral-white);
@@ -156,6 +157,75 @@
       font-weight: 400;
       line-height: 135%;
       color: var(--error);
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .footer-wrapper {
+    .meta {
+      padding: 50px 16px;
+
+      .logo {
+        margin-bottom: 39px;
+      }
+
+      .links-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+
+        a {
+          font-size: 16px;
+        }
+      }
+
+      .extra-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: flex-start;
+        gap: 15px;
+
+        .links {
+          flex-direction: column;
+          align-items: flex-start;
+          flex-wrap: wrap;
+          gap: 15px;
+
+          a {
+            font-size: 16px;
+          }
+        }
+
+        .social-links {
+          gap: 10px;
+        }
+      }
+    }
+
+    .form-wrapper {
+      .form {
+        padding: 30px 0;
+
+        h4 {
+          font-size: 24px;
+          margin-bottom: 15px;
+        }
+
+        form {
+          gap: 10px;
+
+          input {
+            font-size: 16px;
+          }
+
+          button {
+            font-size: 16px;
+          }
+        }
+      }
     }
   }
 }

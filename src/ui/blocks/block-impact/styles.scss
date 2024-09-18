@@ -65,3 +65,41 @@
     }
   }
 }
+
+@media screen and (max-width: 992px) {
+  .block-impact {
+    padding: 50px 0;
+
+    .left-title-wrapper {
+      gap: 25px;
+      margin-bottom: 40px;
+
+      .title-item {
+        font-size: 24px;
+
+        .separator {
+          width: 50px;
+          height: 4px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .main-wrapper {
+      .headline {
+        font-size: 36px;
+        margin-bottom: 20px;
+
+        b,
+        strong {
+          font-size: 36px;
+        }
+      }
+
+      .introduction {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

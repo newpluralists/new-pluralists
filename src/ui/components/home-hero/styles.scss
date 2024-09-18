@@ -26,6 +26,8 @@
       max-width: 670px;
 
       .title {
+        margin-bottom: 19px;
+
         * {
           color: var(--np-neutral-4);
           text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -35,8 +37,6 @@
           font-weight: 700;
           line-height: 110%;
         }
-
-        margin-bottom: 19px;
       }
 
       .introduction {
@@ -115,6 +115,43 @@
 
       &:hover {
         opacity: 0.8;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .np-ui-hero {
+    min-height: auto;
+    padding-bottom: 50px;
+
+    .container {
+      .main {
+        padding-top: 15dvh;
+        max-width: 100%;
+        padding-bottom: 10px;
+
+        .title {
+          margin-bottom: 15px;
+
+          * {
+            font-size: 45px;
+          }
+        }
+
+        .introduction {
+          font-size: 28px;
+        }
+      }
+
+      .extra-text {
+        padding: 15px 0;
+        flex-direction: column;
+        gap: 0px;
+
+        .introduction {
+          font-size: 20px;
+        }
       }
     }
   }

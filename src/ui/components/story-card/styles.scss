@@ -77,3 +77,32 @@
     }
   }
 }
+
+@media screen and (max-width: 992px) {
+  .ui-story-card {
+    .ui-card {
+      .image {
+        height: 200px;
+      }
+
+      .card-content {
+        padding: 20px 15px 30px 15px;
+
+        .card-data {
+          .tags-date-wrapper {
+            margin-bottom: 10px;
+          }
+
+          h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+          }
+
+          .introduction {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}

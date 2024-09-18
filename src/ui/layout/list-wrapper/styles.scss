@@ -40,3 +40,29 @@
     }
   }
 }
+
+@media screen and (max-width: 992px) {
+  .list-wrapper {
+    .waves-decorator {
+      svg {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .children {
+      padding-top: 180px;
+      padding-bottom: 200px;
+
+      h1 {
+        font-size: 45px;
+        margin-bottom: 40px;
+      }
+
+      .row {
+        --bs-gutter-x: 0;
+        --bs-gutter-y: 25px;
+      }
+    }
+  }
+}

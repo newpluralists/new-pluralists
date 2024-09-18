@@ -30,3 +30,23 @@
     }
   }
 }
+
+@media screen and (max-width: 992px) {
+  .block-narrative-full {
+    background-image: none !important;
+
+    .meta {
+      padding: 50px 0;
+
+      .title {
+        font-size: 36px;
+        line-height: 110%;
+        margin-bottom: 15px;
+      }
+
+      .introduction {
+        font-size: 18px;
+      }
+    }
+  }
+}
