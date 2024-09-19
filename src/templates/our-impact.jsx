@@ -17,7 +17,7 @@ const OurImpact = ({ data: { page, breadcrumb, favicon } }) => {
         breadcrumb={breadcrumb}
         variant="yellow"
       />
-      <TextContent content={content} />
+      <TextContent content={content} classNames={'our-impact'} showDecorator />
     </>
   );
 };

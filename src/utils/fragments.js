@@ -701,6 +701,9 @@ export const DatoCMS = graphql`
         id
         slug
         title
+        tags {
+          ...Tag
+        }
         model {
           apiKey
         }

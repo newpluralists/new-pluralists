@@ -1,5 +1,6 @@
 .text-content {
   padding-top: 101px;
+  position: relative;
 
   h1,
   h2,
@@ -93,6 +94,28 @@
     &:empty:before {
       content: " ";
       white-space: pre;
+    }
+  }
+
+  .decorator {
+    position: absolute;
+    top: 100px;
+    right: calc((100% - 840px - 604px) / 2);
+    z-index: -1;
+    opacity: 0.8;
+  }
+
+  &.our-impact {
+    .block-stories {
+      padding: 105px 0;
+
+      h3 {
+        font-size: 49px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 110%;
+        margin-bottom: 50px;
+      }
     }
   }
 }
