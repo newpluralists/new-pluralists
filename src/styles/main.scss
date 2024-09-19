@@ -97,6 +97,8 @@ html {
         gap: 30px;
         border-top: 3px solid var(--lavander-alternative);
         border-radius: 0px 0px 4px 4px;
+        background: var(--neutral-white);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         padding: 20px;
 
         .dropdown-item {
@@ -160,42 +162,45 @@ html {
   }
 
   .ui-narrative-block-component {
-    background-color: #E3E3FD;
+    .container {
+      padding: 0;
+      gap: 39px;
+    }
 
     .meta {
-      padding: 145px 0 150px 0;
-
-      h3 {
-        color: var(--neutral-black);
+      h2 {
+        color: var(--lavander-alternative);
         font-family: var(--main-font);
-        font-size: 49px;
+        font-size: 31px;
         font-style: normal;
         font-weight: 700;
-        line-height: 110%;
-        text-transform: unset;
+        line-height: 120%;
         margin-bottom: 25px;
       }
 
-      .content {
+      .content p {
         color: var(--neutral-black);
         font-family: var(--main-font);
-        font-size: 26px;
+        font-size: 22px;
         font-style: normal;
         font-weight: 400;
         line-height: 135%;
-        margin-bottom: 35px;
+        margin: 0;
       }
     }
 
-    .image {
-      background-color: var(--neutral-white);
+    .image * {
+      max-width: 100%;
+      max-height: 457px;
 
-      .image-wrapper {
-        height: 100%;
+      img {
+        object-fit: cover;
+      }
+    }
 
-        img {
-          height: 100%;
-        }
+    &.left {
+      .container {
+        grid-template-areas: "column2 column1";
       }
     }
   }
@@ -452,6 +457,88 @@ html {
   // Utils
   .max-container-840 {
     max-width: 840px;
+
+    &.center {
+      margin: 0 auto;
+    }
+  }
+
+  .basic-content {
+    max-width: 900px;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-style: normal;
+      font-weight: 700;
+      line-height: 120%;
+    }
+
+    h1,
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      color: var(--neutral-black);
+      font-family: var(--main-font);
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 135%;
+    }
+
+    a {
+      color: var(--neutral-white);
+      text-decoration: none !important;
+      background-color: var(--lavander-alternative);
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    blockquote {
+      margin: 40px 0;
+      max-width: 624px;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 85px;
+        height: 4px;
+        background: #000;
+      }
+
+      p {
+        color: var(--neutral-black);
+        font-family: var(--main-font);
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        padding: 0;
+        padding-top: 20px;
+      }
+
+      footer {
+        color: var(--neutral-black);
+        font-family: var(--main-font);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 135%;
+      }
+    }
+
+    ol,
+    ul {
+      padding: 0;
+      padding-left: 1rem;
+    }
   }
 }
 

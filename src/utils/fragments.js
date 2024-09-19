@@ -418,7 +418,7 @@ export const DatoCMS = graphql`
   }
 
   fragment BlockCta on DatoCmsCta {
-    id
+    id: originalId
     title
     variant
     size
@@ -434,7 +434,7 @@ export const DatoCMS = graphql`
   }
 
   fragment BlockAccordion on DatoCmsAcordion {
-    id
+    id: originalId
     items {
       ... on DatoCmsAcordionItem {
         id
@@ -445,7 +445,7 @@ export const DatoCMS = graphql`
   }
 
   fragment BlockImageGallery on DatoCmsImageGallery {
-    id
+    id: originalId
     headline
     images {
       url
@@ -456,18 +456,10 @@ export const DatoCMS = graphql`
   }
 
   fragment BlockNarrativeBlock on DatoCmsNarrativeBlock {
-    id
+    id: originalId
     title
-    preTitle
-    backgroundColor
     content
     image {
-      width
-      height
-      alt
-      url
-    }
-    imageMobile {
       width
       height
       alt
@@ -480,7 +472,7 @@ export const DatoCMS = graphql`
   }
 
   fragment BlockNarrativeBlockAdvanced on DatoCmsNarrativeBlockAdvanced {
-    id
+    id: originalId
     title
     preTitle
     backgroundColor
@@ -502,7 +494,7 @@ export const DatoCMS = graphql`
   }
 
   fragment BlockPrinciples on DatoCmsPrinciplesBlock {
-    id
+    id: originalId
     headlines {
       ... on DatoCmsHeadline {
         id
@@ -535,7 +527,7 @@ export const DatoCMS = graphql`
   }
 
   fragment BlockImpact on DatoCmsImpactBlock {
-    id
+    id: originalId
     headline
     introduction
     ctas {
@@ -550,7 +542,7 @@ export const DatoCMS = graphql`
   }
 
   fragment BlockStories on DatoCmsStoriesBlock {
-    id
+    id: originalId
     headline
     ctas {
       ...BlockCta
@@ -590,7 +582,7 @@ export const DatoCMS = graphql`
   }
 
   fragment BlockUpdates on DatoCmsUpdatesBlock {
-    id
+    id: originalId
     headline
     ctas {
       ...BlockCta
@@ -622,7 +614,7 @@ export const DatoCMS = graphql`
   }
 
   fragment BlockPartners on DatoCmsPartnersBlock {
-    id
+    id: originalId
     headline
     introduction
     ctas {
@@ -642,7 +634,7 @@ export const DatoCMS = graphql`
   }
 
   fragment BlockNarrativeBlockFull on DatoCmsNarrativeBlockFull {
-    id
+    id: originalId
     title
     introduction
     mainImage {
@@ -666,5 +658,89 @@ export const DatoCMS = graphql`
   fragment Breadcrumb on DatoCmsMenuItem {
     id
     title
+  }
+
+  fragment BlockGridCards on DatoCmsGridOfCard {
+    id: originalId
+    headline
+    introduction
+    items {
+      ... on DatoCmsGenericCard {
+        id
+        title
+        introduction
+        image {
+          url
+          width
+          height
+          alt
+        }
+        link {
+          ...GlobalLink
+        }
+      }
+    }
+  }
+
+  fragment BlockNarrativeGrid on DatoCmsNarrativeGrid {
+    id: originalId
+    headline
+    gridItems: items {
+      ...BlockNarrativeBlock
+    }
+    ctas {
+      ...BlockCta
+    }
+  }
+
+  fragment BlockResources on DatoCmsResourcesBlock {
+    id: originalId
+    headline
+    resourceItems: items {
+      ... on DatoCmsResource {
+        id
+        slug
+        title
+        model {
+          apiKey
+        }
+      }
+    }
+    ctas {
+      ...BlockCta
+    }
+  }
+
+  fragment BlockCtaGrid on DatoCmsCtaGrid {
+    id: originalId
+    ctaItems: items {
+      ...BlockCta
+    }
+  }
+
+  fragment BlockAccordionGrid on DatoCmsAccordionGrid {
+    id: originalId
+    headline
+    introduction
+    accordionItems: items {
+      ... on DatoCmsAcordionItem {
+        id
+        title
+        text
+      }
+    }
+    ctas {
+      ...BlockCta
+    }
+  }
+
+  fragment BlockHeadlines on DatoCmsHeadlinesGrid {
+    id: originalId
+    headlinesItems: items {
+      ... on DatoCmsHeadline {
+        id
+        title
+      }
+    }
   }
 `;

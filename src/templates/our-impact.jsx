@@ -1,20 +1,23 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
-import { Breadcrumbs } from 'tectonica-ui';
-import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
+import TextContent from '../ui/components/text-content/text-content';
+import SpecialHero from '../ui/layout/special-hero/special-hero';
 
 const OurImpact = ({ data: { page, breadcrumb, favicon } }) => {
-  const { title, seo } = page;
+  const { title, introduction, backgroundImage, content, seo } = page;
 
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
-
-      <ListWrapper variant="lavander">
-        <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
-        <h1>{title}</h1>
-      </ListWrapper>
+      <SpecialHero
+        title={title}
+        introduction={introduction}
+        image={backgroundImage}
+        breadcrumb={breadcrumb}
+        variant="yellow"
+      />
+      <TextContent content={content} />
     </>
   );
 };
@@ -30,6 +33,24 @@ export const OurImpactListQuery = graphql`
     }
     page: datoCmsOurImpact {
       title
+      introduction
+      backgroundImage {
+        width
+        height
+        alt
+        url
+      }
+      content {
+        value
+        blocks {
+          __typename
+          ...BlockStories
+          ...BlockResources
+          ...BlockCtaGrid
+          ...BlockAccordionGrid
+          ...BlockHeadlines
+        }
+      }
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }

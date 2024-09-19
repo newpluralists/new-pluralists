@@ -3,9 +3,10 @@ import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import { Breadcrumbs } from 'tectonica-ui';
+import StructuredTextDefault from '../ui/components/structured-text-default';
 
 const BasicPage = ({ data: { page, breadcrumb, favicon } }) => {
-  const { title, seo } = page;
+  const { title, content, seo } = page;
 
   return (
     <>
@@ -13,6 +14,10 @@ const BasicPage = ({ data: { page, breadcrumb, favicon } }) => {
       <ListWrapper variant="lavander">
         <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
         <h1>{title}</h1>
+
+        <div className="basic-content">
+          <StructuredTextDefault content={content} />
+        </div>
       </ListWrapper>
     </>
   );
@@ -29,6 +34,14 @@ export const PageQuery = graphql`
     }
     page: datoCmsBasicPage(id: { eq: $id }) {
       title
+      content {
+        value
+        blocks {
+          __typename
+          # ...BlockImage
+          # ...BlockCta
+        }
+      }
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }

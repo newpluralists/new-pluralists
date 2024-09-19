@@ -1,20 +1,17 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
-import { Breadcrumbs } from 'tectonica-ui';
-import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
+import SpecialHero from '../ui/layout/special-hero/special-hero';
+import TextContent from '../ui/components/text-content/text-content';
 
 const ThePromiseOfPluralism = ({ data: { page, breadcrumb, favicon } }) => {
-  const { title, seo } = page;
+  const { title, introduction, backgroundImage, content, seo } = page;
 
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
-
-      <ListWrapper variant="lavander">
-        <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
-        <h1>{title}</h1>
-      </ListWrapper>
+      <SpecialHero title={title} introduction={introduction} image={backgroundImage} breadcrumb={breadcrumb} />
+      <TextContent content={content} />
     </>
   );
 };
@@ -30,6 +27,22 @@ export const ThePromiseOfPluralismListQuery = graphql`
     }
     page: datoCmsThePromiseOfPluralism {
       title
+      introduction
+      backgroundImage {
+        url
+        width
+        height
+        alt
+      }
+      content {
+        value
+        blocks {
+          __typename
+          ...BlockCta
+          ...BlockGridCards
+          ...BlockNarrativeGrid
+        }
+      }
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
