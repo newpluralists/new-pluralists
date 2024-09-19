@@ -31,6 +31,7 @@ export const BlogDetailQuery = graphql`
         height
         alt
         url
+        title
       }
       tags {
         ...Tag

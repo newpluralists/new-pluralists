@@ -35,6 +35,12 @@
         }
       }
     }
+
+    .button-block {
+      &::after {
+        display: none !important;
+      }
+    }
   }
 
   .load-more {
