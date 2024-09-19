@@ -22,3 +22,20 @@
     }
   }
 }
+
+@media screen and (max-width: 992px) {
+  .block-headlines-grid {
+    flex-direction: column;
+    gap: 30px;
+
+    .title-item {
+      .separator {
+        margin-bottom: 10px;
+      }
+
+      .text p {
+        font-size: 25px;
+      }
+    }
+  }
+}

@@ -29,3 +29,19 @@
     background-color: rgba(255, 205, 105, .3);
   }
 }
+
+@media screen and (max-width: 992px) {
+  .special-hero {
+    padding: 100px 0 50px 0;
+    height: auto;
+    background-image: none !important;
+
+    h1 {
+      font-size: 48px;
+    }
+
+    .introduction {
+      font-size: 20px;
+    }
+  }
+}

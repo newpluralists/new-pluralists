@@ -122,7 +122,7 @@
 
 @media screen and (max-width: 992px) {
   .text-content {
-    padding-top: 50px;
+    padding: 50px 0;
 
     h1,
     h2 {
@@ -141,6 +141,27 @@
       footer {
         font-size: 14px;
       }
+    }
+
+    .top-heading {
+      font-size: 25px;
+    }
+
+    .block-stories {
+      padding: 50px 0 !important;
+
+      h3 {
+        font-size: 24px !important;
+        margin-bottom: 15px !important;
+      }
+    }
+
+    .decorator {
+      display: none;
+    }
+
+    &.our-impact {
+      padding-bottom: 0;
     }
   }
 }

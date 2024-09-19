@@ -79,3 +79,49 @@
     }
   }
 }
+
+@media screen and (max-width: 992px) {
+  .block-grid-cards {
+    h3 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .introduction {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .row {
+      --bs-gutter-y: 16px;
+    }
+  }
+
+  .generic-card {
+    .ui-card {
+      gap: 0;
+
+      .card-content {
+        padding: 20px;
+
+        .card-data {
+          h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+          }
+
+          .introduction {
+            p {
+              font-size: 18px;
+            }
+          }
+        }
+
+        .image {
+          padding: 20px;
+          height: 100px;
+        }
+      }
+    }
+  }
+}

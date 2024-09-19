@@ -1,6 +1,7 @@
 import React from 'react';
-import './styles.scss';
 import { Accordion, ButtonList, isArrayAndNotEmpty } from 'tectonica-ui';
+
+import './styles.scss';
 
 const BlockAccordionGrid = ({ block }) => {
   const { headline, introduction, items = [], ctas = [] } = block;

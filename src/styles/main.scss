@@ -701,6 +701,7 @@ html {
                   padding-left: 1rem;
                   padding-top: .5rem;
                   gap: 5px;
+                  box-shadow: unset;
 
                   .dropdown-item {
                     .dropdown-link {
@@ -714,6 +715,92 @@ html {
           }
         }
       }
+    }
+
+    .ui-narrative-block-component {
+      .container {
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+
+        .meta {
+          gap: 0;
+          flex-direction: column;
+
+          h3 {
+            font-size: 20px;
+            margin: 0;
+          }
+
+          h2 {
+            font-size: 25px;
+            margin-bottom: 1rem;
+          }
+
+          .content {
+            margin: 0;
+
+            p {
+              font-size: 16px;
+              line-height: 125%;
+            }
+          }
+        }
+      }
+    }
+
+    .ui-accordion-block {
+      .item {
+        padding: 10px 15px;
+        margin-bottom: 15px;
+
+        .accordion-title {
+          h3 {
+            font-size: 18px;
+          }
+
+          svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        .accordion-content {
+          p {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    .basic-content {
+      max-width: 100%;
+
+      h1,
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      blockquote {
+        p {
+          font-size: 24px;
+        }
+
+        footer {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .max-container-840 {
+      --bs-gutter-x: 1.5rem;
+      --bs-gutter-y: 0;
+      padding-left: calc(var(--bs-gutter-x) * .5);
+      padding-right: calc(var(--bs-gutter-x) * .5);
     }
   }
 }
