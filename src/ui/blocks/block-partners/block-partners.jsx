@@ -5,7 +5,7 @@ import Slider from 'react-slick';
 import './styles.scss';
 
 const BlockPartners = ({ block }) => {
-  const { headline, introduction, ctas = [], logos = [] } = block;
+  const { headline, introduction, ctas = [], partners = [] } = block;
 
   const settings = {
     centerMode: true,
@@ -20,9 +20,9 @@ const BlockPartners = ({ block }) => {
     cssEase: 'linear',
   };
 
-  const logosColumns = logos.reduce(
-    (acc, img, index) => {
-      acc[index % 3].push(img);
+  const logosColumns = partners.reduce(
+    (acc, partner, index) => {
+      acc[index % 3].push(partner.logo);
       return acc;
     },
     [[], [], []]

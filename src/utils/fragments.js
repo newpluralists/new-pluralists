@@ -628,11 +628,16 @@ export const DatoCMS = graphql`
     ctas {
       ...BlockCta
     }
-    logos {
-      width
-      height
-      alt
-      url
+    partners {
+      ... on DatoCmsFunderLogo {
+        id
+        logo {
+          width
+          height
+          alt
+          url
+        }
+      }
     }
   }
 
