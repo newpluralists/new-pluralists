@@ -43,15 +43,20 @@ const BlockPrinciples = ({ block }) => {
             {ctas && <ButtonList buttons={ctas} />}
           </div>
 
-          <div className="image">
-            <img src={image.url} alt={image.alt} />
-          </div>
+          {image?.url && (
+            <div className="image">
+              <img src={image.url} alt={image.alt} />
+            </div>
+          )}
         </div>
 
         <div className="box-section">
-          <div className="image">
-            <img src={boxImage.url} alt={boxImage.alt} />
-          </div>
+          {boxImage?.url && (
+            <div className="image">
+              <img src={boxImage.url} alt={boxImage.alt} />
+            </div>
+          )}
+
           <div className="meta">
             {boxHeadline && <div className="headline" dangerouslySetInnerHTML={{ __html: boxHeadline }} />}
             {boxIntroduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: boxIntroduction }} />}
