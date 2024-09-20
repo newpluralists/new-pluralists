@@ -3,14 +3,16 @@ import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import FunderCard from '../ui/components/funder-card/funder-card';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
+import { Breadcrumbs } from 'tectonica-ui';
 
-const FunderList = ({ data: { funderList, funders, favicon } }) => {
+const FunderList = ({ data: { funderList, funders, breadcrumb, favicon } }) => {
   const { title, seo } = funderList;
 
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <ListWrapper variant="">
+        <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
         <h1>{title}</h1>
 
         <div className="row g-5">
@@ -28,7 +30,7 @@ const FunderList = ({ data: { funderList, funders, favicon } }) => {
 export default FunderList;
 
 export const FunderListQuery = graphql`
-  query FunderListQuery {
+  query FunderListQuery($menuPos: String) {
     favicon: datoCmsSite {
       faviconMetaTags {
         ...GatsbyDatoCmsFaviconMetaTags
@@ -53,6 +55,9 @@ export const FunderListQuery = graphql`
           }
         }
       }
+    }
+    breadcrumb: datoCmsMenuItem(id: { eq: $menuPos }) {
+      ...Breadcrumb
     }
   }
 `;
