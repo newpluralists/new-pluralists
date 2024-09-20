@@ -10,42 +10,44 @@ import BlockNarrativeFull from '../blocks/block-narrative-full/block-narrative-f
 export default function BlocksBuilder({ components }) {
   return (
     <>
-      {components.map((block) => {
-        switch (block.__typename) {
-          case 'DatoCmsNarrativeBlock':
-            return <NarrativeBlock block={block} key={block.id} />;
+      {components
+        .filter((c) => !c.hideBlock)
+        .map((block) => {
+          switch (block.__typename) {
+            case 'DatoCmsNarrativeBlock':
+              return <NarrativeBlock block={block} key={block.id} />;
 
-          case 'DatoCmsNarrativeBlockAdvanced':
-            return <NarrativeBlockAdvanced block={block} key={block.id} />;
+            case 'DatoCmsNarrativeBlockAdvanced':
+              return <NarrativeBlockAdvanced block={block} key={block.id} />;
 
-          case 'DatoCmsAcordion':
-            return <Accordion block={block} key={block.id} />;
+            case 'DatoCmsAcordion':
+              return <Accordion block={block} key={block.id} />;
 
-          case 'DatoCmsImageGallery':
-            return <ImageGallery key={block.id} {...block} />;
+            case 'DatoCmsImageGallery':
+              return <ImageGallery key={block.id} {...block} />;
 
-          case 'DatoCmsPrinciplesBlock':
-            return <BlockPrinciples block={block} key={block.id} />;
+            case 'DatoCmsPrinciplesBlock':
+              return <BlockPrinciples block={block} key={block.id} />;
 
-          case 'DatoCmsImpactBlock':
-            return <BlockImpact block={block} key={block.id} />;
+            case 'DatoCmsImpactBlock':
+              return <BlockImpact block={block} key={block.id} />;
 
-          case 'DatoCmsStoriesBlock':
-            return <BlockStories block={block} key={block.id} />;
+            case 'DatoCmsStoriesBlock':
+              return <BlockStories block={block} key={block.id} />;
 
-          case 'DatoCmsUpdatesBlock':
-            return <BlockUpdates block={block} key={block.id} />;
+            case 'DatoCmsUpdatesBlock':
+              return <BlockUpdates block={block} key={block.id} />;
 
-          case 'DatoCmsPartnersBlock':
-            return <BlockPartners block={block} key={block.id} />;
+            case 'DatoCmsPartnersBlock':
+              return <BlockPartners block={block} key={block.id} />;
 
-          case 'DatoCmsNarrativeBlockFull':
-            return <BlockNarrativeFull block={block} key={block.id} />;
+            case 'DatoCmsNarrativeBlockFull':
+              return <BlockNarrativeFull block={block} key={block.id} />;
 
-          default:
-            return null;
-        }
-      })}
+            default:
+              return null;
+          }
+        })}
     </>
   );
 }

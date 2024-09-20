@@ -66,6 +66,9 @@ const StructuredTextDefault = ({ content, withCustomRules = false }) => {
           case 'DatoCmsStoriesBlock':
             return <BlockStories block={record} key={record.id} />;
 
+          case 'DatoCmsEmbedIframe':
+            return <div className="embed" dangerouslySetInnerHTML={{ __html: record.code }} key={record.id} />;
+
           default:
             return null;
         }

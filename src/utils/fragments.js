@@ -407,12 +407,10 @@ export const DatoCMS = graphql`
       title
       width
       height
-      # gatsbyImageData
     }
   }
 
   fragment BlockEmbedIframe on DatoCmsEmbedIframe {
-    __typename
     id: originalId
     code
   }
@@ -524,6 +522,7 @@ export const DatoCMS = graphql`
       url
       gatsbyImageData
     }
+    hideBlock
   }
 
   fragment BlockImpact on DatoCmsImpactBlock {
@@ -539,6 +538,7 @@ export const DatoCMS = graphql`
         title
       }
     }
+    hideBlock
   }
 
   fragment BlockStories on DatoCmsStoriesBlock {
@@ -579,11 +579,13 @@ export const DatoCMS = graphql`
         }
       }
     }
+    hideBlock
   }
 
   fragment BlockUpdates on DatoCmsUpdatesBlock {
     id: originalId
     headline
+    introduction
     ctas {
       ...BlockCta
     }
@@ -611,6 +613,7 @@ export const DatoCMS = graphql`
         }
       }
     }
+    hideBlock
   }
 
   fragment BlockPartners on DatoCmsPartnersBlock {
@@ -631,6 +634,7 @@ export const DatoCMS = graphql`
         }
       }
     }
+    hideBlock
   }
 
   fragment BlockNarrativeBlockFull on DatoCmsNarrativeBlockFull {
@@ -643,6 +647,10 @@ export const DatoCMS = graphql`
       alt
       url
     }
+    ctas {
+      ...BlockCta
+    }
+    hideBlock
   }
 
   fragment Tag on DatoCmsTag {

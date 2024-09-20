@@ -9,8 +9,8 @@ const BlockGridCards = ({ block }) => {
   return (
     <section className="block-grid-cards">
       <div className="container">
-        <h3>{headline}</h3>
-        <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />
+        {headline && <h3>{headline}</h3>}
+        {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
 
         <div className="row">
           {items.map((item) => (

@@ -6,12 +6,12 @@ import { Breadcrumbs } from 'tectonica-ui';
 import StructuredTextDefault from '../ui/components/structured-text-default';
 
 const BasicPage = ({ data: { page, breadcrumb, favicon } }) => {
-  const { title, content, seo } = page;
+  const { title, content, blocks = [], seo } = page;
 
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
-      <ListWrapper variant="lavander">
+      <ListWrapper variant="lavander basic-page">
         <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
         <h1>{title}</h1>
 
@@ -38,9 +38,22 @@ export const PageQuery = graphql`
         value
         blocks {
           __typename
-          # ...BlockImage
-          # ...BlockCta
+          ...BlockImage
+          ...BlockEmbedIframe
+          ...BlockCta
+          ...BlockAccordion
+          ...BlockNarrativeBlock
+          ...BlockGridCards
         }
+      }
+      blocks {
+        __typename
+        ...BlockImage
+        ...BlockEmbedIframe
+        ...BlockCta
+        ...BlockAccordion
+        ...BlockNarrativeBlock
+        ...BlockGridCards
       }
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags

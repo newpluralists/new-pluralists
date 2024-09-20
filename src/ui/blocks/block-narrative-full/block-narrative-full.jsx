@@ -1,8 +1,10 @@
 import React from 'react';
+import { ButtonList } from 'tectonica-ui';
+
 import './styles.scss';
 
 const BlockNarrativeFull = ({ block }) => {
-  const { title, introduction, mainImage } = block;
+  const { title, introduction, mainImage, ctas } = block;
 
   return (
     <section
@@ -19,6 +21,7 @@ const BlockNarrativeFull = ({ block }) => {
             <div className="meta">
               {title && <div className="title" dangerouslySetInnerHTML={{ __html: title }} />}
               {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
+              {ctas && <ButtonList buttons={ctas} />}
             </div>
           </div>
         </div>

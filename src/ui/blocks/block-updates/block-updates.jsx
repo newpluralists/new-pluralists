@@ -5,12 +5,13 @@ import { ButtonList } from 'tectonica-ui';
 import './styles.scss';
 
 const BlockUpdates = ({ block }) => {
-  const { headline, ctas = [], backgroundImage, highlightPosts = [] } = block;
+  const { headline, introduction, ctas = [], backgroundImage, highlightPosts = [] } = block;
 
   return (
     <section className="block-updates">
       <div className="container">
         {headline && <h3>{headline}</h3>}
+        {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
 
         <div className="row">
           {highlightPosts.map((post) => (

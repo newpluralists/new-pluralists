@@ -39,6 +39,25 @@
       fill: #7D7DF0;
     }
   }
+
+  &.basic-page {
+
+    .image-wrapper,
+    .button-block,
+    .embed {
+      margin: 1rem 0;
+    }
+
+    .block-grid-cards {
+      margin: 1rem 0;
+
+      .container {
+        padding: 0;
+      }
+    }
+
+
+  }
 }
 
 @media screen and (max-width: 992px) {
