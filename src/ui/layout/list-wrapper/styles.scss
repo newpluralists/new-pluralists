@@ -73,6 +73,12 @@
       margin-bottom: 40px;
     }
   }
+
+  &.stories {
+    img {
+      margin-bottom: 1.5rem;
+    }
+  }
 }
 
 @media screen and (max-width: 992px) {
