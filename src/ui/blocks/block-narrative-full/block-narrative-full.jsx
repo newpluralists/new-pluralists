@@ -13,6 +13,7 @@ const BlockNarrativeFull = ({ block }) => {
         backgroundImage: `url(${mainImage.url})`,
         backgroundPosition: '50dvw',
         backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
       }}
     >
       <div className="container">
