@@ -213,8 +213,15 @@
         }
       }
 
-      &::before {
-        display: none;
+      &::after {
+        content: '';
+        display: block;
+        background: var(--lavander-alternative);
+        width: 100dvh;
+        height: 100%;
+        top: 0;
+        left: -100dvh;
+        position: absolute;
       }
     }
   }

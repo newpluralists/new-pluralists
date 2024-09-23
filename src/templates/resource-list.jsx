@@ -11,6 +11,7 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
 
   const yearsForFilter = React.useMemo(() => {
     const years = new Set();
+    years.add('All');
     resources.edges.forEach(({ node }) => {
       const date = new Date(node.date);
       years.add(date.getFullYear());
@@ -20,6 +21,7 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
 
   const topicsForFilter = React.useMemo(() => {
     const topics = new Set();
+    topics.add({ name: 'All', id: 'All' });
     resources.edges.forEach(({ node }) => {
       node.topics.forEach((topic) => topics.add(topic));
     });
@@ -39,6 +41,7 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
       ),
       filterFunction: (item, topic) => {
         const topics = item.node.topics;
+        if (topic === 'All') return topics;
         return topics.some((t) => t.id === topic);
       },
     },
@@ -53,6 +56,7 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
         />
       ),
       filterFunction: (item, year) => {
+        if (year === 'All') return true;
         const date = new Date(item.node.date);
         return date.getFullYear() === year;
       },

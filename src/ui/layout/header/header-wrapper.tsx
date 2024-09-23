@@ -35,13 +35,10 @@ const HeaderWrapper = () => {
 
   return (
     <>
-      <Notification
-        variant="blue"
-        block={{
-          content: menus.configuration.content.value,
-        }}
-      />
-      <Header menu={menus.mainMenu} logo={menus.configuration.logo} location={{}} />
+      <Notification variant="blue" block={{ content: menus.configuration.content.value }} />
+      <Header menu={menus.mainMenu} logo={menus.configuration.logo} location={{}}>
+        <></>
+      </Header>
     </>
   );
 };

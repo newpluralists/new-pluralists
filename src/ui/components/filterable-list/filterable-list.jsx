@@ -5,6 +5,7 @@ const FilterableList = ({ data, filters, renderItem }) => {
   const [filteredData, setFilteredData] = React.useState(data);
   const [visibleItems, setVisibleItems] = React.useState(10);
   const [activeFilters, setActiveFilters] = React.useState({});
+  const [isFilterApply, setIsFilterApply] = React.useState(false);
 
   const applyFilters = () => {
     let filtered = data;
@@ -17,6 +18,7 @@ const FilterableList = ({ data, filters, renderItem }) => {
     });
 
     setFilteredData(filtered);
+    setIsFilterApply(true);
     setVisibleItems(10);
   };
 
@@ -24,6 +26,7 @@ const FilterableList = ({ data, filters, renderItem }) => {
     setActiveFilters({});
     setFilteredData(data);
     setVisibleItems(10);
+    setIsFilterApply(false);
   };
 
   const loadMoreItems = () => {
@@ -45,9 +48,11 @@ const FilterableList = ({ data, filters, renderItem }) => {
         <button className="button-block primary" onClick={applyFilters}>
           Apply Filters
         </button>
-        <button className="button-block secondary" onClick={resetFilters}>
-          Reset Filters
-        </button>
+        {Object.keys(activeFilters).length > 0 && isFilterApply && (
+          <button className="button-block secondary" onClick={resetFilters}>
+            Reset Filters
+          </button>
+        )}
       </div>
 
       <div className="row">{filteredData.slice(0, visibleItems).map(renderItem)}</div>

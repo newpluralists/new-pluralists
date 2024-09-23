@@ -30,16 +30,16 @@ const FunderList = ({ data: { funderList, funders, breadcrumb, favicon } }) => {
         <h3 className="sub-title">Core Funders</h3>
         <div className="row g-5">
           {splitFunders.core.map((funder) => (
-            <div key={funder.id} className="col-12 col-md-6 col-lg-4">
+            <div key={funder.id} className="col-12 col-md-6 col-lg-3">
               <FunderCard funder={funder} />
             </div>
           ))}
         </div>
 
-        <h3 className="sub-title">Affiliate Funders</h3>
+        <h3 className="sub-title extra">Affiliate Funders</h3>
         <div className="row g-5">
           {splitFunders.affiliate.map((funder) => (
-            <div key={funder.id} className="col-12 col-md-6 col-lg-4">
+            <div key={funder.id} className="col-12 col-md-6 col-lg-3">
               <FunderCard funder={funder} />
             </div>
           ))}

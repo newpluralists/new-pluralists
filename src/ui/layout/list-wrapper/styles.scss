@@ -9,7 +9,7 @@
   }
 
   .children {
-    padding-top: 300px;
+    padding-top: 170px;
     padding-bottom: 300px;
 
     h1 {
@@ -67,6 +67,10 @@
     h3.sub-title {
       font-size: 30px;
       margin-bottom: 1rem;
+
+      &.extra {
+        margin-top: 5rem;
+      }
     }
 
     .row {
@@ -91,12 +95,12 @@
     }
 
     .children {
-      padding-top: 180px;
+      padding-top: 120px;
       padding-bottom: 200px;
 
       h1 {
-        font-size: 45px;
-        margin-bottom: 40px;
+        font-size: 35px;
+        margin-bottom: 30px;
       }
 
       .row {
