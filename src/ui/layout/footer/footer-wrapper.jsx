@@ -1,8 +1,7 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import { CustomLink, Input } from 'tectonica-ui';
+import { CustomLink } from 'tectonica-ui';
 import SocialLinkList from '../../components/social-media/social-media';
-import axios from 'axios';
 
 import './styles.scss';
 
@@ -29,28 +28,6 @@ const FooterWrapper = () => {
     }
   `);
 
-  const [formState, setFormState] = React.useState({
-    success: false,
-    error: false,
-    loading: false,
-  });
-
-  const handleOnSubmitForm = (e) => {
-    e.preventDefault();
-    setFormState({ success: false, error: false, loading: true });
-
-    const firstName = e.target[0].value;
-    const email = e.target[1].value;
-
-    try {
-      axios.post('/api/subscribe', { firstName, email });
-      setFormState({ success: true, error: false, loading: false });
-    } catch (error) {
-      console.error(error);
-      setFormState({ success: false, error: true, loading: false });
-    }
-  };
-
   return (
     <footer className="footer-wrapper">
       <div className="container">
@@ -75,6 +52,9 @@ const FooterWrapper = () => {
                     {link.title}
                   </CustomLink>
                 ))}
+                <a href="https://www.tectonica.co/" target="_blank" rel="noreferrer">
+                  Built by Tectonica
+                </a>
               </div>
 
               <div className="social-links">
@@ -86,19 +66,7 @@ const FooterWrapper = () => {
           <div className="col-lg-3 form-wrapper">
             <div className="form">
               <h4>Stay informed</h4>
-              {!formState.success && (
-                <form onSubmit={handleOnSubmitForm}>
-                  <Input placeholder="First Name" />
-                  <Input placeholder="Email" />
-                  <button type="submit" disabled={formState.loading}>
-                    Submit
-                  </button>
-                </form>
-              )}
-
-              {formState.loading && <p>Loading...</p>}
-              {formState.success && <p className="success">Success</p>}
-              {formState.error && <p className="error">Error</p>}
+              <MailchimpForm />
             </div>
           </div>
         </div>
@@ -106,5 +74,43 @@ const FooterWrapper = () => {
     </footer>
   );
 };
+
+const MailchimpForm = () => (
+  <div id="mc_embed_shell">
+    <div id="mc_embed_signup">
+      <form
+        action="https://newpluralists.us1.list-manage.com/subscribe/post?u=e47af12b3e9793c2089db0c53&amp;id=84b7d8e357&amp;f_id=00f2f1e5f0"
+        method="post"
+        id="mc-embedded-subscribe-form"
+        name="mc-embedded-subscribe-form"
+        className="validate"
+        target="_self"
+        novalidate=""
+      >
+        <div id="mc_embed_signup_scroll" className="wrapper">
+          <div className="mc-field-group">
+            <input type="text" name="FNAME" className="text" id="mce-FNAME" placeholder="First Name" required />
+          </div>
+          <div className="mc-field-group">
+            <input type="email" name="EMAIL" className="required email" id="mce-EMAIL" placeholder="Email" required />
+          </div>
+          <div hidden>
+            <input type="hidden" name="tags" value="5811177" />
+          </div>
+          <div id="mce-responses" className="clear" style={{ display: 'none' }}>
+            <div className="response" id="mce-error-response" style={{ display: 'none' }}></div>
+            <div className="response" id="mce-success-response" style={{ display: 'none' }}></div>
+          </div>
+          <div aria-hidden="true" style={{ position: 'absolute', left: '-5000px', display: 'none' }}>
+            <input type="text" name="b_e47af12b3e9793c2089db0c53_84b7d8e357" tabindex="-1" value="" />
+          </div>
+          <div className="clear">
+            <input type="submit" name="subscribe" id="mc-embedded-subscribe" className="button" value="Subscribe" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+);
 
 export default FooterWrapper;
