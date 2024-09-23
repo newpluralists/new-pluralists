@@ -8,17 +8,39 @@ import { Breadcrumbs } from 'tectonica-ui';
 const FunderList = ({ data: { funderList, funders, breadcrumb, favicon } }) => {
   const { title, seo } = funderList;
 
+  const splitFunders = funders.edges.reduce(
+    (prev, curr) => {
+      if (curr.node.category && curr.node.category.name === 'Core Funders') {
+        prev.core.push(curr.node);
+      } else if (curr.node.category && curr.node.category.name === 'Affiliate Funders') {
+        prev.affiliate.push(curr.node);
+      }
+      return prev;
+    },
+    { core: [], affiliate: [] }
+  );
+
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
-      <ListWrapper variant="">
+      <ListWrapper variant="funder-list">
         <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
         <h1>{title}</h1>
 
+        <h3 className="sub-title">Core Funders</h3>
         <div className="row g-5">
-          {funders.edges.map(({ node }) => (
-            <div key={node.id} className="col-12 col-md-6 col-lg-4">
-              <FunderCard funder={node} />
+          {splitFunders.core.map((funder) => (
+            <div key={funder.id} className="col-12 col-md-6 col-lg-4">
+              <FunderCard funder={funder} />
+            </div>
+          ))}
+        </div>
+
+        <h3 className="sub-title">Affiliate Funders</h3>
+        <div className="row g-5">
+          {splitFunders.affiliate.map((funder) => (
+            <div key={funder.id} className="col-12 col-md-6 col-lg-4">
+              <FunderCard funder={funder} />
             </div>
           ))}
         </div>
@@ -52,6 +74,9 @@ export const FunderListQuery = graphql`
             height
             alt
             url
+          }
+          category {
+            ...FunderCategory
           }
         }
       }

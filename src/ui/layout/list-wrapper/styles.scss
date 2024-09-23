@@ -58,6 +58,21 @@
 
 
   }
+
+  &.funder-list {
+    h1 {
+      margin-bottom: 100px;
+    }
+
+    h3.sub-title {
+      font-size: 30px;
+      margin-bottom: 1rem;
+    }
+
+    .row {
+      margin-bottom: 40px;
+    }
+  }
 }
 
 @media screen and (max-width: 992px) {

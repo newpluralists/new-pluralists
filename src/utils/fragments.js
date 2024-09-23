@@ -754,4 +754,9 @@ export const DatoCMS = graphql`
       }
     }
   }
+
+  fragment FunderCategory on DatoCmsFunderCategory {
+    id
+    name
+  }
 `;
