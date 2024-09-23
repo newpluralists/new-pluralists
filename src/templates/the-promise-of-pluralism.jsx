@@ -10,7 +10,13 @@ const ThePromiseOfPluralism = ({ data: { page, breadcrumb, favicon } }) => {
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
-      <SpecialHero title={title} introduction={introduction} image={backgroundImage} breadcrumb={breadcrumb} />
+      <SpecialHero
+        title={title}
+        introduction={introduction}
+        image={backgroundImage}
+        breadcrumb={breadcrumb}
+        variant="promise"
+      />
       <TextContent content={content} />
     </>
   );
