@@ -395,6 +395,13 @@ export const DatoCMS = graphql`
           apiKey
         }
       }
+      ... on DatoCmsGranteesList {
+        id
+        slug
+        model {
+          apiKey
+        }
+      }
     }
   }
 
