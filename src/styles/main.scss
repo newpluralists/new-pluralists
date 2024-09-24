@@ -540,6 +540,27 @@ html {
       padding-left: 1rem;
     }
   }
+
+  .not-found {
+    min-height: 90dvh;
+    background-color: var(--np-neutral-2);
+    padding: 170px 0;
+
+    h1 {
+      color: var(--neutral-black);
+      font-family: var(--main-font);
+      font-size: 35px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 120%;
+    }
+
+    p {
+      color: var(--neutral-black);
+      font-family: var(--main-font);
+      font-size: 20px;
+    }
+  }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 992px) {
