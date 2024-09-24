@@ -89,6 +89,16 @@ html {
           &:hover svg path {
             stroke: var(--lavander-alternative);
           }
+
+          &.active-link {
+            color: var(--lavander-alternative);
+          }
+        }
+      }
+
+      .dropdown:has(.active-link) {
+        &>a {
+          color: var(--lavander-alternative);
         }
       }
 
@@ -113,6 +123,10 @@ html {
             line-height: 135%;
 
             &:hover {
+              color: var(--lavander-alternative);
+            }
+
+            &.active-link {
               color: var(--lavander-alternative);
             }
           }
