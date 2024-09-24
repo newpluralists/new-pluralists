@@ -21,12 +21,12 @@ const HomeHero = ({ title, introduction, extraText, backgroundOpacity }) => {
 
       <div className="container">
         <div className="main">
-          <div className="title" dangerouslySetInnerHTML={{ __html: title }} />
-          <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />
+          {title && <div className="title" dangerouslySetInnerHTML={{ __html: title }} />}
+          {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
         </div>
 
         <div className="extra-text">
-          <div className="introduction" dangerouslySetInnerHTML={{ __html: extraText }} />
+          {extraText && <div className="introduction" dangerouslySetInnerHTML={{ __html: extraText }} />}
 
           <button onClick={handleOnToggleVideo}>
             <svg xmlns="http://www.w3.org/2000/svg" width="49" height="49" viewBox="0 0 49 49" fill="none">

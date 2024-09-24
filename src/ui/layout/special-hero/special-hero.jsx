@@ -16,8 +16,8 @@ const SpecialHero = ({ title, introduction, image, breadcrumb, variant = 'defaul
 
         <div className="row">
           <div className="col-lg-6 offset-lg-6">
-            <h1>{title}</h1>
-            <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />
+            {title && <h1>{title}</h1>}
+            {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
           </div>
         </div>
       </div>
