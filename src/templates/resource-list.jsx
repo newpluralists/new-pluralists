@@ -103,19 +103,7 @@ export const ResourceListQuery = graphql`
     resources: allDatoCmsResource {
       edges {
         node {
-          id
-          title
-          slug
-          date
-          tags {
-            ...Tag
-          }
-          topics {
-            ...Topic
-          }
-          model {
-            apiKey
-          }
+          ...ResourceCard
         }
       }
     }

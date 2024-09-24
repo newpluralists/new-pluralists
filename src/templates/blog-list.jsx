@@ -103,22 +103,7 @@ export const BlogListQuery = graphql`
     blogs: allDatoCmsPost(sort: { date: DESC }) {
       edges {
         node {
-          id
-          slug
-          title
-          date
-          mainImage {
-            url
-            width
-            height
-            alt
-          }
-          topics {
-            ...Topic
-          }
-          model {
-            apiKey
-          }
+          ...PostCard
         }
       }
     }

@@ -4,9 +4,8 @@ import SeoDatoCMS from '../ui/components/seo-datocms';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import { Breadcrumbs } from 'tectonica-ui';
 import StructuredTextDefault from '../ui/components/structured-text-default';
-
 const BasicPage = ({ data: { page, breadcrumb, favicon } }) => {
-  const { title, content, blocks = [], seo } = page;
+  const { title, content, seo } = page;
 
   return (
     <>
@@ -46,15 +45,15 @@ export const PageQuery = graphql`
           ...BlockGridCards
         }
       }
-      blocks {
-        __typename
-        ...BlockImage
-        ...BlockEmbedIframe
-        ...BlockCta
-        ...BlockAccordion
-        ...BlockNarrativeBlock
-        ...BlockGridCards
-      }
+      # blocks {
+      #   __typename
+      #   ...BlockImage
+      #   ...BlockEmbedIframe
+      #   ...BlockCta
+      #   ...BlockAccordion
+      #   ...BlockNarrativeBlock
+      #   ...BlockGridCards
+      # }
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }

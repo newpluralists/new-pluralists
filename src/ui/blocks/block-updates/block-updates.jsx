@@ -1,11 +1,26 @@
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import BlogCard from '../../components/blog-card/blog-card';
-import { ButtonList } from 'tectonica-ui';
+import { ButtonList, isArrayAndNotEmpty } from 'tectonica-ui';
 
 import './styles.scss';
 
 const BlockUpdates = ({ block }) => {
-  const { headline, introduction, ctas = [], backgroundImage, highlightPosts = [] } = block;
+  const { headline, introduction, ctas = [], backgroundImage, highlightPosts = [] } = block || {};
+
+  const { blogs } = useStaticQuery(graphql`
+    query {
+      blogs: allDatoCmsPost(sort: { date: DESC }, limit: 3) {
+        edges {
+          node {
+            ...PostCard
+          }
+        }
+      }
+    }
+  `);
+
+  const posts = isArrayAndNotEmpty(highlightPosts) ? highlightPosts : blogs.edges.map((p) => p.node);
 
   return (
     <section className="block-updates">
@@ -14,7 +29,7 @@ const BlockUpdates = ({ block }) => {
         {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
 
         <div className="row">
-          {highlightPosts.map((post) => (
+          {posts.map((post) => (
             <div className="col-md-4" key={post.id}>
               <BlogCard blog={post} />
             </div>

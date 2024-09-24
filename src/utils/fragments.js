@@ -766,4 +766,39 @@ export const DatoCMS = graphql`
     id
     name
   }
+
+  fragment PostCard on DatoCmsPost {
+    id
+    slug
+    title
+    date
+    mainImage {
+      url
+      width
+      height
+      alt
+    }
+    topics {
+      ...Topic
+    }
+    model {
+      apiKey
+    }
+  }
+
+  fragment ResourceCard on DatoCmsResource {
+    id
+    title
+    slug
+    date
+    tags {
+      ...Tag
+    }
+    topics {
+      ...Topic
+    }
+    model {
+      apiKey
+    }
+  }
 `;
