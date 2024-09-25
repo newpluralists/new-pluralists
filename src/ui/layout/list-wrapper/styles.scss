@@ -55,16 +55,16 @@
         padding: 0;
       }
     }
-
-
   }
 
   &.funder-list {
     h1 {
+      font-family: var(--main-font);
       margin-bottom: 100px;
     }
 
     h3.sub-title {
+      font-family: var(--main-font);
       font-size: 30px;
       margin-bottom: 1rem;
 

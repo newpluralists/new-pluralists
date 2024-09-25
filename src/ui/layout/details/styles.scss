@@ -125,6 +125,7 @@
         font-style: normal;
         font-weight: 700;
         line-height: 120%;
+        font-family: var(--main-font);
       }
 
       h1,
@@ -142,6 +143,7 @@
       }
 
       a {
+        font-family: var(--main-font);
         color: var(--neutral-white);
         text-decoration: none !important;
         background-color: var(--lavander-alternative);
