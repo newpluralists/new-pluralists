@@ -7,13 +7,15 @@ configDotenv({ path: `.env` });
 module.exports = {
   siteMetadata: {
     title: `New Pluralists`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://newpluralists.org/`,
   },
   plugins: [
     {
       resolve: 'gatsby-source-datocms',
       options: {
         apiToken: process.env.DATOCMS_API_TOKEN,
+        previewMode: process.env.NODE_ENV !== 'production',
+        disableLiveReload: false,
       },
     },
     'gatsby-plugin-image',
@@ -27,7 +29,16 @@ module.exports = {
         trackingIds: [process.env.GOOGLE_ANALYTICS_ID],
         pluginConfig: {
           head: true,
+          delayOnRouteUpdate: 0,
         },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: process.env.GTM_CONTAINER_ID,
+        includeInDevelopment: false,
+        enableWebVitalsTracking: true,
       },
     },
     {
