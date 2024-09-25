@@ -1,6 +1,6 @@
 import React from 'react';
 import { renderNodeRule, StructuredText } from 'react-datocms';
-import { Button, CustomImage } from 'tectonica-ui';
+import { Button, CustomImage, CustomLink } from 'tectonica-ui';
 import BlockGridCards from '../blocks/block-grid-cards/block-grid-cards';
 import BlockNarrativeGrid from '../blocks/block-narrative-grid/block-narrative-grid';
 import { isHeading, isBlockquote, isParagraph, isRoot, isList } from 'datocms-structured-text-utils';
@@ -72,6 +72,9 @@ const StructuredTextDefault = ({ content, withCustomRules = false }) => {
           default:
             return null;
         }
+      }}
+      renderLinkToRecord={({ record, children }) => {
+        return <CustomLink to={{ path: record }}>{children}</CustomLink>;
       }}
       customNodeRules={
         withCustomRules

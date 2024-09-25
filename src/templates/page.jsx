@@ -4,6 +4,7 @@ import SeoDatoCMS from '../ui/components/seo-datocms';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import { Breadcrumbs } from 'tectonica-ui';
 import StructuredTextDefault from '../ui/components/structured-text-default';
+
 const BasicPage = ({ data: { page, breadcrumb, favicon } }) => {
   const { title, content, seo } = page;
 
@@ -35,6 +36,16 @@ export const PageQuery = graphql`
       title
       content {
         value
+        links {
+          __typename
+          id: originalId
+          ... on DatoCmsBasicPage {
+            slug
+            model {
+              apiKey
+            }
+          }
+        }
         blocks {
           __typename
           ...BlockImage
