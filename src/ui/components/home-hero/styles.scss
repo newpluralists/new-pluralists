@@ -5,6 +5,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  padding-bottom: 50px;
 
   .background-video {
     position: absolute;
@@ -21,7 +22,7 @@
     z-index: 3;
 
     .main {
-      padding-top: 30dvh;
+      padding-top: 25dvh;
       padding-bottom: 135px;
       max-width: 670px;
 
