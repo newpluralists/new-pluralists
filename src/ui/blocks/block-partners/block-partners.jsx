@@ -18,6 +18,15 @@ const BlockPartners = ({ block }) => {
     autoplay: true,
     autoplaySpeed: 0,
     cssEase: 'linear',
+    responsive: [
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const logosColumns = partners.reduce(

@@ -5,6 +5,14 @@
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: 60%;
+  position: relative;
+
+  .waves-decorator {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 
   h1 {
     color: var(--neutral-black);
@@ -36,7 +44,7 @@
 
 @media screen and (max-width: 992px) {
   .special-hero {
-    padding: 100px 0 50px 0;
+    padding: 120px 0 20px 0;
     height: auto;
     background-image: none !important;
 
@@ -46,6 +54,15 @@
 
     .introduction {
       font-size: 20px;
+    }
+
+    .waves-decorator {
+      display: block;
+
+      svg {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 }

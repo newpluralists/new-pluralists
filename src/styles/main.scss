@@ -402,6 +402,7 @@ html {
 
     &.default,
     &.primary {
+      text-transform: uppercase;
       color: var(--neutral-white);
       background-color: var(--lavander-alternative);
 
@@ -816,6 +817,12 @@ html {
             font-size: 16px;
           }
         }
+      }
+    }
+
+    .ui-floating-share-buttons {
+      button:hover {
+        opacity: 1;
       }
     }
 

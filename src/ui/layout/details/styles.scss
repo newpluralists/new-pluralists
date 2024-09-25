@@ -9,7 +9,7 @@
   }
 
   .inner-header {
-    min-height: 48dvh;
+    min-height: 550px;
     padding-top: 170px;
     background-color: rgba(128, 170, 255, .2);
     padding-bottom: 3rem;
@@ -17,7 +17,7 @@
     position: relative;
 
     &.with-image {
-      min-height: 80dvh;
+      min-height: 700px;
       margin-bottom: 0;
       padding-bottom: 0;
     }

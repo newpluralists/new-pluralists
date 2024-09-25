@@ -66,6 +66,10 @@
     .logo-wrapper {
       padding-bottom: 0px;
       padding-right: 10px;
+
+      img {
+        width: 193px;
+      }
     }
   }
 }
@@ -99,6 +103,12 @@
         &::before,
         &::after {
           display: none;
+        }
+      }
+
+      .logo-wrapper {
+        img {
+          width: auto;
         }
       }
     }
