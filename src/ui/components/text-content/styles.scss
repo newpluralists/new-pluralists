@@ -166,8 +166,29 @@
       display: none;
     }
 
+    .max-container-840 {
+      max-width: 720px !important;
+    }
+
     &.our-impact {
       padding-bottom: 0;
+    }
+  }
+}
+
+
+@media screen and (max-width: 767px) and (min-width: 545px) {
+  .text-content {
+    .max-container-840 {
+      max-width: 540px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .text-content {
+    .max-container-840 {
+      max-width: 100% !important;
     }
   }
 }
