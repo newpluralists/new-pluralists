@@ -5,12 +5,7 @@ import './styles.scss';
 
 const SpecialHero = ({ title, introduction, image, breadcrumb, variant = 'default' }) => {
   return (
-    <section
-      className={`special-hero ${variant ? variant : ''}`}
-      style={{
-        backgroundImage: `url(${image.url})`,
-      }}
-    >
+    <section className={`special-hero ${variant ? variant : ''}`}>
       <div className="waves-decorator">
         <svg width="882" height="239" viewBox="0 0 882 239" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g opacity="0.7" clip-path="url(#clip0_2334_6329)">
@@ -83,11 +78,20 @@ const SpecialHero = ({ title, introduction, image, breadcrumb, variant = 'defaul
 
       <div className="container">
         <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
+      </div>
 
-        <div className="row">
-          <div className="col-lg-6 offset-lg-6">
-            {title && <h1>{title}</h1>}
-            {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
+      <div
+        className="wrapper-hero"
+        style={{
+          backgroundImage: `url(${image.url})`,
+        }}
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-6 offset-lg-6">
+              {title && <h1>{title}</h1>}
+              {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
+            </div>
           </div>
         </div>
       </div>

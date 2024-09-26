@@ -1,11 +1,21 @@
 .special-hero {
-  height: 100dvh;
-  padding: 170px 0;
+  height: 100%;
+  min-height: 900px;
+  padding: 170px 0 0 0;
   background-color: rgba(227, 227, 255, .7);
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  background-size: 60%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   position: relative;
+
+  .wrapper-hero {
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+    background-size: contain;
+    padding-bottom: 170px;
+    position: relative;
+    flex: 1;
+  }
 
   .waves-decorator {
     display: none;
@@ -38,7 +48,25 @@
   }
 
   &.promise {
-    background-size: contain;
+    .wrapper-hero {
+      background-position-y: 0;
+      background-size: cover;
+    }
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .special-hero {
+    .wrapper-hero {
+      background-size: 65%;
+    }
+
+    &.promise {
+      .wrapper-hero {
+        background-position-y: 100%;
+        background-size: 100%;
+      }
+    }
   }
 }
 
@@ -46,7 +74,12 @@
   .special-hero {
     padding: 120px 0 20px 0;
     height: auto;
-    background-image: none !important;
+    min-height: auto;
+
+    .wrapper-hero {
+      padding: 0;
+      background-image: none !important;
+    }
 
     h1 {
       font-size: 35px;
@@ -56,6 +89,20 @@
       font-size: 20px;
     }
 
+    .waves-decorator {
+      display: flex;
+      justify-content: flex-end;
+
+      svg {
+        width: 50%;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .special-hero {
     .waves-decorator {
       display: block;
 
