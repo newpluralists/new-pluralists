@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion, ImageGallery, NarrativeBlock, NarrativeBlockAdvanced } from 'tectonica-ui';
+import { Accordion, Button, ImageGallery, NarrativeBlock, NarrativeBlockAdvanced } from 'tectonica-ui';
 import BlockPrinciples from '../blocks/block-principles/block-principles';
 import BlockImpact from '../blocks/block-impact/block-impact';
 import BlockStories from '../blocks/block-stories/block-stories';
@@ -43,6 +43,9 @@ export default function BlocksBuilder({ components }) {
 
             case 'DatoCmsNarrativeBlockFull':
               return <BlockNarrativeFull block={block} key={block.id} />;
+
+            case 'DatoCmsCta':
+              return <Button block={block} key={block.id} />;
 
             default:
               return null;

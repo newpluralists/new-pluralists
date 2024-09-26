@@ -4,9 +4,10 @@ import SeoDatoCMS from '../ui/components/seo-datocms';
 import FunderCard from '../ui/components/funder-card/funder-card';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import { Breadcrumbs } from 'tectonica-ui';
+import BlocksBuilder from '../ui/components/block-builder';
 
 const FunderList = ({ data: { funderList, funders, breadcrumb, favicon } }) => {
-  const { title, seo } = funderList;
+  const { title, blocks = [], seo } = funderList;
 
   const splitFunders = funders.edges.reduce(
     (prev, curr) => {
@@ -37,13 +38,16 @@ const FunderList = ({ data: { funderList, funders, breadcrumb, favicon } }) => {
         </div>
 
         <h3 className="sub-title extra">Affiliate Funders</h3>
-        <div className="row g-5">
+        <div className="row g-5 pb-5">
           {splitFunders.affiliate.map((funder) => (
             <div key={funder.id} className="col-12 col-md-6 col-lg-3">
               <FunderCard funder={funder} />
             </div>
           ))}
         </div>
+
+        {/* Extra Blocks */}
+        {blocks && <BlocksBuilder components={blocks} />}
       </ListWrapper>
     </>
   );
@@ -60,6 +64,10 @@ export const FunderListQuery = graphql`
     }
     funderList: datoCmsFundersList {
       title
+      blocks {
+        __typename
+        ...BlockCta
+      }
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }

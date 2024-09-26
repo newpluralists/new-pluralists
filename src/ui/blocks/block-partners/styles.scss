@@ -46,17 +46,17 @@
         left: 0;
       }
 
-      &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        height: 100%;
-        width: 120px;
-        background: linear-gradient(90deg, var(--np-neutral-2-alternative) 100%, rgba(247, 247, 247, 0.00) 0%);
-        z-index: 10;
-        top: 0;
-        right: 0;
-      }
+      // &::after {
+      //   content: '';
+      //   display: block;
+      //   position: absolute;
+      //   height: 100%;
+      //   width: 120px;
+      //   background: linear-gradient(90deg, var(--np-neutral-2-alternative) 100%, rgba(247, 247, 247, 0.00) 0%);
+      //   z-index: 10;
+      //   top: 0;
+      //   right: 0;
+      // }
 
       .slick-slide {
         padding-right: 0;

@@ -130,7 +130,12 @@
     }
 
     p {
-      font-size: 16px;
+      font-size: 18px;
+
+      &:empty:before {
+        display: block;
+        height: 0px;
+      }
     }
 
     blockquote {
@@ -145,6 +150,7 @@
 
     .top-heading {
       font-size: 25px;
+      margin-bottom: 20px;
     }
 
     .block-stories {
