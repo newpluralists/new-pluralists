@@ -33,9 +33,13 @@ exports.createPages = async ({ actions, graphql }) => {
   const ourImpactTemplate = path.resolve('./src/templates/our-impact.jsx');
   const storiesTemplate = path.resolve('./src/templates/stories.jsx');
   const granteeListTemplate = path.resolve('./src/templates/grantees-list.jsx');
+  const homeTemplate = path.resolve('./src/templates/home.jsx');
 
   const result = await graphql(`
     query AllBasicPages {
+      datoCmsHomepage {
+        id
+      }
       allDatoCmsBasicPage {
         edges {
           node {
@@ -214,6 +218,9 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `);
   const navTree = result.data.navTree.nodes;
+
+  // Home page
+  createPage({ path: '/', component: homeTemplate });
 
   // Basic pages
   result.data.allDatoCmsBasicPage.edges.forEach(({ node }) => {
