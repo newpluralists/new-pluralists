@@ -14,7 +14,7 @@ const HomeHero = ({ title, introduction, extraText, backgroundOpacity }) => {
 
   return (
     <div className={`np-ui-hero ${showVideoModal ? 'with-video' : ''}`}>
-      <video
+      {/* <video
         autoPlay
         muted
         loop
@@ -25,7 +25,7 @@ const HomeHero = ({ title, introduction, extraText, backgroundOpacity }) => {
       >
         <source src={HomeHeroVideo} type="video/mp4" />
         Your browser does not support the video tag.
-      </video>
+      </video> */}
 
       <div className="container">
         <div className="main">
