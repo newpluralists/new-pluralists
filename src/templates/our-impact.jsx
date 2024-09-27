@@ -3,12 +3,13 @@ import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import TextContent from '../ui/components/text-content/text-content';
 import SpecialHero from '../ui/layout/special-hero/special-hero';
+import Layout from '../ui/layout/layout';
 
 const OurImpact = ({ data: { page, breadcrumb, favicon } }) => {
   const { title, introduction, backgroundImage, content, seo } = page;
 
   return (
-    <>
+    <Layout>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <SpecialHero
         title={title}
@@ -18,7 +19,7 @@ const OurImpact = ({ data: { page, breadcrumb, favicon } }) => {
         variant="yellow"
       />
       <TextContent content={content} classNames={'our-impact'} showDecorator />
-    </>
+    </Layout>
   );
 };
 

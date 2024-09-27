@@ -5,6 +5,7 @@ import FunderCard from '../ui/components/funder-card/funder-card';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import { Breadcrumbs } from 'tectonica-ui';
 import BlocksBuilder from '../ui/components/block-builder';
+import Layout from '../ui/layout/layout';
 
 const FunderList = ({ data: { funderList, funders, breadcrumb, favicon } }) => {
   const { title, blocks = [], seo } = funderList;
@@ -22,7 +23,7 @@ const FunderList = ({ data: { funderList, funders, breadcrumb, favicon } }) => {
   );
 
   return (
-    <>
+    <Layout>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <ListWrapper variant="funder-list">
         <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
@@ -49,7 +50,7 @@ const FunderList = ({ data: { funderList, funders, breadcrumb, favicon } }) => {
         {/* Extra Blocks */}
         {blocks && <BlocksBuilder components={blocks} />}
       </ListWrapper>
-    </>
+    </Layout>
   );
 };
 

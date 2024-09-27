@@ -3,12 +3,13 @@ import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import { Accordion, Breadcrumbs } from 'tectonica-ui';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
+import Layout from '../ui/layout/layout';
 
 const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) => {
   const { title, seo } = granteeList;
 
   return (
-    <>
+    <Layout>
       <SeoDatoCMS seo={seo} favicon={favicon} />
 
       <ListWrapper variant="lavander">
@@ -35,7 +36,7 @@ const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) =
           />
         </div>
       </ListWrapper>
-    </>
+    </Layout>
   );
 };
 

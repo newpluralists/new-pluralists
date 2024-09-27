@@ -3,12 +3,13 @@ import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import { CustomImage, Hero } from 'tectonica-ui';
 import StructuredTextDefault from '../ui/components/structured-text-default';
+import Layout from '../ui/layout/layout';
 
 const BuilderDetail = ({ data: { builder, favicon } }) => {
   const { title, builderPosition, image, content, seo } = builder;
 
   return (
-    <>
+    <Layout>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <Hero title={title} />
 
@@ -23,7 +24,7 @@ const BuilderDetail = ({ data: { builder, favicon } }) => {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 

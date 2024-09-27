@@ -3,12 +3,13 @@ import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import SpecialHero from '../ui/layout/special-hero/special-hero';
 import TextContent from '../ui/components/text-content/text-content';
+import Layout from '../ui/layout/layout';
 
 const ThePromiseOfPluralism = ({ data: { page, breadcrumb, favicon } }) => {
   const { title, introduction, backgroundImage, content, seo } = page;
 
   return (
-    <>
+    <Layout>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <SpecialHero
         title={title}
@@ -18,7 +19,7 @@ const ThePromiseOfPluralism = ({ data: { page, breadcrumb, favicon } }) => {
         variant="promise"
       />
       <TextContent content={content} />
-    </>
+    </Layout>
   );
 };
 

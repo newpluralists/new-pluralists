@@ -3,16 +3,17 @@ import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import { Hero } from 'tectonica-ui';
 import StructuredTextDefault from '../ui/components/structured-text-default';
+import Layout from '../ui/layout/layout';
 
 const EventDetail = ({ data: { event, favicon } }) => {
   const { name, seo, content } = event;
 
   return (
-    <>
+    <Layout>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <Hero title={name} />
       <div className="container">{/* <StructuredTextDefault content={content} /> */}</div>
-    </>
+    </Layout>
   );
 };
 

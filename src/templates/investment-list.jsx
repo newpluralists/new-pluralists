@@ -3,16 +3,17 @@ import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import BlockBuilder from '../ui/components/block-builder';
 import { Hero } from 'tectonica-ui';
+import Layout from '../ui/layout/layout';
 
 const InvestmentList = ({ data: { investmentList, favicon } }) => {
   const { title, seo } = investmentList;
 
   return (
-    <>
+    <Layout>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <Hero title={title} />
       <BlockBuilder components={[]} />
-    </>
+    </Layout>
   );
 };
 
