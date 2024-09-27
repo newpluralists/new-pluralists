@@ -6,7 +6,7 @@ const FunderCard = ({ funder }) => {
 
   return (
     <div className="funder-card">
-      <img src={logo.url} alt={logo.alt} width={logo.width} height={logo.height} className="img-full" />
+      <img src={logo.url} alt={logo.alt} width={logo.width} height={logo.height} className="img-full" loading="lazy" />
       {name && <span>{name}</span>}
     </div>
   );

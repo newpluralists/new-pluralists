@@ -41,7 +41,7 @@ const BlockUpdates = ({ block }) => {
 
       {backgroundImage && (
         <div className="block-updates__background-image">
-          <img src={backgroundImage.url} alt={backgroundImage.alt} />
+          <img src={backgroundImage.url} alt={backgroundImage.alt} loading="lazy" />
         </div>
       )}
     </section>

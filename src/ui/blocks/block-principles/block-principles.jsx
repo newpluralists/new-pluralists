@@ -45,7 +45,7 @@ const BlockPrinciples = ({ block }) => {
 
           {image?.url && (
             <div className="image">
-              <img src={image.url} alt={image.alt} />
+              <img src={image.url} alt={image.alt} loading="lazy" />
             </div>
           )}
         </div>
@@ -53,7 +53,7 @@ const BlockPrinciples = ({ block }) => {
         <div className="box-section">
           {boxImage?.url && (
             <div className="image">
-              <img src={boxImage.url} alt={boxImage.alt} />
+              <img src={boxImage.url} alt={boxImage.alt} loading="lazy" />
             </div>
           )}
 

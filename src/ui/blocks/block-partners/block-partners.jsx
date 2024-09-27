@@ -55,17 +55,17 @@ const BlockPartners = ({ block }) => {
             <Slider {...settings}>
               {[...column1, ...column1].map((logo) => (
                 <div className="logo-wrapper">
-                  <img key={logo.id} src={logo.url} alt={logo.alt} />
+                  <img key={logo.id} src={logo.url} alt={logo.alt} loading="lazy" />
                 </div>
               ))}
               {[...column2, ...column2].map((logo) => (
                 <div className="logo-wrapper">
-                  <img key={logo.id} src={logo.url} alt={logo.alt} />
+                  <img key={logo.id} src={logo.url} alt={logo.alt} loading="lazy" />
                 </div>
               ))}
               {[...column3, ...column3].map((logo) => (
                 <div className="logo-wrapper">
-                  <img key={logo.id} src={logo.url} alt={logo.alt} />
+                  <img key={logo.id} src={logo.url} alt={logo.alt} loading="lazy" />
                 </div>
               ))}
             </Slider>

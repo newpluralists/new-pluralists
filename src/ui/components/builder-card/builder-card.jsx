@@ -10,6 +10,7 @@ const BuilderCard = ({ builder }) => {
         width={builder.image.width}
         height={builder.image.height}
         className="img-full"
+        loading="lazy"
       />
       <div className="card-body">
         <h5 className="card-title">{builder.title}</h5>

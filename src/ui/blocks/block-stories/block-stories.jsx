@@ -26,7 +26,7 @@ const BlockStories = ({ block }) => {
 
       {backgroundImage && (
         <div className="block-stories__background-image">
-          <img src={backgroundImage.url} alt={backgroundImage.alt} />
+          <img src={backgroundImage.url} alt={backgroundImage.alt} loading="lazy" />
         </div>
       )}
     </section>
