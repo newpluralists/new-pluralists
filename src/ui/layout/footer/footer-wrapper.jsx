@@ -1,32 +1,12 @@
 import React from 'react';
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { CustomLink } from 'tectonica-ui';
 import SocialLinkList from '../../components/social-media/social-media';
 
 import './styles.scss';
 
-const FooterWrapper = () => {
-  const { datoCmsConfiguration: footer } = useStaticQuery(graphql`
-    query Footer {
-      datoCmsConfiguration {
-        logo: logoFooter {
-          url
-          alt
-        }
-        links {
-          ...GlobalLink
-        }
-        legalLinksAndExtras {
-          ...GlobalLink
-        }
-        socialLinks {
-          id
-          url
-          socialNetwork
-        }
-      }
-    }
-  `);
+const FooterWrapper = ({ data }) => {
+  const footer = data.datoCmsConfiguration;
 
   return (
     <footer className="footer-wrapper">
@@ -114,3 +94,25 @@ const MailchimpForm = () => (
 );
 
 export default FooterWrapper;
+
+export const query = graphql`
+  query {
+    datoCmsConfiguration {
+      logo: logoFooter {
+        url
+        alt
+      }
+      links {
+        ...GlobalLink
+      }
+      legalLinksAndExtras {
+        ...GlobalLink
+      }
+      socialLinks {
+        id
+        url
+        socialNetwork
+      }
+    }
+  }
+`;

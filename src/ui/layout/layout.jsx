@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
-import HeaderWrapper from './header/header-wrapper';
-import FooterWrapper from './footer/footer-wrapper';
-import CookiesBanner from '../components/cookies-banner/cookies-banner';
+import { Slice } from 'gatsby';
 
 const Layout = ({ children }) => {
   useEffect(() => {
@@ -24,10 +22,10 @@ const Layout = ({ children }) => {
 
   return (
     <div id="np-layout">
-      <CookiesBanner />
-      <HeaderWrapper />
+      <Slice alias="cookies" />
+      <Slice alias="header" />
       <main>{children}</main>
-      <FooterWrapper />
+      <Slice alias="footer" />
     </div>
   );
 };
