@@ -69,3 +69,12 @@
     }
   }
 }
+
+@media screen and (max-width: 300px) {
+  .cookies-banner {
+    .buttons {
+      gap: 5px;
+      flex-direction: column;
+    }
+  }
+}
