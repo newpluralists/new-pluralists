@@ -14,7 +14,15 @@ const HomeHero = ({ title, introduction, extraText, backgroundOpacity }) => {
 
   return (
     <div className={`np-ui-hero ${showVideoModal ? 'with-video' : ''}`}>
-      <video autoPlay muted loop playsInline controls={showVideoModal} className="background-video">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        controls={showVideoModal}
+        poster="https://www.datocms-assets.com/141895/1726056339-no-color-video-hero_1-2.png"
+        className="background-video"
+      >
         <source src={HomeHeroVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
