@@ -4,13 +4,12 @@ import SeoDatoCMS from '../ui/components/seo-datocms';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import { Breadcrumbs } from 'tectonica-ui';
 import StructuredTextDefault from '../ui/components/structured-text-default';
-import Layout from '../ui/layout/layout';
 
 const BasicPage = ({ data: { page, breadcrumb, favicon } }) => {
   const { title, content, seo } = page;
 
   return (
-    <Layout>
+    <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <ListWrapper variant="lavander basic-page">
         <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
@@ -20,7 +19,7 @@ const BasicPage = ({ data: { page, breadcrumb, favicon } }) => {
           <StructuredTextDefault content={content} />
         </div>
       </ListWrapper>
-    </Layout>
+    </>
   );
 };
 

@@ -2,16 +2,15 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import ResourceDetail from '../ui/layout/details/resource-detail';
-import Layout from '../ui/layout/layout';
 
 const ResourceDetailPage = ({ data: { resource, relatedResources, resourceList, favicon } }) => {
   const { seo } = resource;
 
   return (
-    <Layout>
+    <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <ResourceDetail resource={resource} listLink={resourceList} related={relatedResources} />
-    </Layout>
+    </>
   );
 };
 

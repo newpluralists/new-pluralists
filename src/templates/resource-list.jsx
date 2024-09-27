@@ -5,7 +5,6 @@ import { Breadcrumbs, Dropdown } from 'tectonica-ui';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import FilterableList from '../ui/components/filterable-list/filterable-list';
 import ResourceCard from '../ui/components/resource-card/resource-card';
-import Layout from '../ui/layout/layout';
 
 const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }) => {
   const { title, seo } = resourceList;
@@ -65,7 +64,7 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
   ];
 
   return (
-    <Layout>
+    <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
 
       <ListWrapper variant="lavander">
@@ -82,7 +81,7 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
           )}
         />
       </ListWrapper>
-    </Layout>
+    </>
   );
 };
 

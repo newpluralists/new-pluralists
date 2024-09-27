@@ -4,13 +4,12 @@ import SeoDatoCMS from '../ui/components/seo-datocms';
 import BlockBuilder from '../ui/components/block-builder';
 import { Hero } from 'tectonica-ui';
 import EventCard from '../ui/components/event-card/event-card';
-import Layout from '../ui/layout/layout';
 
 const EventsList = ({ data: { eventsList, events, favicon } }) => {
   const { title, seo } = eventsList;
 
   return (
-    <Layout>
+    <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <Hero title={title} />
       <div className="container">
@@ -24,7 +23,7 @@ const EventsList = ({ data: { eventsList, events, favicon } }) => {
 
         <BlockBuilder components={[]} />
       </div>
-    </Layout>
+    </>
   );
 };
 

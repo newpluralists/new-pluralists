@@ -3,13 +3,12 @@ import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import BlockBuilder from '../ui/components/block-builder';
 import HomeHero from '../ui/components/home-hero/home-hero';
-import Layout from '../ui/layout/layout';
 
 const IndexPage = ({ data: { homepage, favicon } }) => {
   const { title, introduction, secondaryText, backgroundImageOrVideo, backgroundOpacity, blocks = [], seo } = homepage;
 
   return (
-    <Layout>
+    <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <HomeHero
         title={title}
@@ -20,7 +19,7 @@ const IndexPage = ({ data: { homepage, favicon } }) => {
       />
 
       <BlockBuilder components={blocks} />
-    </Layout>
+    </>
   );
 };
 

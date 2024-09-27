@@ -5,7 +5,6 @@ import BlogCard from '../ui/components/blog-card/blog-card';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import { Breadcrumbs, Dropdown } from 'tectonica-ui';
 import FilterableList from '../ui/components/filterable-list/filterable-list';
-import Layout from '../ui/layout/layout';
 
 const BlogList = ({ data: { blogList, blogs, favicon } }) => {
   const { title, seo } = blogList;
@@ -65,7 +64,7 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
   ];
 
   return (
-    <Layout>
+    <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
 
       <ListWrapper variant="blue">
@@ -82,7 +81,7 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
           )}
         />
       </ListWrapper>
-    </Layout>
+    </>
   );
 };
 

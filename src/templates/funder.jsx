@@ -3,13 +3,12 @@ import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import { CustomImage, Hero } from 'tectonica-ui';
 import StructuredTextDefault from '../ui/components/structured-text-default';
-import Layout from '../ui/layout/layout';
 
 const FunderDetail = ({ data: { funder, favicon } }) => {
   const { title, funderPosition, image, content, seo } = funder;
 
   return (
-    <Layout>
+    <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <Hero title={title} />
 
@@ -24,7 +23,7 @@ const FunderDetail = ({ data: { funder, favicon } }) => {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 
