@@ -23,6 +23,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sass',
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-fix-fouc',
     {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
