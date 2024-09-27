@@ -12,21 +12,7 @@ const getMenuPosition = (menus, key) => {
 };
 
 exports.createPages = async ({ actions, graphql }) => {
-  const { createPage, createRedirect, createSlice } = actions;
-
-  // Slices
-  createSlice({
-    id: `header`,
-    component: require.resolve(`./src/ui/layout/header/header-wrapper.tsx`),
-  });
-  createSlice({
-    id: `footer`,
-    component: require.resolve(`./src/ui/layout/footer/footer-wrapper.jsx`),
-  });
-  createSlice({
-    id: `cookies`,
-    component: require.resolve(`./src/ui/components/cookies-banner/cookies-banner.jsx`),
-  });
+  const { createPage, createRedirect } = actions;
 
   const pageTemplate = path.resolve('./src/templates/page.jsx');
   const blogListTemplate = path.resolve('./src/templates/blog-list.jsx');

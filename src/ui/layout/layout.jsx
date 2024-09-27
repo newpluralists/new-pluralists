@@ -3,8 +3,6 @@ import CookiesBanner from '../components/cookies-banner/cookies-banner';
 import HeaderWrapper from './header/header-wrapper';
 import FooterWrapper from './footer/footer-wrapper';
 
-import '../../styles/main.scss';
-
 const Layout = ({ children }) => {
   useEffect(() => {
     const handleNavbarSticky = () => {
