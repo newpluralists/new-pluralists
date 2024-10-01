@@ -55,6 +55,11 @@
         padding: 0;
       }
     }
+
+    img {
+      width: auto;
+      height: auto;
+    }
   }
 
   &.funder-list {
@@ -112,6 +117,31 @@
       .max-container-840 {
         padding-left: 0 !important;
         padding-right: 0 !important;
+      }
+    }
+
+    &.basic-page {
+      .waves-decorator {
+        display: flex;
+        justify-content: flex-end;
+
+        svg {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .list-wrapper {
+    &.basic-page {
+      .waves-decorator {
+        display: block;
+
+        svg {
+          width: 100%;
+        }
       }
     }
   }
