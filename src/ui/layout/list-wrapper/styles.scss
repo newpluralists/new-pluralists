@@ -60,6 +60,12 @@
       width: auto;
       height: auto;
     }
+
+    mark {
+      color: var(--neutral-white);
+      text-decoration: none !important;
+      background-color: var(--lavander-alternative);
+    }
   }
 
   &.funder-list {
