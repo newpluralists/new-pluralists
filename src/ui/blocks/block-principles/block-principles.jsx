@@ -25,7 +25,7 @@ const BlockPrinciples = ({ block }) => {
         setActiveHeadline((prev) => (prev + 1) % headlines.length);
         setFade(true);
       }, 500);
-    }, 3000);
+    }, 5500);
 
     return () => clearInterval(interval);
   }, [headlines.length]);

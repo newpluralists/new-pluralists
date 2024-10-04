@@ -131,19 +131,16 @@ const StructuredTextDefault = ({ content, withCustomRules = false }) => {
               }),
               renderNodeRule(isList, ({ adapter: { renderNode }, node, children, key, ancestors }) => {
                 if (isRoot(ancestors[0])) {
-                  // If this paragraph node is a top-level one, give it a special class
                   return (
                     <div className="max-container-840 center" key={key}>
-                      {renderNode('p', { className: '' }, children)}
+                      {renderNode('ul', { className: '' }, children)}
                     </div>
                   );
                 } else {
-                  // Proceed with default paragraph rendering...
-                  // return renderNode('p', { key }, children);
                   return (
-                    <div className="max-container-840 center" key={key}>
+                    <ul className="max-container-840 center" key={key}>
                       <React.Fragment>{children}</React.Fragment>
-                    </div>
+                    </ul>
                   );
                 }
               }),
