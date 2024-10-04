@@ -700,6 +700,7 @@ export const DatoCMS = graphql`
   fragment BlockNarrativeGrid on DatoCmsNarrativeGrid {
     id: originalId
     headline
+    introduction
     gridItems: items {
       ...BlockNarrativeBlock
     }

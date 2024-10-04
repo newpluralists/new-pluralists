@@ -4,12 +4,13 @@ import { ButtonList, isArrayAndNotEmpty, NarrativeBlock } from 'tectonica-ui';
 import './styles.scss';
 
 const BlockNarrativeGrid = ({ block }) => {
-  const { headline, items = [], ctas = [] } = block;
+  const { headline, introduction, items = [], ctas = [] } = block;
 
   return (
-    <section className="block-narrative-grid">
+    <section className={`block-narrative-grid ${introduction ? 'with-introduction' : ''}`}>
       <div className="container">
         {headline && <h3>{headline}</h3>}
+        {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
 
         {isArrayAndNotEmpty(items) && (
           <div className="grid">
