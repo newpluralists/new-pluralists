@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './styles.scss';
 
-const FilterableList = ({ data, filters, renderItem }) => {
+const FilterableList = ({ data, filters = [], renderItem }) => {
   const [filteredData, setFilteredData] = React.useState(data);
   const [visibleItems, setVisibleItems] = React.useState(10);
   const [activeFilters, setActiveFilters] = React.useState({});
@@ -35,25 +35,27 @@ const FilterableList = ({ data, filters, renderItem }) => {
 
   return (
     <div className="filterable-list">
-      <div className="filters">
-        {filters.map(({ key, label, FilterComponent }) => (
-          <div key={key} className="filter">
-            <label>{label}</label>
-            <FilterComponent
-              value={activeFilters[key] || ''}
-              onChange={(value) => setActiveFilters((prev) => ({ ...prev, [key]: value }))}
-            />
-          </div>
-        ))}
-        <button className="button-block primary" onClick={applyFilters}>
-          Apply Filters
-        </button>
-        {Object.keys(activeFilters).length > 0 && isFilterApply && (
-          <button className="button-block secondary" onClick={resetFilters}>
-            Reset Filters
+      {filters.length > 0 && (
+        <div className="filters">
+          {filters.map(({ key, label, FilterComponent }) => (
+            <div key={key} className="filter">
+              <label>{label}</label>
+              <FilterComponent
+                value={activeFilters[key] || ''}
+                onChange={(value) => setActiveFilters((prev) => ({ ...prev, [key]: value }))}
+              />
+            </div>
+          ))}
+          <button className="button-block primary" onClick={applyFilters}>
+            Apply Filters
           </button>
-        )}
-      </div>
+          {Object.keys(activeFilters).length > 0 && isFilterApply && (
+            <button className="button-block secondary" onClick={resetFilters}>
+              Reset Filters
+            </button>
+          )}
+        </div>
+      )}
 
       <div className="row">{filteredData.slice(0, visibleItems).map(renderItem)}</div>
 

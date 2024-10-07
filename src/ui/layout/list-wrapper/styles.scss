@@ -26,6 +26,31 @@
       --bs-gutter-x: 24px;
       --bs-gutter-y: 54px;
     }
+
+    .load-more {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 55px;
+
+      button {
+        padding: 8px 0px;
+        color: var(--lavander-alternative);
+        font-family: var(--main-font);
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 135%;
+        text-transform: uppercase;
+        background-color: transparent;
+        border: unset;
+
+        &:hover {
+          opacity: 0.8;
+          text-decoration: underline;
+        }
+      }
+    }
   }
 
   &.blue {
@@ -123,6 +148,14 @@
       .max-container-840 {
         padding-left: 0 !important;
         padding-right: 0 !important;
+      }
+
+      .load-more {
+        margin-top: 40px;
+
+        button {
+          font-size: 18px;
+        }
       }
     }
 

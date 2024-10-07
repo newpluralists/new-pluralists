@@ -6,6 +6,11 @@ import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 
 const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) => {
   const { title, seo } = granteeList;
+  const [visibleItems, setVisibleItems] = React.useState(10);
+
+  const loadMoreItems = () => {
+    setVisibleItems((prev) => prev + 10);
+  };
 
   return (
     <>
@@ -18,7 +23,7 @@ const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) =
         <div className="max-container-840">
           <Accordion
             block={{
-              items: grantees.edges.map((grantee) => ({
+              items: grantees.edges.slice(0, visibleItems).map((grantee) => ({
                 title: grantee.node.name,
                 children: (
                   <ul>
@@ -33,6 +38,12 @@ const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) =
               })),
             }}
           />
+
+          {visibleItems < grantees.edges.length && (
+            <div className="load-more">
+              <button onClick={loadMoreItems}>Load More</button>
+            </div>
+          )}
         </div>
       </ListWrapper>
     </>
@@ -54,7 +65,7 @@ export const GranteeListQuery = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
     }
-    grantees: allDatoCmsGrantee {
+    grantees: allDatoCmsGrantee(sort: { name: ASC }) {
       edges {
         node {
           id
