@@ -24,8 +24,8 @@ const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) =
                   <ul>
                     {grantee.node.projects.map((project) => (
                       <li key={project.id}>
-                        <h3>{project.name}</h3>
-                        <span>{project.portfolio.name}</span>
+                        {project.name && <h3>{project.name}</h3>}
+                        {project.portfolio?.name && <span>{project.portfolio.name}</span>}
                       </li>
                     ))}
                   </ul>
