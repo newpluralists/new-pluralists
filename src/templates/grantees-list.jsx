@@ -5,7 +5,7 @@ import { Accordion, Breadcrumbs } from 'tectonica-ui';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 
 const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) => {
-  const { title, seo } = granteeList;
+  const { title, introduction, seo } = granteeList;
   const [visibleItems, setVisibleItems] = React.useState(10);
 
   const loadMoreItems = () => {
@@ -19,6 +19,11 @@ const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) =
       <ListWrapper variant="lavander">
         <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
         <h1>{title}</h1>
+        {introduction && (
+          <div className="basic-content">
+            <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />
+          </div>
+        )}
 
         <div className="max-container-840">
           <Accordion
@@ -26,14 +31,30 @@ const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) =
               items: grantees.edges.slice(0, visibleItems).map((grantee) => ({
                 title: grantee.node.name,
                 children: (
-                  <ul>
-                    {grantee.node.projects.map((project) => (
-                      <li key={project.id}>
-                        {project.name && <h3>{project.name}</h3>}
-                        {project.portfolio?.name && <span>{project.portfolio.name}</span>}
-                      </li>
-                    ))}
-                  </ul>
+                  <>
+                    <ul>
+                      {grantee.node.projects.map((project) => (
+                        <li key={project.id}>
+                          {project.name && <h3>{project.name}</h3>}
+                          {project.portfolio?.name && <span>{project.portfolio.name}</span>}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {grantee.node.website && (
+                      <a
+                        className="button-block primary small"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+
+                          window.open(grantee.node.website);
+                        }}
+                      >
+                        Website
+                      </a>
+                    )}
+                  </>
                 ),
               })),
             }}
@@ -61,6 +82,7 @@ export const GranteeListQuery = graphql`
     }
     granteeList: datoCmsGranteesList {
       title
+      introduction
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
@@ -70,6 +92,7 @@ export const GranteeListQuery = graphql`
         node {
           id
           name
+          website
           projects {
             ... on DatoCmsProject {
               id

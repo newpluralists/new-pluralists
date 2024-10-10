@@ -337,6 +337,11 @@ html {
       background-image: url('../images/button-icon.svg');
       background-repeat: no-repeat;
     }
+
+    &.small {
+      font-size: 18px;
+      padding: 6px 14px;
+    }
   }
 
   img {
