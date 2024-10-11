@@ -26,8 +26,13 @@ export const ResourceDetailQuery = graphql`
     resource: datoCmsResource(id: { eq: $id }) {
       title
       date
+      externalUrl
       tags {
         ...Tag
+      }
+      topics {
+        id
+        name
       }
       content {
         value

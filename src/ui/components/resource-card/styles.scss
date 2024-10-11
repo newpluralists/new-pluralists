@@ -14,6 +14,12 @@
           font-weight: 700;
           line-height: 120%;
         }
+
+        .tags-date-wrapper {
+          .tags {
+            flex-wrap: wrap;
+          }
+        }
       }
     }
 

@@ -792,11 +792,13 @@ export const DatoCMS = graphql`
     title
     slug
     date
+    externalUrl
     tags {
       ...Tag
     }
     topics {
-      ...Topic
+      id
+      name
     }
     model {
       apiKey

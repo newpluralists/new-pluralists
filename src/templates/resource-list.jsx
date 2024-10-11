@@ -13,8 +13,10 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
     const years = new Set();
     years.add('All');
     resources.edges.forEach(({ node }) => {
-      const date = new Date(node.date);
-      years.add(date.getFullYear());
+      if (node.date) {
+        const date = new Date(node.date);
+        years.add(date.getFullYear());
+      }
     });
     return Array.from(years);
   }, [resources.edges]);

@@ -97,7 +97,7 @@ const ResourceDetail = ({ resource, related, listLink }) => {
 
         <div className="container">
           <div className="inner-container">
-            <p className="date">{formatDate(date)}</p>
+            {date && <p className="date">{formatDate(date)}</p>}
 
             <div className="main-content">
               <StructuredTextDefault content={content} />
