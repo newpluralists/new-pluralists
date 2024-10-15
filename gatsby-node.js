@@ -37,6 +37,15 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const result = await graphql(`
     query AllBasicPages {
+      redirects: allDatoCmsRedirect {
+        edges {
+          node {
+            id
+            from
+            to
+          }
+        }
+      }
       datoCmsHomepage {
         id
       }
@@ -471,6 +480,16 @@ exports.createPages = async ({ actions, graphql }) => {
       path: slug,
       component: granteeListTemplate,
       context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+    });
+  }
+
+  // Redirects
+  const redirects = result.data.redirects.edges;
+  if (redirects) {
+    redirects.forEach((redirect) => {
+      const { from, to } = redirect.node;
+      createRedirect({ fromPath: from, toPath: to, isPermanent: true });
+      console.log(`Creating redirect from ${from} to ${to}`);
     });
   }
 };
