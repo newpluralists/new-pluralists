@@ -2,8 +2,11 @@
   height: 100%;
 
   .ui-card {
+    min-height: 370px;
+    background-color: var(--neutral-white);
+
     .card-content {
-      padding: 30px 20px;
+      padding: 20px;
 
       .card-data {
         h3 {
@@ -13,26 +16,39 @@
           font-style: normal;
           font-weight: 700;
           line-height: 120%;
+          margin-bottom: 10px;
+        }
+
+        .introduction {
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 135%;
+          color: rgba(0, 0, 0, .6);
         }
 
         .tags-date-wrapper {
+          margin-bottom: 23px;
+
           .tags {
             flex-wrap: wrap;
+
+            .tag {
+              background: var(--lavander-alternative) !important;
+              color: var(--neutral-white) !important;
+            }
+          }
+
+          .date {
+            display: none;
           }
         }
       }
     }
 
     &:hover {
-      background-color: var(--lavander);
-
-      .card-content {
-        .card-data {
-          h3 {
-            color: var(--neutral-white);
-          }
-        }
-      }
+      background-color: var(--neutral-white);
+      box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.15);
     }
   }
 }

@@ -83,7 +83,7 @@ const SpecialHero = ({ title, introduction, image, breadcrumb, variant = 'defaul
       <div
         className="wrapper-hero"
         style={{
-          backgroundImage: `url(${image.url})`,
+          backgroundImage: image ? `url(${image.url})` : undefined,
         }}
       >
         <div className="container">

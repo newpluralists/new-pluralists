@@ -1,7 +1,13 @@
 import * as React from 'react';
 import './styles.scss';
 
-const FilterableList = ({ data, filters = [], renderItem }) => {
+const FilterableList = ({
+  data,
+  applyLabel = 'Apply Filters',
+  resetLabel = 'Reset Filters',
+  filters = [],
+  renderItem,
+}) => {
   const [filteredData, setFilteredData] = React.useState(data);
   const [visibleItems, setVisibleItems] = React.useState(10);
   const [activeFilters, setActiveFilters] = React.useState({});
@@ -47,11 +53,11 @@ const FilterableList = ({ data, filters = [], renderItem }) => {
             </div>
           ))}
           <button className="button-block primary" onClick={applyFilters}>
-            Apply Filters
+            {applyLabel}
           </button>
           {Object.keys(activeFilters).length > 0 && isFilterApply && (
             <button className="button-block secondary" onClick={resetFilters}>
-              Reset Filters
+              {resetLabel}
             </button>
           )}
         </div>

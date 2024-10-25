@@ -51,8 +51,14 @@ export const ResourceDetailQuery = graphql`
         id
         title
         slug
+        date
+        introduction
         tags {
           ...Tag
+        }
+        topics {
+          id
+          name
         }
         model {
           apiKey

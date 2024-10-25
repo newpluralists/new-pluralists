@@ -1,12 +1,12 @@
 import React from 'react';
-import { Breadcrumbs, FloatingShareButtons, formatDate, Tags, truncateText } from 'tectonica-ui';
+import { Breadcrumbs, Button, FloatingShareButtons, formatDate, truncateText } from 'tectonica-ui';
 import StructuredTextDefault from '../../components/structured-text-default';
 import BlockResources from '../../blocks/block-resources/block-resources';
 
 import './styles.scss';
 
 const ResourceDetail = ({ resource, related, listLink }) => {
-  const { title, content, date, tags } = resource;
+  const { title, content, date, tags, externalUrl } = resource;
 
   return (
     <>
@@ -89,26 +89,49 @@ const ResourceDetail = ({ resource, related, listLink }) => {
               <h1>{title}</h1>
             </div>
 
-            <div className="share-buttons">
+            {/* <div className="share-buttons">
               <FloatingShareButtons />
+            </div> */}
+          </div>
+        </div>
+        <div className="tags-wrapper">
+          <div className="container">
+            <span className="label">Tags</span>
+            <div className="resource-tags">
+              {tags.map((tag) => (
+                <span
+                  style={{
+                    backgroundColor: tag.color ? tag.color.hex : undefined,
+                  }}
+                >
+                  {tag.name}
+                </span>
+              ))}
             </div>
           </div>
         </div>
 
         <div className="container">
           <div className="inner-container">
-            {date && <p className="date">{formatDate(date)}</p>}
+            <div className="author-name">
+              <p>
+                BY <span>Author</span>
+              </p>
+              {date && <p className="date">{formatDate(date)}</p>}
+            </div>
 
             <div className="main-content">
               <StructuredTextDefault content={content} />
 
-              {tags && <Tags tags={tags} />}
+              <div className="view-resource">
+                <Button block={{ title: 'View Resource', link: { externalUrl } }} />
+              </div>
             </div>
           </div>
         </div>
       </article>
 
-      <section className="blog-related">
+      <section className="blog-related purple">
         <BlockResources
           block={{
             headline: 'Related Resources',

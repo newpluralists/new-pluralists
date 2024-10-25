@@ -53,6 +53,10 @@
       background-size: cover;
     }
   }
+
+  &.resources {
+    background-color: rgba(128, 170, 255, .2);
+  }
 }
 
 @media screen and (max-width: 1600px) {

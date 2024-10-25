@@ -568,10 +568,7 @@ export const DatoCMS = graphql`
         introduction
         cardColorVariant
         tags {
-          ... on DatoCmsTag {
-            id
-            name
-          }
+          ...Tag
         }
         image {
           width
@@ -663,6 +660,9 @@ export const DatoCMS = graphql`
   fragment Tag on DatoCmsTag {
     id
     name
+    color {
+      hex
+    }
   }
 
   fragment Topic on DatoCmsTopic {
@@ -793,6 +793,7 @@ export const DatoCMS = graphql`
     slug
     date
     externalUrl
+    introduction
     tags {
       ...Tag
     }

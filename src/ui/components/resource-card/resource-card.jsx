@@ -1,19 +1,20 @@
 import React from 'react';
-import { Card, truncateText } from 'tectonica-ui';
+import { Card } from 'tectonica-ui';
 
 import './styles.scss';
 
 const ResourceCard = ({ resource }) => {
-  const { title, slug, model, tags } = resource;
+  const { title, slug, model, date, introduction, topics } = resource;
 
   return (
     <div className="ui-resource-card">
       <Card
         card={{
-          title: truncateText(title, 80),
+          title: title,
+          introduction: introduction,
           cta: { link: { path: { slug, model } } },
-          tags,
-          date: null,
+          tags: topics,
+          date: date,
         }}
       />
     </div>
