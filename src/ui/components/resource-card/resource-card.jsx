@@ -1,22 +1,29 @@
 import React from 'react';
-import { Card } from 'tectonica-ui';
+import { Card, Tags } from 'tectonica-ui';
+import { Link } from 'gatsby';
 
 import './styles.scss';
 
 const ResourceCard = ({ resource }) => {
-  const { title, slug, model, date, introduction, topics } = resource;
+  const { title, slug, date, introduction, topics } = resource;
 
   return (
     <div className="ui-resource-card">
-      <Card
-        card={{
-          title: title,
-          introduction: introduction,
-          cta: { link: { path: { slug, model } } },
-          tags: topics,
-          date: date,
-        }}
-      />
+      <Link class="ui-card no-image " to={`/resources/${slug}`}>
+        <div class="card-content">
+          <div class="card-data">
+            <div class="tags-date-wrapper">
+              <Tags tags={topics} />
+
+              <div class="date">February 28, 2023</div>
+            </div>
+            <h3>{title}</h3>
+            <div class="introduction">{introduction}</div>
+
+            {date && <div className="date">{date}</div>}
+          </div>
+        </div>
+      </Link>
     </div>
   );
 };

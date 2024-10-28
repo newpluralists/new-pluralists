@@ -6,7 +6,7 @@ import BlockResources from '../../blocks/block-resources/block-resources';
 import './styles.scss';
 
 const ResourceDetail = ({ resource, related, listLink }) => {
-  const { title, content, date, tags, externalUrl } = resource;
+  const { title, content, authorName, date, tags, externalUrl } = resource;
 
   return (
     <>
@@ -115,9 +115,11 @@ const ResourceDetail = ({ resource, related, listLink }) => {
           </div>
           <div className="inner-container">
             <div className="author-name">
-              <p>
-                BY <span>Author</span>
-              </p>
+              {authorName && (
+                <p>
+                  BY <span>{authorName}</span>
+                </p>
+              )}
               {date && <p className="date">{formatDate(date)}</p>}
             </div>
 

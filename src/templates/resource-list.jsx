@@ -98,7 +98,7 @@ export const ResourceListQuery = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
     }
-    resources: allDatoCmsResource {
+    resources: allDatoCmsResource(sort: { date: DESC }) {
       edges {
         node {
           ...ResourceCard

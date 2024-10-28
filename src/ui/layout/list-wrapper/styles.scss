@@ -177,6 +177,12 @@
         }
       }
     }
+
+    &.resources {
+      .container.children .filterable-list .row {
+        --bs-gutter-x: 25px;
+      }
+    }
   }
 }
 

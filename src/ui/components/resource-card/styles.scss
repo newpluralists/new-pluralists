@@ -9,6 +9,10 @@
       padding: 20px;
 
       .card-data {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
         h3 {
           color: var(--neutral-black);
           font-family: var(--main-font);
@@ -43,6 +47,20 @@
             display: none;
           }
         }
+
+        .date {
+          flex: 1;
+          display: flex;
+          align-items: flex-end;
+          color: var(--Boilerplate-Neutral-N3, #262626);
+          font-family: var(--main-font);
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 135%;
+          letter-spacing: 0.8px;
+          text-transform: uppercase;
+        }
       }
     }
 
@@ -56,12 +74,19 @@
 @media screen and (max-width: 992px) {
   .ui-resource-card {
     .ui-card {
+      min-height: auto;
+
       .card-content {
         padding: 10px 10px 20px 10px;
 
         .card-data {
           h3 {
             font-size: 20px;
+          }
+
+          .date {
+            margin-top: 1rem;
+            font-size: 14px;
           }
         }
       }
