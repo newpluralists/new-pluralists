@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, isArrayAndNotEmpty, Tags } from 'tectonica-ui';
 import { Link } from 'gatsby';
+import { formatDateAsMonthYear } from '../../../utils/date.utils';
 
 import './styles.scss';
 
@@ -20,7 +21,7 @@ const ResourceCard = ({ resource }) => {
 
             <h3>{title}</h3>
             <div class="introduction">{introduction}</div>
-            {date && <div className="date">{date}</div>}
+            {date && <div className="date">{formatDateAsMonthYear(date)}</div>}
           </div>
         </div>
       </Link>
