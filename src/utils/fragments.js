@@ -718,6 +718,12 @@ export const DatoCMS = graphql`
         id
         slug
         title
+        date
+        introduction
+        topics {
+          id
+          name
+        }
         tags {
           ...Tag
         }
