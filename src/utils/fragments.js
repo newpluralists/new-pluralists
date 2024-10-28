@@ -660,6 +660,7 @@ export const DatoCMS = graphql`
   fragment Tag on DatoCmsTag {
     id
     name
+    description
     color {
       hex
     }

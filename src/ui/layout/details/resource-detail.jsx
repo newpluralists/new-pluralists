@@ -88,10 +88,6 @@ const ResourceDetail = ({ resource, related, listLink }) => {
             <div className="inner-container">
               <h1>{title}</h1>
             </div>
-
-            {/* <div className="share-buttons">
-              <FloatingShareButtons />
-            </div> */}
           </div>
         </div>
         <div className="tags-wrapper">
@@ -100,11 +96,13 @@ const ResourceDetail = ({ resource, related, listLink }) => {
             <div className="resource-tags">
               {tags.map((tag) => (
                 <span
+                  className="inner-tag"
                   style={{
                     backgroundColor: tag.color ? tag.color.hex : undefined,
                   }}
                 >
                   {tag.name}
+                  {tag.description && <span className="tooltip">{tag.description}</span>}
                 </span>
               ))}
             </div>
@@ -112,6 +110,9 @@ const ResourceDetail = ({ resource, related, listLink }) => {
         </div>
 
         <div className="container">
+          <div className="share-buttons">
+            <FloatingShareButtons />
+          </div>
           <div className="inner-container">
             <div className="author-name">
               <p>

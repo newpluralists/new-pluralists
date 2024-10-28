@@ -11,12 +11,22 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
   const { title, introduction, image, seo } = resourceList;
 
   const topicsForFilter = React.useMemo(() => {
-    const topics = new Set();
-    topics.add({ name: 'All', id: 'All' });
+    const topicsMap = new Map();
+    topicsMap.set('All', { name: 'All', id: 'All' });
+
     resources.edges.forEach(({ node }) => {
-      node.topics.forEach((topic) => topics.add(topic));
+      node.topics.forEach((topic) => {
+        if (!topicsMap.has(topic.id)) {
+          topicsMap.set(topic.id, topic);
+        }
+      });
     });
-    return Array.from(topics);
+
+    return Array.from(topicsMap.values()).sort((a, b) => {
+      if (a.id === 'All') return -1;
+      if (b.id === 'All') return 1;
+      return a.name.localeCompare(b.name);
+    });
   }, [resources.edges]);
 
   const filters = [
