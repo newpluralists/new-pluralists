@@ -33,11 +33,12 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
     {
       key: 'topic',
       label: 'Where would you like to start learning about pluralism?',
-      FilterComponent: ({ value, onChange }) => (
+      FilterComponent: ({ value, title, onChange }) => (
         <Dropdown
           options={topicsForFilter.map((topic) => ({ label: topic.name, value: topic.name }))}
           onSelect={onChange}
           value={value}
+          title={title}
         />
       ),
       filterFunction: (item, topic) => {

@@ -42,11 +42,12 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
     {
       key: 'topic',
       label: 'Filter by topic',
-      FilterComponent: ({ value, onChange }) => (
+      FilterComponent: ({ value, title, onChange }) => (
         <Dropdown
           options={topicsForFilter.map((topic) => ({ label: topic.name, value: topic.name }))}
           onSelect={onChange}
           value={value}
+          title={title}
         />
       ),
       filterFunction: (item, topic) => {
@@ -58,11 +59,12 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
     {
       key: 'year',
       label: 'Filter by date',
-      FilterComponent: ({ value, onChange }) => (
+      FilterComponent: ({ value, title, onChange }) => (
         <Dropdown
           options={yearsForFilter.map((year) => ({ label: year, value: year }))}
           onSelect={onChange}
           value={value}
+          title={title}
         />
       ),
       filterFunction: (item, year) => {

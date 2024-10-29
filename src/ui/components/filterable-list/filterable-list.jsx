@@ -97,6 +97,7 @@ const FilterableList = ({
             <div key={key} className="filter">
               <label>{label}</label>
               <FilterComponent
+                title={activeFilters[key] || undefined}
                 value={activeFilters[key] || ''}
                 onChange={(value) => setActiveFilters((prev) => ({ ...prev, [key]: value }))}
               />
