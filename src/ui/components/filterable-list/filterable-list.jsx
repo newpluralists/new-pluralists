@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { navigate } from 'gatsby';
+import { useLocation } from '@reach/router';
+
 import './styles.scss';
 
 const FilterableList = ({
@@ -8,16 +11,37 @@ const FilterableList = ({
   filters = [],
   renderItem,
 }) => {
+  const location = useLocation();
   const [filteredData, setFilteredData] = React.useState(data);
   const [visibleItems, setVisibleItems] = React.useState(10);
   const [activeFilters, setActiveFilters] = React.useState({});
   const [isFilterApply, setIsFilterApply] = React.useState(false);
 
-  const applyFilters = () => {
+  React.useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const page = parseInt(params.get('page'), 10) || 1;
+    const queryFilters = {};
+
+    filters.forEach(({ key }) => {
+      const value = params.get(key);
+      if (value) queryFilters[key] = value;
+    });
+
+    setActiveFilters(queryFilters);
+    filterData(queryFilters, page);
+
+    const hasFilters = Object.keys(queryFilters).length > 0;
+    if (hasFilters) {
+      const wrapper = document.querySelector('#item-list');
+      if (wrapper) wrapper.scrollIntoView({ behavior: 'auto' });
+    }
+  }, [location.search]);
+
+  const filterData = (filtersToApply, page = 1) => {
     let filtered = data;
 
     filters.forEach(({ key, filterFunction }) => {
-      const activeValue = activeFilters[key];
+      const activeValue = filtersToApply[key];
       if (activeValue) {
         filtered = filtered.filter((item) => filterFunction(item, activeValue));
       }
@@ -25,7 +49,20 @@ const FilterableList = ({
 
     setFilteredData(filtered);
     setIsFilterApply(true);
-    setVisibleItems(10);
+    setVisibleItems(page * 10);
+  };
+
+  const applyFilters = () => {
+    const params = new URLSearchParams();
+    params.append('page', 1);
+
+    Object.keys(activeFilters).forEach((key) => {
+      if (activeFilters[key]) {
+        params.append(key, activeFilters[key]);
+      }
+    });
+
+    navigate(`?${params.toString()}`);
   };
 
   const resetFilters = () => {
@@ -33,14 +70,21 @@ const FilterableList = ({
     setFilteredData(data);
     setVisibleItems(10);
     setIsFilterApply(false);
+    navigate(location.pathname);
   };
 
   const loadMoreItems = () => {
+    const nextPage = Math.ceil(visibleItems / 10) + 1;
     setVisibleItems((prev) => prev + 10);
+
+    const params = new URLSearchParams(location.search);
+    params.set('page', nextPage);
+
+    navigate(`?${params.toString()}`, { replace: true });
   };
 
   return (
-    <div className="filterable-list">
+    <div id="item-list" className="filterable-list">
       {filters.length > 0 && (
         <div className="filters">
           {filters.map(({ key, label, FilterComponent }) => (

@@ -20,12 +20,22 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
   }, [blogs.edges]);
 
   const topicsForFilter = React.useMemo(() => {
-    const topics = new Set();
-    topics.add({ name: 'All', id: 'All' });
+    const topicsMap = new Map();
+    topicsMap.set('All', { name: 'All', id: 'All' });
+
     blogs.edges.forEach(({ node }) => {
-      node.topics.forEach((topic) => topics.add(topic));
+      node.topics.forEach((topic) => {
+        if (!topicsMap.has(topic.id)) {
+          topicsMap.set(topic.name, topic);
+        }
+      });
     });
-    return Array.from(topics);
+
+    return Array.from(topicsMap.values()).sort((a, b) => {
+      if (a.id === 'All') return -1;
+      if (b.id === 'All') return 1;
+      return a.name.localeCompare(b.name);
+    });
   }, [blogs.edges]);
 
   const filters = [
@@ -34,7 +44,7 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
       label: 'Filter by topic',
       FilterComponent: ({ value, onChange }) => (
         <Dropdown
-          options={topicsForFilter.map((topic) => ({ label: topic.name, value: topic.id }))}
+          options={topicsForFilter.map((topic) => ({ label: topic.name, value: topic.name }))}
           onSelect={onChange}
           value={value}
         />
@@ -42,7 +52,7 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
       filterFunction: (item, topic) => {
         const topics = item.node.topics;
         if (topic === 'All') return topics;
-        return topics.some((t) => t.id === topic);
+        return topics.some((t) => t.name === topic);
       },
     },
     {
@@ -58,7 +68,7 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
       filterFunction: (item, year) => {
         if (year === 'All') return true;
         const date = new Date(item.node.date);
-        return date.getFullYear() === year;
+        return date.getFullYear() === Number(year);
       },
     },
   ];

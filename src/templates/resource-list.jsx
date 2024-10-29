@@ -17,7 +17,7 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
     resources.edges.forEach(({ node }) => {
       node.topics.forEach((topic) => {
         if (!topicsMap.has(topic.id)) {
-          topicsMap.set(topic.id, topic);
+          topicsMap.set(topic.name, topic);
         }
       });
     });
@@ -35,7 +35,7 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
       label: 'Where would you like to start learning about pluralism?',
       FilterComponent: ({ value, onChange }) => (
         <Dropdown
-          options={topicsForFilter.map((topic) => ({ label: topic.name, value: topic.id }))}
+          options={topicsForFilter.map((topic) => ({ label: topic.name, value: topic.name }))}
           onSelect={onChange}
           value={value}
         />
@@ -43,7 +43,7 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
       filterFunction: (item, topic) => {
         const topics = item.node.topics;
         if (topic === 'All') return topics;
-        return topics.some((t) => t.id === topic);
+        return topics.some((t) => t.name === topic);
       },
     },
   ];

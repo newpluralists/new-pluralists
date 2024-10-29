@@ -40,6 +40,7 @@
     .share-buttons {
       position: absolute;
       bottom: 75px;
+      z-index: 1;
     }
   }
 
@@ -344,6 +345,24 @@
   &.purple {
     .block-resources {
       background: rgba(125, 125, 240, .2);
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .blog-detail {
+    .inner-header {
+      .share-buttons {
+        left: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1025px) and (min-width: 992px) {
+  .blog-detail {
+    .inner-container {
+      padding-left: 15px;
     }
   }
 }
