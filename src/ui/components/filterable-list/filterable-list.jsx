@@ -16,6 +16,7 @@ const FilterableList = ({
   const [visibleItems, setVisibleItems] = React.useState(10);
   const [activeFilters, setActiveFilters] = React.useState({});
   const [isFilterApply, setIsFilterApply] = React.useState(false);
+  const [shouldScrollToTop, setShouldScrollToTop] = React.useState(true);
 
   React.useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -31,10 +32,12 @@ const FilterableList = ({
     filterData(queryFilters, page);
 
     const hasFilters = Object.keys(queryFilters).length > 0;
-    if (hasFilters) {
+    if (hasFilters && shouldScrollToTop) {
       const wrapper = document.querySelector('#item-list');
       if (wrapper) wrapper.scrollIntoView({ behavior: 'auto' });
     }
+
+    setShouldScrollToTop(false);
   }, [location.search]);
 
   const filterData = (filtersToApply, page = 1) => {
@@ -62,6 +65,7 @@ const FilterableList = ({
       }
     });
 
+    setShouldScrollToTop(true);
     navigate(`?${params.toString()}`);
   };
 
@@ -70,6 +74,7 @@ const FilterableList = ({
     setFilteredData(data);
     setVisibleItems(10);
     setIsFilterApply(false);
+    setShouldScrollToTop(true);
     navigate(location.pathname);
   };
 
@@ -80,7 +85,8 @@ const FilterableList = ({
     const params = new URLSearchParams(location.search);
     params.set('page', nextPage);
 
-    navigate(`?${params.toString()}`, { replace: true });
+    setShouldScrollToTop(false);
+    window.history.replaceState({}, '', `${location.pathname}?${params.toString()}`);
   };
 
   return (
