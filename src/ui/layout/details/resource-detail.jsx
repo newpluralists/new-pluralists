@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumbs, Button, FloatingShareButtons, formatDate, truncateText } from 'tectonica-ui';
+import { Breadcrumbs, Button, FloatingShareButtons, formatDate, isArrayAndNotEmpty, truncateText } from 'tectonica-ui';
 import StructuredTextDefault from '../../components/structured-text-default';
 import BlockResources from '../../blocks/block-resources/block-resources';
 
@@ -134,21 +134,23 @@ const ResourceDetail = ({ resource, related, listLink }) => {
         </div>
       </article>
 
-      <section className="blog-related purple">
-        <BlockResources
-          block={{
-            headline: 'Related Resources',
-            highlightResources: related.nodes,
-            ctas: [
-              {
-                title: 'All Resources',
-                link: { path: listLink },
-                variant: 'primary',
-              },
-            ],
-          }}
-        />
-      </section>
+      {isArrayAndNotEmpty(related.nodes) && (
+        <section className="blog-related purple">
+          <BlockResources
+            block={{
+              headline: 'Related Resources',
+              highlightResources: related.nodes,
+              ctas: [
+                {
+                  title: 'All Resources',
+                  link: { path: listLink },
+                  variant: 'primary',
+                },
+              ],
+            }}
+          />
+        </section>
+      )}
     </>
   );
 };

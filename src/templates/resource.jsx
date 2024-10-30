@@ -17,7 +17,7 @@ const ResourceDetailPage = ({ data: { resource, relatedResources, resourceList, 
 export default ResourceDetailPage;
 
 export const ResourceDetailQuery = graphql`
-  query ResourceDetailQuery($id: String) {
+  query ResourceDetailQuery($id: String, $topicIds: [String]) {
     favicon: datoCmsSite {
       faviconMetaTags {
         ...GatsbyDatoCmsFaviconMetaTags
@@ -46,7 +46,11 @@ export const ResourceDetailQuery = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
     }
-    relatedResources: allDatoCmsResource(filter: { id: { ne: $id } }, limit: 3, sort: { date: DESC }) {
+    relatedResources: allDatoCmsResource(
+      filter: { id: { ne: $id }, topics: { elemMatch: { id: { in: $topicIds } } } }
+      limit: 3
+      sort: { date: DESC }
+    ) {
       nodes {
         id
         title

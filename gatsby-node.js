@@ -104,6 +104,9 @@ exports.createPages = async ({ actions, graphql }) => {
           node {
             id
             slug
+            topics {
+              id
+            }
           }
         }
       }
@@ -339,12 +342,17 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // Resource Pages
   result.data.allDatoCmsResource.edges.forEach(({ node }) => {
-    const { id, slug } = node;
+    const { id, slug, topics } = node;
 
     createPage({
       path: `/resources/${slug}`,
       component: resourceTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: {
+        id: id,
+        slug: slug,
+        topicIds: topics.map((t) => t.id),
+        menuPos: getMenuPosition(navTree, id),
+      },
     });
   });
 
