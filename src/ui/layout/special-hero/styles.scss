@@ -56,6 +56,54 @@
 
   &.resources {
     background-color: #d0d8ff;
+
+    .wrapper-hero {
+      background-position-y: bottom;
+      background-size: 42% 115%;
+
+      .offset-lg-6 {
+        margin-left: 45%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1630px) {
+  .special-hero.resources .wrapper-hero {
+    background-size: 40% 100%;
+  }
+}
+
+@media screen and (max-width: 1530px) {
+  .special-hero.resources .wrapper-hero {
+    background-size: 40% 95%;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .special-hero.resources .wrapper-hero {
+    background-size: 45% 90%;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .special-hero.resources .wrapper-hero {
+    background-size: 43% 80%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .special-hero.resources {
+    min-height: auto;
+
+    .wrapper-hero {
+      background-image: none !important;
+
+      .offset-lg-6 {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
   }
 }
 

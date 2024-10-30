@@ -80,12 +80,7 @@ const SpecialHero = ({ title, introduction, image, breadcrumb, variant = 'defaul
         <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
       </div>
 
-      <div
-        className="wrapper-hero"
-        style={{
-          backgroundImage: image ? `url(${image.url})` : undefined,
-        }}
-      >
+      <div className="wrapper-hero" style={{ backgroundImage: image ? `url(${image.url})` : undefined }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-6 offset-lg-6">
