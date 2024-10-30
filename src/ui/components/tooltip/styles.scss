@@ -1,0 +1,66 @@
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+
+  .tooltip-text {
+    background-color: var(--neutral-black);
+    padding: 5px 6px;
+    border-radius: 4px;
+    color: var(--neutral-white);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    position: relative;
+    cursor: help;
+    display: inline-block;
+  }
+
+  .tooltip-content {
+    position: absolute;
+    top: 145%;
+    left: 0%;
+    z-index: 1;
+    white-space: normal;
+
+    background: var(--lavander-alternative);
+    border-radius: 4px;
+    padding: 10px;
+
+    color: var(--neutral-white);
+    font-family: var(--main-font);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+
+    width: 388px;
+
+    &::before {
+      content: '';
+      width: 31px;
+      height: 21px;
+      background-image: url('../../../images/tooltip-arrow.svg');
+      position: absolute;
+      top: -15px;
+      left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .tooltip-container {
+    display: block;
+    width: 100%;
+
+    .tooltip-text {
+      display: block;
+    }
+
+    .tooltip-content {
+      top: 135%;
+      width: auto;
+      max-width: 100%;
+    }
+  }
+}

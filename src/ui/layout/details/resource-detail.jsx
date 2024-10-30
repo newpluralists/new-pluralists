@@ -2,6 +2,7 @@ import React from 'react';
 import { Breadcrumbs, Button, FloatingShareButtons, formatDate, isArrayAndNotEmpty, truncateText } from 'tectonica-ui';
 import StructuredTextDefault from '../../components/structured-text-default';
 import BlockResources from '../../blocks/block-resources/block-resources';
+import Tooltip from '../../components/tooltip/tooltip';
 
 import './styles.scss';
 
@@ -95,15 +96,7 @@ const ResourceDetail = ({ resource, related, listLink }) => {
             <span className="label">Tags</span>
             <div className="resource-tags">
               {tags.map((tag) => (
-                <span
-                  className="inner-tag"
-                  style={{
-                    backgroundColor: tag.color ? tag.color.hex : undefined,
-                  }}
-                >
-                  {tag.name}
-                  {tag.description && <span className="tooltip">{tag.description}</span>}
-                </span>
+                <Tooltip text={tag.name} description={tag.description} color={tag.color} />
               ))}
             </div>
           </div>
