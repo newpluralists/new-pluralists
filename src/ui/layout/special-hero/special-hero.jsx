@@ -89,6 +89,9 @@ const SpecialHero = ({ title, introduction, image, breadcrumb, variant = 'defaul
             </div>
           </div>
         </div>
+
+        {/* Resources bg image */}
+        {variant === 'resources' && <img src={image.url} className="image-bg" />}
       </div>
     </section>
   );
