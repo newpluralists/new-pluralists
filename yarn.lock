@@ -11316,16 +11316,17 @@ tar-stream@^3.1.5:
     fast-fifo "^1.2.0"
     streamx "^2.15.0"
 
-tectonica-ui@1.0.80:
-  version "1.0.80"
-  resolved "https://registry.yarnpkg.com/tectonica-ui/-/tectonica-ui-1.0.80.tgz#92d561a7757b2a8893af8a9d413145dc2e36f3f2"
-  integrity sha512-hX+Rw1CXEWQTkaUwlE/1k4qbD7rNpiTdfr39sar4PWi2n6u4UTn9mIxoU4QT1MPKew2yaM0siyhYvoPGOuMCFQ==
+tectonica-ui@1.0.87:
+  version "1.0.87"
+  resolved "https://registry.yarnpkg.com/tectonica-ui/-/tectonica-ui-1.0.87.tgz#c9b99c82c12e62e88573b528a1c073385c324fe3"
+  integrity sha512-fcSdWKPkUx18s8sjsY+8jKlCBu1iO+f3gfgb2F/okcujUckFUfKPq+CR7AzsJeo2S7hLmk2U9ZebmPUDQUZ2fA==
   dependencies:
     "@formkit/auto-animate" "0.8.2"
     "@gsap/react" "2.1.1"
     "@mapbox/mapbox-gl-geocoder" "4.7.4"
     "@mux/mux-player" "2.8.0"
     "@mux/mux-player-react" "2.8.0"
+    axios "^1.7.7"
     gatsby "5.13.7"
     mapbox-gl "3.5.2"
     react "18.3.1"
