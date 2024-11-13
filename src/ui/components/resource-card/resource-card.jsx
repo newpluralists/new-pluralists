@@ -5,12 +5,12 @@ import { formatDateAsMonthYear } from '../../../utils/date.utils';
 
 import './styles.scss';
 
-const ResourceCard = ({ resource }) => {
+const ResourceCard = ({ resource, queryParams }) => {
   const { title, slug, date, introduction, topics } = resource;
 
   return (
     <div className="ui-resource-card">
-      <Link class="ui-card no-image " to={`/resources/${slug}`}>
+      <Link class="ui-card no-image " to={`/resources/${slug}${queryParams ? `${queryParams.toString()}` : ''}`}>
         <div class="card-content">
           <div class="card-data">
             {isArrayAndNotEmpty(topics) && (

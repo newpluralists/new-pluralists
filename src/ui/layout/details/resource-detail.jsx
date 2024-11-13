@@ -3,10 +3,11 @@ import { Breadcrumbs, Button, FloatingShareButtons, formatDate, isArrayAndNotEmp
 import StructuredTextDefault from '../../components/structured-text-default';
 import BlockResources from '../../blocks/block-resources/block-resources';
 import Tooltip from '../../components/tooltip/tooltip';
-
+import { useLocation } from '@reach/router';
 import './styles.scss';
 
 const ResourceDetail = ({ resource, related, listLink }) => {
+  const location = useLocation();
   const { title, content, authorName, date, tags, externalUrl } = resource;
 
   return (
@@ -84,7 +85,13 @@ const ResourceDetail = ({ resource, related, listLink }) => {
 
         <div className="inner-header">
           <div className="container">
-            <Breadcrumbs breadcrumb={{ title: listLink.title, path: listLink }} currentPage={truncateText(title)} />
+            <Breadcrumbs
+              breadcrumb={{
+                title: listLink.title,
+                path: { ...listLink, slug: `${listLink.slug}${location.search.toString()}` },
+              }}
+              currentPage={truncateText(title)}
+            />
 
             <div className="inner-container">
               <h1>{title}</h1>

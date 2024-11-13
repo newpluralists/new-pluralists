@@ -17,10 +17,12 @@ const FilterableList = ({
   const [activeFilters, setActiveFilters] = React.useState({});
   const [isFilterApply, setIsFilterApply] = React.useState(false);
   const [shouldScrollToTop, setShouldScrollToTop] = React.useState(true);
+  const [currentPage, setCurrentPage] = React.useState(0);
 
   React.useEffect(() => {
     const params = new URLSearchParams(location.search);
     const page = parseInt(params.get('page'), 10) || 1;
+    setCurrentPage(page);
     const queryFilters = {};
 
     filters.forEach(({ key }) => {
@@ -39,6 +41,16 @@ const FilterableList = ({
 
     setShouldScrollToTop(false);
   }, [location.search]);
+
+  React.useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get('page')) {
+      const initialCard = document.getElementById(`page-${currentPage}`);
+      if (initialCard) {
+        initialCard.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [filteredData, currentPage]);
 
   const filterData = (filtersToApply, page = 1) => {
     let filtered = data;
@@ -114,7 +126,14 @@ const FilterableList = ({
         </div>
       )}
 
-      <div className="row">{filteredData.slice(0, visibleItems).map(renderItem)}</div>
+      <div className="row">
+        {filteredData.slice(0, visibleItems).map((item, index) =>
+          React.cloneElement(renderItem(item, Math.ceil(visibleItems / 10)), {
+            key: `${visibleItems}-${item.id || index}`,
+            id: index === (currentPage - 1) * 10 ? `page-${currentPage}` : undefined,
+          })
+        )}
+      </div>
 
       {visibleItems < filteredData.length && (
         <div className="load-more">

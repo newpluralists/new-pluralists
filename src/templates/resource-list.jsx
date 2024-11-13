@@ -66,11 +66,13 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
           filters={filters}
           applyLabel="View"
           resetLabel="Reset"
-          renderItem={({ node }) => (
-            <div key={node.id} className="col-12 col-md-6 col-lg-4">
-              <ResourceCard resource={node} />
-            </div>
-          )}
+          renderItem={({ node }, page) => {
+            return (
+              <div key={node.id} className="col-12 col-md-6 col-lg-4">
+                <ResourceCard resource={node} queryParams={`?${new URLSearchParams(`page=${page}`).toString()}`} />
+              </div>
+            );
+          }}
         />
       </ListWrapper>
     </>
