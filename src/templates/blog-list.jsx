@@ -86,9 +86,9 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
         <FilterableList
           data={blogs.edges}
           filters={filters}
-          renderItem={({ node }) => (
+          renderItem={({ node }, page) => (
             <div key={node.id} className="col-12 col-md-6 col-lg-4">
-              <BlogCard blog={node} />
+              <BlogCard blog={node} queryParams={`?${new URLSearchParams(`page=${page}`).toString()}`} />
             </div>
           )}
         />

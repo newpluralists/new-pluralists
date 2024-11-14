@@ -4,6 +4,7 @@ import StructuredTextDefault from '../../components/structured-text-default';
 import BlockResources from '../../blocks/block-resources/block-resources';
 import Tooltip from '../../components/tooltip/tooltip';
 import { useLocation } from '@reach/router';
+
 import './styles.scss';
 
 const ResourceDetail = ({ resource, related, listLink }) => {

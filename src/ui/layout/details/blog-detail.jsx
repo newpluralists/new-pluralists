@@ -2,10 +2,12 @@ import React from 'react';
 import { Breadcrumbs, FloatingShareButtons, formatDate, Tags, truncateText } from 'tectonica-ui';
 import StructuredTextDefault from '../../components/structured-text-default';
 import BlockUpdates from '../../blocks/block-updates/block-updates';
+import { useLocation } from '@reach/router';
 
 import './styles.scss';
 
 const BlogDetail = ({ blog, related, listLink }) => {
+  const location = useLocation();
   const { title, authorName, content, date, mainImage, tags = [] } = blog;
 
   return (
@@ -83,7 +85,13 @@ const BlogDetail = ({ blog, related, listLink }) => {
 
         <div className={`inner-header ${mainImage?.url ? 'with-image' : ''}`}>
           <div className="container">
-            <Breadcrumbs breadcrumb={{ title: listLink.title, path: listLink }} currentPage={truncateText(title)} />
+            <Breadcrumbs
+              breadcrumb={{
+                title: listLink.title,
+                path: { ...listLink, slug: `${listLink.slug}${location.search.toString()}` },
+              }}
+              currentPage={truncateText(title)}
+            />
 
             {!mainImage?.url && (
               <div className="main-title">
