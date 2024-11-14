@@ -25,19 +25,9 @@ module.exports = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-fix-fouc',
     {
-      resolve: 'gatsby-plugin-google-gtag',
-      options: {
-        trackingIds: [process.env.GOOGLE_ANALYTICS_ID],
-        pluginConfig: {
-          head: true,
-          delayOnRouteUpdate: 0,
-        },
-      },
-    },
-    {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        id: process.env.GTM_CONTAINER_ID,
+        id: process.env.GTM_ID,
         includeInDevelopment: false,
         enableWebVitalsTracking: true,
       },
