@@ -17,7 +17,7 @@ const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) =
       <SeoDatoCMS seo={seo} favicon={favicon} />
 
       <ListWrapper variant="lavander">
-        <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
+        {/* <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} /> */}
         <h1>{title}</h1>
         {introduction && (
           <div className="basic-content">

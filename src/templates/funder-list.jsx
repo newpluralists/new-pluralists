@@ -25,7 +25,7 @@ const FunderList = ({ data: { funderList, funders, breadcrumb, favicon } }) => {
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <ListWrapper variant="funder-list">
-        <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
+        {/* <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} /> */}
         <h1>{title}</h1>
 
         <h3 className="sub-title">Core Funders</h3>

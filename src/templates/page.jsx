@@ -12,7 +12,7 @@ const BasicPage = ({ data: { page, breadcrumb, favicon } }) => {
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <ListWrapper variant="lavander basic-page">
-        <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
+        {/* <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} /> */}
         <h1>{title}</h1>
 
         <div className="basic-content">

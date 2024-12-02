@@ -76,9 +76,9 @@ const SpecialHero = ({ title, introduction, image, breadcrumb, variant = 'defaul
         </svg>
       </div>
 
-      <div className="container">
+      {/* <div className="container">
         <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} />
-      </div>
+      </div> */}
 
       <div className="wrapper-hero" style={{ backgroundImage: image ? `url(${image.url})` : undefined }}>
         <div className="container">
