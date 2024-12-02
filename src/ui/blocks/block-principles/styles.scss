@@ -40,6 +40,28 @@
             opacity: 0;
           }
         }
+
+        .circles {
+          cursor: pointer;
+          display: flex;
+          margin-bottom: 10px;
+        }
+        
+        .circle {
+          width: 1rem;
+          height: 1rem;
+          border-radius: 50%;
+          background-color: lightgrey;
+          margin: 0 0.5rem;
+
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+        
+        .circle.active {
+          background-color: var(--lavander-alternative);
+        }
       }
 
       .introduction {

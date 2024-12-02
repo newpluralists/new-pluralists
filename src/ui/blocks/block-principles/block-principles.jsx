@@ -30,13 +30,34 @@ const BlockPrinciples = ({ block }) => {
     return () => clearInterval(interval);
   }, [headlines.length]);
 
+  const handleCircleClick = (index) => {
+    setFade(false);
+    setTimeout(() => {
+      setActiveHeadline(index);
+      setFade(true);
+    }, 500);
+  };  
+
   return (
     <section className="block-principles">
       <div className="container">
         <div className="top-section">
           <div className="meta">
             <div className="headlines">
-              {headlines.length > 0 && <Headline headline={headlines[activeHeadline].title} fade={fade} />}
+              {headlines.length > 0 && 
+              <>
+                <div className="circles">
+                    {headlines.map((_, index) => (
+                      <span
+                        key={index}
+                        className={`circle ${index === activeHeadline ? 'active' : ''}`}
+                        onClick={() => handleCircleClick(index)}
+                      ></span>
+                    ))}
+                </div>
+                <Headline headline={headlines[activeHeadline].title} fade={fade} />
+              </>
+              }
             </div>
 
             {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
