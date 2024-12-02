@@ -230,12 +230,15 @@
 
       a {
         font-family: var(--main-font);
-        color: var(--neutral-white);
-        text-decoration: none !important;
-        background-color: var(--lavander-alternative);
+        // color: var(--neutral-white);
+        // text-decoration: none !important;
+        // background-color: var(--lavander-alternative);
+        color: var(--lavander-alternative);
+        text-decoration: underline;
 
         &:hover {
-          opacity: 0.8;
+          // opacity: 0.8;
+          color: var(--neutral-black);
         }
       }
 
