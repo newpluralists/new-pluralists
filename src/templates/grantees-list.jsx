@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import { Accordion, Breadcrumbs } from 'tectonica-ui';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
+import ScrollToTop from '../ui/components/scroll-to-top/scroll-to-top';
 
 const ITEMS_PAGINATION = 25;
 
@@ -18,7 +19,7 @@ const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) =
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
 
-      <ListWrapper variant="lavander">
+      <ListWrapper id="grantee-list" variant="lavander">
         {/* <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} /> */}
         <h1>{title}</h1>
         {introduction && (
@@ -69,6 +70,7 @@ const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) =
           )}
         </div>
       </ListWrapper>
+      <ScrollToTop to="grantee-list" />
     </>
   );
 };

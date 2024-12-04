@@ -1,9 +1,9 @@
 import React from 'react';
 import './styles.scss';
 
-const ListWrapper = ({ variant = 'default', hideSvg = false, children }) => {
+const ListWrapper = ({ id = null, variant = 'default', hideSvg = false, children }) => {
   return (
-    <section className={`list-wrapper ${variant ? variant : ''}`}>
+    <section id={id} className={`list-wrapper ${variant ? variant : ''}`}>
       {!hideSvg && (
         <div className="waves-decorator">
           <svg width="882" height="239" viewBox="0 0 882 239" fill="none" xmlns="http://www.w3.org/2000/svg">
