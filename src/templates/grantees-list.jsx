@@ -4,12 +4,14 @@ import SeoDatoCMS from '../ui/components/seo-datocms';
 import { Accordion, Breadcrumbs } from 'tectonica-ui';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 
+const ITEMS_PAGINATION = 25;
+
 const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) => {
   const { title, introduction, seo } = granteeList;
-  const [visibleItems, setVisibleItems] = React.useState(10);
+  const [visibleItems, setVisibleItems] = React.useState(ITEMS_PAGINATION);
 
   const loadMoreItems = () => {
-    setVisibleItems((prev) => prev + 10);
+    setVisibleItems((prev) => prev + ITEMS_PAGINATION);
   };
 
   return (
