@@ -72,7 +72,7 @@ export const FunderListQuery = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
     }
-    funders: allDatoCmsFunderLogo {
+    funders: allDatoCmsFunderLogo(sort: { name: ASC }) {
       edges {
         node {
           id
