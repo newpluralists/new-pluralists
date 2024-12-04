@@ -127,7 +127,7 @@
   .inner-container {
     max-width: 860px;
     margin: 0 auto;
-    padding-bottom: 200px;
+    padding-bottom: 100px;
 
     h1 {
       color: var(--neutral-black);
@@ -298,6 +298,7 @@
       top: -400px;
       position: relative;
       padding-bottom: 0;
+      margin-bottom: -250px;
     }
   }
 
@@ -468,6 +469,7 @@
 
       &.with-image {
         top: unset;
+        margin-bottom: 50px;
       }
     }
 
@@ -523,7 +525,7 @@
   }
 
   .blog-related {
-    margin-top: 100px;
+    margin-top: 30px;
 
     .block-updates {
       padding: 50px 0;
