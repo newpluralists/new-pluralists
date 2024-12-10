@@ -5,7 +5,7 @@ import TextContent from '../ui/components/text-content/text-content';
 import SpecialHero from '../ui/layout/special-hero/special-hero';
 
 const OurImpact = ({ data: { page, breadcrumb, favicon } }) => {
-  const { title, introduction, backgroundImage, content, seo } = page;
+  const { title, introduction, backgroundImage, largeBackgroundImage, content, seo } = page;
 
   return (
     <>
@@ -14,6 +14,7 @@ const OurImpact = ({ data: { page, breadcrumb, favicon } }) => {
         title={title}
         introduction={introduction}
         image={backgroundImage}
+        largeBgImage={largeBackgroundImage}
         breadcrumb={breadcrumb}
         variant="yellow impact"
       />
@@ -39,6 +40,12 @@ export const OurImpactListQuery = graphql`
         height
         alt
         url
+      }
+      largeBackgroundImage {
+        url
+        width
+        height
+        alt
       }
       content {
         value

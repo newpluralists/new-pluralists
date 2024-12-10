@@ -56,6 +56,7 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
         title={title}
         introduction={introduction}
         image={image}
+        largeBgImage={image}
         breadcrumb={breadcrumb}
         variant="resources"
       />
