@@ -10,7 +10,7 @@ const BlockResources = ({ block }) => {
 
   const { resources } = useStaticQuery(graphql`
     query {
-      resources: allDatoCmsResource(limit: 3) {
+      resources: allDatoCmsResource(limit: 3, sort: { date: DESC }) {
         edges {
           node {
             ...ResourceCard
