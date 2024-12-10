@@ -1,0 +1,33 @@
+.ui-donor-card {
+  h3 {
+    color: var(--neutral-black);
+    font-family: var(--main-font);
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%;
+    margin: 0;
+  }
+
+  .information {
+    color: var(--neutral-black);
+    font-family: var(--main-font);
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .ui-donor-card {
+
+    h3 {
+      font-size: 20px;
+    }
+
+    .information {
+      font-size: 18px;
+    }
+  }
+}

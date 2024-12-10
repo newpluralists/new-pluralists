@@ -106,6 +106,8 @@
 
     .row {
       margin-bottom: 40px;
+      --bs-gutter-x: 20px;
+      --bs-gutter-y: 30px;
     }
   }
 
@@ -175,6 +177,18 @@
     &.resources {
       .container.children .filterable-list .row {
         --bs-gutter-x: 25px;
+      }
+    }
+
+    &.funder-list {
+      h3.sub-title {
+        font-size: 22px;
+      }
+
+      .row {
+        margin-bottom: 0;
+        margin-top: 0;
+        --bs-gutter-x: 1rem;
       }
     }
   }

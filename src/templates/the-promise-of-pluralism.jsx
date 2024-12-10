@@ -5,7 +5,7 @@ import SpecialHero from '../ui/layout/special-hero/special-hero';
 import TextContent from '../ui/components/text-content/text-content';
 
 const ThePromiseOfPluralism = ({ data: { page, breadcrumb, favicon } }) => {
-  const { title, introduction, backgroundImage, content, seo } = page;
+  const { title, introduction, backgroundImage, backgroundImageLarge, content, seo } = page;
 
   return (
     <>
@@ -14,6 +14,7 @@ const ThePromiseOfPluralism = ({ data: { page, breadcrumb, favicon } }) => {
         title={title}
         introduction={introduction}
         image={backgroundImage}
+        largeBgImage={backgroundImageLarge}
         breadcrumb={breadcrumb}
         variant="promise"
       />
@@ -35,6 +36,12 @@ export const ThePromiseOfPluralismListQuery = graphql`
       title
       introduction
       backgroundImage {
+        url
+        width
+        height
+        alt
+      }
+      backgroundImageLarge {
         url
         width
         height
