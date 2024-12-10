@@ -36,6 +36,9 @@ export const BlogDetailQuery = graphql`
       tags {
         ...Tag
       }
+      topics {
+        ...Topic
+      }
       authorName
       content {
         value

@@ -8,7 +8,7 @@ import './styles.scss';
 
 const BlogDetail = ({ blog, related, listLink }) => {
   const location = useLocation();
-  const { title, authorName, content, date, mainImage, tags = [] } = blog;
+  const { title, authorName, content, date, mainImage, tags = [], topics = [] } = blog;
 
   return (
     <>
@@ -139,7 +139,7 @@ const BlogDetail = ({ blog, related, listLink }) => {
             <div className="main-content">
               <StructuredTextDefault content={content} />
 
-              {tags && <Tags tags={tags} />}
+              {topics && <Tags tags={topics} />}
             </div>
           </div>
         </div>
