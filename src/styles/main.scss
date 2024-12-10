@@ -7,6 +7,7 @@ html {
   --yellow: #FFCD69;
   --lavander: #A2A2F8;
   --lavander-alternative: #7D7DF0;
+  --dark-purple: #46469E;
   --pink: #F2C0F2;
   --green: #95DAB3;
   --alternative-green: #60C28B;
@@ -403,12 +404,19 @@ html {
     }
 
     a {
-      color: var(--neutral-white);
-      text-decoration: none !important;
-      background-color: var(--lavander-alternative);
+      font-family: var(--main-font);
+      color: var(--lavander-alternative);
+      text-decoration: underline;
+
+      * {
+        font-weight: inherit !important;
+        font-size: inherit !important;
+        line-height: inherit !important;
+        color: inherit !important;
+      }
 
       &:hover {
-        opacity: 0.8;
+        color: var(--neutral-black);
       }
     }
 
@@ -448,7 +456,26 @@ html {
     ol,
     ul {
       padding: 0;
-      padding-left: 1rem;
+      padding-left: 2rem;
+    }
+
+    p:has(mark) {
+      margin-bottom: 12px;
+    }
+
+    mark {
+      color: var(--dark-purple);
+      font-family: var(--main-font);
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 145%;
+      background-color: transparent;
+      padding: 0;
+    }
+
+    hr {
+      margin: 1.2rem 0;
     }
   }
 
