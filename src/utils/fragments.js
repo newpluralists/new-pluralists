@@ -770,6 +770,20 @@ export const DatoCMS = graphql`
     }
   }
 
+  fragment BlockStats on DatoCmsStatsBlock {
+    id: originalId
+    items {
+      ... on DatoCmsStatsItem {
+        id
+        title
+        information
+        headingColor {
+          hex
+        }
+      }
+    }
+  }
+
   fragment FunderCategory on DatoCmsFunderCategory {
     id
     name

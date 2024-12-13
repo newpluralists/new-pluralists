@@ -9,6 +9,7 @@ import BlockAccordionGrid from '../blocks/block-accordion-grid/block-accordion-g
 import BlockHeadlinesGrid from '../blocks/block-headlines-grid/block-headlines-grid';
 import BlockResources from '../blocks/block-resources/block-resources';
 import BlockStories from '../blocks/block-stories/block-stories';
+import BlockStats from '../blocks/block-stats/block-stats';
 
 const StructuredTextDefault = ({ content, withCustomRules = false }) => {
   if (!content || !content?.value) return null;
@@ -68,6 +69,16 @@ const StructuredTextDefault = ({ content, withCustomRules = false }) => {
 
           case 'DatoCmsEmbedIframe':
             return <div className="embed" dangerouslySetInnerHTML={{ __html: record.code }} key={record.id} />;
+
+          case 'DatoCmsStatsBlock':
+            if (withCustomRules) {
+              return (
+                <div className="max-container-840 center" key={record.id}>
+                  <BlockStats block={record} />
+                </div>
+              );
+            }
+            return <BlockStats block={record} key={record.id} />;
 
           default:
             return null;

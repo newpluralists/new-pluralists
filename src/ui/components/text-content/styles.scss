@@ -80,7 +80,7 @@
   ol,
   ul {
     padding: 0;
-    padding-left: 1rem;
+    padding-left: 3rem;
     color: var(--neutral-black);
     font-family: var(--main-font);
     font-size: 24px;
@@ -89,6 +89,8 @@
     line-height: 145%;
 
     li {
+      font-size: 26px;
+      line-height: 145%;
       margin-bottom: .5rem;
 
       .max-container-840 {
@@ -160,6 +162,10 @@
     ol,
     ul {
       font-size: 18px;
+
+      li {
+        font-size: inherit;
+      }
     }
 
     blockquote {

@@ -56,6 +56,7 @@ export const OurImpactListQuery = graphql`
           ...BlockCtaGrid
           ...BlockAccordionGrid
           ...BlockHeadlines
+          ...BlockStats
         }
       }
       seo: seoMetaTags {
