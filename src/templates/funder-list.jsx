@@ -8,14 +8,19 @@ import BlocksBuilder from '../ui/components/block-builder';
 import DonorCard from '../ui/components/donor-card/donor-card';
 
 const FunderList = ({ data: { funderList, funders, donors, breadcrumb, favicon } }) => {
-  const { title, blocks = [], seo } = funderList;
+  const { title, introduction, blocks = [], seo } = funderList;
 
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <ListWrapper variant="funder-list">
         {/* <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} /> */}
-        <h1>{title}</h1>
+        <h1 className="small">{title}</h1>
+        {introduction && (
+          <div className="basic-content">
+            <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />
+          </div>
+        )}
 
         <div className="row mb-5">
           {funders.edges.map(({ node: funder }) => (
@@ -53,6 +58,7 @@ export const FunderListQuery = graphql`
     }
     funderList: datoCmsFundersList {
       title
+      introduction
       blocks {
         __typename
         ...BlockCta
