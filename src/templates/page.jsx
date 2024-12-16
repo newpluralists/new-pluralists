@@ -6,7 +6,7 @@ import { Breadcrumbs } from 'tectonica-ui';
 import StructuredTextDefault from '../ui/components/structured-text-default';
 
 const BasicPage = ({ data: { page, breadcrumb, favicon } }) => {
-  const { title, content, seo } = page;
+  const { title, introduction, variant, backgroundImage, backgroundColor, content, seo } = page;
 
   return (
     <>
@@ -34,6 +34,15 @@ export const PageQuery = graphql`
     }
     page: datoCmsBasicPage(id: { eq: $id }) {
       title
+      introduction
+      variant
+      backgroundImage {
+        url
+        alt
+        width
+        height
+      }
+      backgroundColor
       content {
         value
         links {
@@ -56,15 +65,6 @@ export const PageQuery = graphql`
           ...BlockGridCards
         }
       }
-      # blocks {
-      #   __typename
-      #   ...BlockImage
-      #   ...BlockEmbedIframe
-      #   ...BlockCta
-      #   ...BlockAccordion
-      #   ...BlockNarrativeBlock
-      #   ...BlockGridCards
-      # }
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
