@@ -36,6 +36,11 @@
     }
   }
 
+  .image-wrapper {
+    display: flex;
+    align-items: flex-end;
+  }
+
   &.yellow {
     background-color: rgba(255, 205, 105, .3);
   }
