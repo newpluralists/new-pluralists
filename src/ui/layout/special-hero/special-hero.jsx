@@ -1,20 +1,11 @@
 import React from 'react';
 import './styles.scss';
 
-const SpecialHero = ({ title, introduction, image, largeBgImage, withIntroBgImage, variant = 'default' }) => {
+const SpecialHero = ({ title, introduction, image, variant = 'default' }) => {
   const defaultBgUrlImg = image?.url;
-  const largeBgUrlImg = largeBgImage?.url;
-  const withIntroBgUrlImg = withIntroBgImage?.url;
 
   return (
-    <section
-      className={`special-hero ${introduction ? 'with-intro' : 'no-intro'} ${largeBgImage ? 'with-lg-img' : ''} ${!withIntroBgImage && introduction ? 'no-intro-img' : ''} ${variant ? variant : ''}`}
-      style={{
-        '--default-bg': `url(${defaultBgUrlImg})`,
-        '--large-bg': `url(${largeBgUrlImg})`,
-        '--intro-bg': `url(${withIntroBgUrlImg})`,
-      }}
-    >
+    <section className={`special-hero ${introduction ? 'with-intro' : 'no-intro'} ${variant ? variant : ''}`}>
       <div className="waves-decorator">
         <svg width="882" height="239" viewBox="0 0 882 239" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g opacity="0.7" clip-path="url(#clip0_2334_6329)">
@@ -85,13 +76,14 @@ const SpecialHero = ({ title, introduction, image, largeBgImage, withIntroBgImag
         </svg>
       </div>
 
-      <div className="wrapper-hero">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 offset-lg-6">
-              {title && <h1>{title}</h1>}
-              {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
-            </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-6 image-wrapper">
+            <img src={defaultBgUrlImg} />
+          </div>
+          <div className="col-lg-6 intro-wrapper">
+            {title && <h1>{title}</h1>}
+            {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
           </div>
         </div>
       </div>
