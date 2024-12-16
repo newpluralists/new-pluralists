@@ -4,9 +4,24 @@ import SeoDatoCMS from '../ui/components/seo-datocms';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import { Breadcrumbs } from 'tectonica-ui';
 import StructuredTextDefault from '../ui/components/structured-text-default';
+import SpecialHero from '../ui/layout/special-hero/special-hero';
 
 const BasicPage = ({ data: { page, breadcrumb, favicon } }) => {
   const { title, introduction, variant, backgroundImage, backgroundColor, content, seo } = page;
+
+  if (variant === 'special') {
+    return (
+      <>
+        <SeoDatoCMS seo={seo} favicon={favicon} />
+        <SpecialHero title={title} introduction={introduction} image={backgroundImage} variant={backgroundColor} />
+        <ListWrapper hideSvg variant="basic-page with-header">
+          <div className="basic-content">
+            <StructuredTextDefault content={content} />
+          </div>
+        </ListWrapper>
+      </>
+    );
+  }
 
   return (
     <>

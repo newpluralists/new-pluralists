@@ -90,6 +90,12 @@
       width: auto;
       height: auto;
     }
+
+    &.with-header {
+      .children {
+        padding-top: 100px;
+      }
+    }
   }
 
   &.funder-list {
