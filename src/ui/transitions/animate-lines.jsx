@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'motion/react';
 
-const AnimateLines = ({ paths }) => {
+const AnimateLines = ({ paths, color }) => {
   const pathVariants = {
     hidden: { fill: 'rgba(128, 170, 255, 0)', fillOpacity: 0 },
-    visible: { fill: 'rgba(128, 170, 255, 1)', fillOpacity: 1 },
+    visible: { fill: color ?? 'rgba(128, 170, 255, 1)', fillOpacity: 1 },
   };
 
   return (
