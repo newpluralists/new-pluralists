@@ -61,7 +61,7 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
         variant="resources"
       />
 
-      <ListWrapper hideSvg variant="lavander resources">
+      <ListWrapper id="resource-list" hideSvg variant="lavander resources">
         <FilterableList
           data={resources.edges}
           filters={filters}
@@ -74,6 +74,7 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
               </div>
             );
           }}
+          scrollToId="resource-list"
         />
       </ListWrapper>
     </>

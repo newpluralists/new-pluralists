@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { navigate } from 'gatsby';
 import { useLocation } from '@reach/router';
+import ScrollToTop from '../scroll-to-top/scroll-to-top';
 
 import './styles.scss';
 
@@ -10,6 +11,7 @@ const FilterableList = ({
   resetLabel = 'Reset Filters',
   filters = [],
   renderItem,
+  scrollToId,
 }) => {
   const location = useLocation();
   const [filteredData, setFilteredData] = React.useState(data);
@@ -140,6 +142,8 @@ const FilterableList = ({
           <button onClick={loadMoreItems}>Load More</button>
         </div>
       )}
+
+      {scrollToId && visibleItems > 10 && <ScrollToTop to={scrollToId} />}
     </div>
   );
 };

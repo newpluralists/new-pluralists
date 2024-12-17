@@ -79,7 +79,7 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
 
-      <ListWrapper variant="blue">
+      <ListWrapper id="blog-list" variant="blue">
         <Breadcrumbs currentPage={title} />
         <h1>{title}</h1>
 
@@ -91,6 +91,7 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
               <BlogCard blog={node} queryParams={`?${new URLSearchParams(`page=${page}`).toString()}`} />
             </div>
           )}
+          scrollToId="blog-list"
         />
       </ListWrapper>
     </>
