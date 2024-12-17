@@ -6,6 +6,7 @@
   background-size: cover;
   background-position: center;
   padding-bottom: 50px;
+  overflow: hidden;
 
   .background-video {
     position: absolute;
@@ -37,6 +38,7 @@
           font-style: normal;
           font-weight: 700;
           line-height: 110%;
+          margin: 0;
         }
       }
 
@@ -119,9 +121,16 @@
   }
 }
 
+.hero-wrapper {
+  overflow: hidden;
+  padding-bottom: 200px;
+}
+
 @media screen and (max-width: 992px) {
   .np-ui-hero {
     min-height: auto;
+    width: 100% !important;
+    border-radius: unset !important;
     padding-bottom: 40px;
 
     .container {
@@ -154,5 +163,9 @@
         }
       }
     }
+  }
+
+  .hero-wrapper {
+    padding-bottom: 0px;
   }
 }

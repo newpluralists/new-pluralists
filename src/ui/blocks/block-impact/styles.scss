@@ -43,6 +43,11 @@
       line-height: 105%;
       margin-bottom: 31px;
 
+      p,
+      span {
+        font-weight: inherit !important;
+      }
+
       b,
       strong {
         color: var(--alternative-green);
