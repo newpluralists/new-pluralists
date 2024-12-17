@@ -35,7 +35,9 @@ const HeaderWrapper = () => {
 
   return (
     <>
-      { menus.configuration.showTopAlert && (<Notification variant="blue" block={{ content: menus.configuration.content.value }} /> )}
+      {menus.configuration.showTopAlert && (
+        <Notification variant="blue" block={{ content: menus.configuration.content.value }} />
+      )}
       <Header menu={menus.mainMenu} logo={menus.configuration.logo} location={{}} />
     </>
   );
