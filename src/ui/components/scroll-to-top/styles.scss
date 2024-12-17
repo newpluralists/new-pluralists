@@ -4,16 +4,36 @@
   bottom: 20px;
   right: 20px;
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
   border: unset;
   border-radius: 5px;
-  padding: 5px 15px;
+  padding: 15px 20px;
   background-color: var(--neutral-white);
-  border: 1px solid var(--np-neutral-1);
+  border: 2px solid var(--neutral-black);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease-in;
+
   font-family: var(--main-font);
-  font-size: 18px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  color: var(--neutral-black);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  text-transform: uppercase;
 
   &:hover {
-    opacity: .8;
+    background-color: var(--np-neutral-2);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .ui-scroll-top {
+    padding: 10px 15px;
+    font-size: 18px;
   }
 }
