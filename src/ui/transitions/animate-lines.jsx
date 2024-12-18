@@ -19,7 +19,7 @@ const AnimateLines = ({ paths, color }) => {
             animate="visible"
             transition={{
               duration: 0.1,
-              delay: (paths.length - 1 - i) * 0.015,
+              delay: (paths.length - 1 - i) * 0.009,
               ease: 'easeInOut',
             }}
           />

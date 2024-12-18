@@ -11,8 +11,7 @@ const HomeHero = ({ title, introduction, extraText, backgroundOpacity }) => {
   const opacity = backgroundOpacity ? backgroundOpacity / 100 : 0.5;
 
   const { scrollY } = useScroll();
-  const contentWidth = useTransform(scrollY, [0, 450], ['100%', '90%']);
-  const borderRadius = useTransform(scrollY, [0, 450], ['0px', '20px']);
+  const clipPath = useTransform(scrollY, [0, 600], ['inset(0% round 0px)', 'inset(5% round 20px)']);
 
   const handleOnToggleVideo = () => {
     document.documentElement.style.overflowY = showVideoModal ? 'auto' : 'hidden';
@@ -24,10 +23,10 @@ const HomeHero = ({ title, introduction, extraText, backgroundOpacity }) => {
       <motion.div
         className={`np-ui-hero ${showVideoModal ? 'with-video' : ''}`}
         style={{
-          width: contentWidth,
-          borderRadius,
+          clipPath,
           margin: '0 auto',
-          transition: 'all 0.35s ease',
+          transition: 'all 0.5s cubic-bezier(0.25, 1, 0.5, 1)',
+          willChange: 'clip-path',
         }}
       >
         <video
