@@ -9,12 +9,12 @@ const BlockNarrativeFull = ({ block }) => {
   return (
     <section
       className="block-narrative-full"
-      // style={{
-      //   backgroundImage: `url(${mainImage.url})`,
-      //   backgroundPosition: '50dvw',
-      //   backgroundRepeat: 'no-repeat',
-      //   backgroundSize: 'contain',
-      // }}
+      style={{
+        backgroundImage: `url(${mainImage.url})`,
+        backgroundPosition: '50dvw',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'contain',
+      }}
     >
       <div className="container">
         <div className="row">
@@ -25,9 +25,9 @@ const BlockNarrativeFull = ({ block }) => {
               {ctas && <ButtonList buttons={ctas} />}
             </div>
           </div>
-          <div className="col-lg-6 image-container">
+          {/* <div className="col-lg-6 image-container">
             <CustomImage image={mainImage} />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
