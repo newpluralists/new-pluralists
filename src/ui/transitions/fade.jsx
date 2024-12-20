@@ -6,8 +6,8 @@ const FadeIn = ({ children, ...rest }) => {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true, margin: '-50px 0px' }}
-      transition={{ duration: 0.5 }}
+      viewport={{ once: false, margin: '-50px 0px' }}
+      transition={{ duration: 0.7 }}
       {...rest}
     >
       {children}

@@ -40,59 +40,65 @@ const BlockPrinciples = ({ block }) => {
   };
 
   return (
-    <section className="block-principles">
-      <div className="container">
-        <div className="top-section">
-          <div className="meta">
-            <div className="headlines">
-              {headlines.length > 0 && (
-                <>
-                  <div className="circles">
-                    {headlines.map((_, index) => (
-                      <span
-                        key={index}
-                        className={`circle ${index === activeHeadline ? 'active' : ''}`}
-                        onClick={() => handleCircleClick(index)}
-                      ></span>
-                    ))}
-                  </div>
-                  <Headline headline={headlines[activeHeadline].title} fade={fade} />
-                </>
-              )}
+    <FadeIn>
+      <section className="block-principles">
+        <div className="container">
+          <div className="top-section">
+            <div className="meta">
+              <div className="headlines">
+                {headlines.length > 0 && (
+                  <>
+                    <div className="circles">
+                      {headlines.map((_, index) => (
+                        <span
+                          key={index}
+                          className={`circle ${index === activeHeadline ? 'active' : ''}`}
+                          onClick={() => handleCircleClick(index)}
+                        ></span>
+                      ))}
+                    </div>
+                    <Headline headline={headlines[activeHeadline].title} fade={fade} />
+                  </>
+                )}
+              </div>
+
+              <FadeIn>
+                {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
+                {ctas && <ButtonList buttons={ctas} />}
+              </FadeIn>
             </div>
 
-            <FadeIn>
-              {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
-              {ctas && <ButtonList buttons={ctas} />}
-            </FadeIn>
+            {image?.url && (
+              <div className="image">
+                <FadeIn transition={{ duration: 1 }}>
+                  <img src={image.url} alt={image.alt} loading="lazy" />
+                </FadeIn>
+              </div>
+            )}
           </div>
 
-          {image?.url && (
-            <div className="image">
-              <img src={image.url} alt={image.alt} loading="lazy" />
-            </div>
-          )}
-        </div>
+          <div className="box-section">
+            {boxImage?.url && (
+              <div className="image">
+                <FadeIn>
+                  <img src={boxImage.url} alt={boxImage.alt} loading="lazy" />
+                </FadeIn>
+              </div>
+            )}
 
-        <div className="box-section">
-          {boxImage?.url && (
-            <div className="image">
-              <img src={boxImage.url} alt={boxImage.alt} loading="lazy" />
-            </div>
-          )}
-
-          <FadeIn>
-            <div className="meta">
-              {boxHeadline && <div className="headline" dangerouslySetInnerHTML={{ __html: boxHeadline }} />}
-              {boxIntroduction && (
-                <div className="introduction" dangerouslySetInnerHTML={{ __html: boxIntroduction }} />
-              )}
-              {boxCtas && <ButtonList buttons={boxCtas} />}
-            </div>
-          </FadeIn>
+            <FadeIn>
+              <div className="meta">
+                {boxHeadline && <div className="headline" dangerouslySetInnerHTML={{ __html: boxHeadline }} />}
+                {boxIntroduction && (
+                  <div className="introduction" dangerouslySetInnerHTML={{ __html: boxIntroduction }} />
+                )}
+                {boxCtas && <ButtonList buttons={boxCtas} />}
+              </div>
+            </FadeIn>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </FadeIn>
   );
 };
 
