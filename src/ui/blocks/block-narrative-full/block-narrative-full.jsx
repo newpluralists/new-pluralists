@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonList, CustomImage } from 'tectonica-ui';
+import { ButtonList } from 'tectonica-ui';
 
 import './styles.scss';
 
@@ -13,7 +13,7 @@ const BlockNarrativeFull = ({ block }) => {
         backgroundImage: `url(${mainImage.url})`,
         backgroundPosition: '50dvw',
         backgroundRepeat: 'no-repeat',
-        backgroundSize: 'contain',
+        backgroundSize: '120%',
       }}
     >
       <div className="container">
@@ -25,9 +25,6 @@ const BlockNarrativeFull = ({ block }) => {
               {ctas && <ButtonList buttons={ctas} />}
             </div>
           </div>
-          {/* <div className="col-lg-6 image-container">
-            <CustomImage image={mainImage} />
-          </div> */}
         </div>
       </div>
     </section>

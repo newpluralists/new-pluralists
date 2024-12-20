@@ -35,6 +35,26 @@
   }
 }
 
+@media screen and (max-width: 1550px) {
+  .block-narrative-full {
+    background-size: 140% !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .block-narrative-full {
+    background-size: 155% !important;
+    background-position: 53dvw !important;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .block-narrative-full {
+    background-size: 170% !important;
+    background-position: 50dvw !important;
+  }
+}
+
 @media screen and (max-width: 992px) {
   .block-narrative-full {
     background-image: none !important;
@@ -55,10 +75,6 @@
       .button-list {
         margin-top: 15px;
       }
-    }
-
-    .image-container {
-      display: none;
     }
   }
 }

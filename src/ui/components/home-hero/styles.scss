@@ -19,9 +19,12 @@
   }
 
   .container {
-    height: 100%;
+    min-height: 100vh;
     position: relative;
     z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .main {
       padding-top: 25dvh;
@@ -59,6 +62,7 @@
       display: flex;
       align-items: flex-start;
       gap: 160px;
+      margin-bottom: 1rem;
 
       .introduction {
         color: var(--neutral-white);
@@ -124,7 +128,6 @@
 
 .hero-wrapper {
   overflow: hidden;
-  // padding-bottom: 100px;
 }
 
 @media screen and (max-width: 992px) {
@@ -134,6 +137,8 @@
     padding-bottom: 20px;
 
     .container {
+      min-height: auto;
+
       .main {
         padding-top: 5dvh;
         max-width: 100%;
@@ -157,6 +162,7 @@
         padding: 15px 0;
         flex-direction: column;
         gap: 0px;
+        margin-bottom: 0;
 
         .introduction {
           font-size: 20px;
