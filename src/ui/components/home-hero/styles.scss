@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding-bottom: 50px;
+  // padding-bottom: 50px;
   overflow: hidden;
 
   .background-video {
@@ -19,6 +19,7 @@
   }
 
   .container {
+    height: 100%;
     position: relative;
     z-index: 3;
 
@@ -123,7 +124,7 @@
 
 .hero-wrapper {
   overflow: hidden;
-  padding-bottom: 100px;
+  // padding-bottom: 100px;
 }
 
 @media screen and (max-width: 992px) {
