@@ -9,7 +9,7 @@ const GenericCard = ({ item }) => {
 
   return (
     <div className="generic-card">
-      <FadeIn>
+      <FadeIn style={{ height: '100%' }}>
         <Card
           card={{
             title,
