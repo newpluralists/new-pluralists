@@ -1,5 +1,6 @@
 import React from 'react';
 import { ButtonList } from 'tectonica-ui';
+import FadeIn from '../../transitions/fade';
 
 import './styles.scss';
 
@@ -19,11 +20,13 @@ const BlockNarrativeFull = ({ block }) => {
       <div className="container">
         <div className="row">
           <div className="col-lg-6">
-            <div className="meta">
-              {title && <div className="title" dangerouslySetInnerHTML={{ __html: title }} />}
-              {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
-              {ctas && <ButtonList buttons={ctas} />}
-            </div>
+            <FadeIn>
+              <div className="meta">
+                {title && <div className="title" dangerouslySetInnerHTML={{ __html: title }} />}
+                {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
+                {ctas && <ButtonList buttons={ctas} />}
+              </div>
+            </FadeIn>
           </div>
         </div>
       </div>

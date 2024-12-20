@@ -1,6 +1,7 @@
 import React from 'react';
 import { ButtonList } from 'tectonica-ui';
 import Slider from 'react-slick';
+import FadeIn from '../../transitions/fade';
 
 import './styles.scss';
 
@@ -36,7 +37,6 @@ const BlockPartners = ({ block }) => {
     },
     [[], [], []]
   );
-
   const [column1, column2, column3] = logosColumns;
 
   return (
@@ -44,11 +44,13 @@ const BlockPartners = ({ block }) => {
       <div className="container">
         <div className="row">
           <div className="col-lg-5">
-            <div className="meta">
-              {headline && <h3>{headline}</h3>}
-              {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
-              {ctas && <ButtonList buttons={ctas} />}
-            </div>
+            <FadeIn>
+              <div className="meta">
+                {headline && <h3>{headline}</h3>}
+                {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
+                {ctas && <ButtonList buttons={ctas} />}
+              </div>
+            </FadeIn>
           </div>
 
           <div className="col-lg-7 logos">

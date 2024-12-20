@@ -6,6 +6,7 @@ import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import { Breadcrumbs, isArrayAndNotEmpty } from 'tectonica-ui';
 import BlocksBuilder from '../ui/components/block-builder';
 import DonorCard from '../ui/components/donor-card/donor-card';
+import FadeIn from '../ui/transitions/fade';
 
 const FunderList = ({ data: { funderList, funders, donors, breadcrumb, favicon } }) => {
   const { title, introduction, blocks = [], seo } = funderList;
@@ -25,7 +26,9 @@ const FunderList = ({ data: { funderList, funders, donors, breadcrumb, favicon }
         <div className="row mb-5">
           {funders.edges.map(({ node: funder }) => (
             <div key={funder.id} className="col-12 col-md-6 col-lg-3">
-              <FunderCard funder={funder} />
+              <FadeIn>
+                <FunderCard funder={funder} />
+              </FadeIn>
             </div>
           ))}
 
@@ -33,7 +36,9 @@ const FunderList = ({ data: { funderList, funders, donors, breadcrumb, favicon }
             <div className="col-12 row">
               {donors.edges.map((donor) => (
                 <div key={donor.id} className="col-12 col-md-6 col-lg-4">
-                  <DonorCard donor={donor} />
+                  <FadeIn>
+                    <DonorCard donor={donor} />
+                  </FadeIn>
                 </div>
               ))}
             </div>

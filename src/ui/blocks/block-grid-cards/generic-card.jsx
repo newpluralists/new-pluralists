@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from 'tectonica-ui';
+import FadeIn from '../../transitions/fade';
 
 import './styles.scss';
 
@@ -8,19 +9,21 @@ const GenericCard = ({ item }) => {
 
   return (
     <div className="generic-card">
-      <Card
-        card={{
-          title,
-          introduction,
-          image,
-          cta: link
-            ? {
-                link,
-              }
-            : null,
-          date: null,
-        }}
-      />
+      <FadeIn>
+        <Card
+          card={{
+            title,
+            introduction,
+            image,
+            cta: link
+              ? {
+                  link,
+                }
+              : null,
+            date: null,
+          }}
+        />
+      </FadeIn>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import { ButtonList } from 'tectonica-ui';
 
 import './styles.scss';
+import FadeIn from '../../transitions/fade';
 
 const BlockImpact = ({ block }) => {
   const { headline, introduction, ctas = [], leftTitles = [] } = block;
@@ -14,15 +15,29 @@ const BlockImpact = ({ block }) => {
             {leftTitles.map((item, index) => (
               <div key={item.id} className="title-item">
                 {index >= 0 && <div className="separator" />}
-                <div dangerouslySetInnerHTML={{ __html: item.title }} />
+                <FadeIn>
+                  <div dangerouslySetInnerHTML={{ __html: item.title }} />
+                </FadeIn>
               </div>
             ))}
           </div>
 
           <div className="col-lg-8 main-wrapper">
-            {headline && <div className="headline" dangerouslySetInnerHTML={{ __html: headline }} />}
-            {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
-            {ctas && <ButtonList buttons={ctas} />}
+            {headline && (
+              <FadeIn>
+                <div className="headline" dangerouslySetInnerHTML={{ __html: headline }} />
+              </FadeIn>
+            )}
+            {introduction && (
+              <FadeIn>
+                <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />
+              </FadeIn>
+            )}
+            {ctas && (
+              <FadeIn>
+                <ButtonList buttons={ctas} />
+              </FadeIn>
+            )}
           </div>
         </div>
       </div>

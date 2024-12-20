@@ -12,6 +12,7 @@ const HomeHero = ({ title, introduction, extraText, backgroundOpacity }) => {
 
   const { scrollY } = useScroll();
   const clipPath = useTransform(scrollY, [0, 600], ['inset(0% round 0px)', 'inset(5% round 20px)']);
+  const extraTextOpacity = useTransform(scrollY, [0, 500], [1, 0]);
 
   const handleOnToggleVideo = () => {
     document.documentElement.style.overflowY = showVideoModal ? 'auto' : 'hidden';
@@ -48,7 +49,7 @@ const HomeHero = ({ title, introduction, extraText, backgroundOpacity }) => {
             {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
           </div>
 
-          <div className="extra-text">
+          <motion.div className="extra-text" style={{ opacity: extraTextOpacity }}>
             {extraText && <div className="introduction" dangerouslySetInnerHTML={{ __html: extraText }} />}
 
             <button onClick={handleOnToggleVideo}>
@@ -63,7 +64,7 @@ const HomeHero = ({ title, introduction, extraText, backgroundOpacity }) => {
                 />
               </svg>
             </button>
-          </div>
+          </motion.div>
         </div>
         <div className="overlay" style={{ background: `rgba(0, 0, 0, ${opacity})` }} />
 

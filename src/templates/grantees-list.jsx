@@ -4,6 +4,7 @@ import SeoDatoCMS from '../ui/components/seo-datocms';
 import { Accordion, Breadcrumbs } from 'tectonica-ui';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import ScrollToTop from '../ui/components/scroll-to-top/scroll-to-top';
+import FadeIn from '../ui/transitions/fade';
 
 const ITEMS_PAGINATION = 25;
 
@@ -34,7 +35,7 @@ const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) =
               items: grantees.edges.slice(0, visibleItems).map((grantee) => ({
                 title: grantee.node.name,
                 children: (
-                  <>
+                  <FadeIn>
                     <ul>
                       {grantee.node.projects.map((project) => (
                         <li key={project.id}>
@@ -57,7 +58,7 @@ const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) =
                         Website
                       </a>
                     )}
-                  </>
+                  </FadeIn>
                 ),
               })),
             }}

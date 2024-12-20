@@ -5,6 +5,7 @@ import BlogCard from '../ui/components/blog-card/blog-card';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import { Breadcrumbs, Dropdown } from 'tectonica-ui';
 import FilterableList from '../ui/components/filterable-list/filterable-list';
+import FadeIn from '../ui/transitions/fade';
 
 const BlogList = ({ data: { blogList, blogs, favicon } }) => {
   const { title, seo } = blogList;
@@ -88,7 +89,9 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
           filters={filters}
           renderItem={({ node }, page) => (
             <div key={node.id} className="col-12 col-md-6 col-lg-4">
-              <BlogCard blog={node} queryParams={`?${new URLSearchParams(`page=${page}`).toString()}`} />
+              <FadeIn style={{ height: '100%' }}>
+                <BlogCard blog={node} queryParams={`?${new URLSearchParams(`page=${page}`).toString()}`} />{' '}
+              </FadeIn>
             </div>
           )}
           scrollToId="blog-list"

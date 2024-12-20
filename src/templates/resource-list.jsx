@@ -6,6 +6,7 @@ import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import FilterableList from '../ui/components/filterable-list/filterable-list';
 import ResourceCard from '../ui/components/resource-card/resource-card';
 import SpecialHero from '../ui/layout/special-hero/special-hero';
+import FadeIn from '../ui/transitions/fade';
 
 const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }) => {
   const { title, introduction, image, seo } = resourceList;
@@ -70,7 +71,9 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
           renderItem={({ node }, page) => {
             return (
               <div key={node.id} className="col-12 col-md-6 col-lg-4">
-                <ResourceCard resource={node} queryParams={`?${new URLSearchParams(`page=${page}`).toString()}`} />
+                <FadeIn>
+                  <ResourceCard resource={node} queryParams={`?${new URLSearchParams(`page=${page}`).toString()}`} />
+                </FadeIn>
               </div>
             );
           }}

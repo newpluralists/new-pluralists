@@ -1,9 +1,15 @@
 import React from 'react';
 import { motion } from 'motion/react';
 
-const FadeIn = ({ children }) => {
+const FadeIn = ({ children, ...rest }) => {
   return (
-    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ margin: '100% 0px -300px 0px' }}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: '-50px 0px' }}
+      transition={{ duration: 0.5 }}
+      {...rest}
+    >
       {children}
     </motion.div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import GenericCard from './generic-card';
+import FadeIn from '../../transitions/fade';
 
 import './styles.scss';
 
@@ -9,8 +10,10 @@ const BlockGridCards = ({ block }) => {
   return (
     <section className="block-grid-cards">
       <div className="container">
-        {headline && <h3>{headline}</h3>}
-        {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
+        <FadeIn>
+          {headline && <h3>{headline}</h3>}
+          {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
+        </FadeIn>
 
         <div className="row">
           {items.map((item) => (

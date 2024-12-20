@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ButtonList } from 'tectonica-ui';
+import FadeIn from '../../transitions/fade';
 
 import './styles.scss';
 
@@ -36,7 +37,7 @@ const BlockPrinciples = ({ block }) => {
       setActiveHeadline(index);
       setFade(true);
     }, 500);
-  };  
+  };
 
   return (
     <section className="block-principles">
@@ -44,9 +45,9 @@ const BlockPrinciples = ({ block }) => {
         <div className="top-section">
           <div className="meta">
             <div className="headlines">
-              {headlines.length > 0 && 
-              <>
-                <div className="circles">
+              {headlines.length > 0 && (
+                <>
+                  <div className="circles">
                     {headlines.map((_, index) => (
                       <span
                         key={index}
@@ -54,14 +55,16 @@ const BlockPrinciples = ({ block }) => {
                         onClick={() => handleCircleClick(index)}
                       ></span>
                     ))}
-                </div>
-                <Headline headline={headlines[activeHeadline].title} fade={fade} />
-              </>
-              }
+                  </div>
+                  <Headline headline={headlines[activeHeadline].title} fade={fade} />
+                </>
+              )}
             </div>
 
-            {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
-            {ctas && <ButtonList buttons={ctas} />}
+            <FadeIn>
+              {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
+              {ctas && <ButtonList buttons={ctas} />}
+            </FadeIn>
           </div>
 
           {image?.url && (
@@ -78,11 +81,15 @@ const BlockPrinciples = ({ block }) => {
             </div>
           )}
 
-          <div className="meta">
-            {boxHeadline && <div className="headline" dangerouslySetInnerHTML={{ __html: boxHeadline }} />}
-            {boxIntroduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: boxIntroduction }} />}
-            {boxCtas && <ButtonList buttons={boxCtas} />}
-          </div>
+          <FadeIn>
+            <div className="meta">
+              {boxHeadline && <div className="headline" dangerouslySetInnerHTML={{ __html: boxHeadline }} />}
+              {boxIntroduction && (
+                <div className="introduction" dangerouslySetInnerHTML={{ __html: boxIntroduction }} />
+              )}
+              {boxCtas && <ButtonList buttons={boxCtas} />}
+            </div>
+          </FadeIn>
         </div>
       </div>
     </section>
