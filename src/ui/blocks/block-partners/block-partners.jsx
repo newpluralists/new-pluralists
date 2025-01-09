@@ -30,14 +30,18 @@ const BlockPartners = ({ block }) => {
     ],
   };
 
-  const logosColumns = partners.reduce(
-    (acc, partner, index) => {
-      acc[index % 3].push(partner.logo);
-      return acc;
-    },
-    [[], [], []]
-  );
-  const [column1, column2, column3] = logosColumns;
+  const shuffleArrayAvoidConsecutive = (array) => {
+    const shuffled = array.slice().sort(() => Math.random() - 0.5);
+    for (let i = 1; i < shuffled.length; i++) {
+      if (shuffled[i].id === shuffled[i - 1].id) {
+        const swapIndex = (i + 1) % shuffled.length;
+        [shuffled[i], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[i]];
+      }
+    }
+    return shuffled;
+  };
+
+  const shuffledLogos = shuffleArrayAvoidConsecutive(partners.map((partner) => partner.logo));
 
   return (
     <section className="block-partners">
@@ -55,19 +59,9 @@ const BlockPartners = ({ block }) => {
 
           <div className="col-lg-7 logos">
             <Slider {...settings}>
-              {[...column1, ...column1].map((logo) => (
-                <div className="logo-wrapper">
-                  <img key={logo.id} src={logo.url} alt={logo.alt} loading="lazy" />
-                </div>
-              ))}
-              {[...column2, ...column2].map((logo) => (
-                <div className="logo-wrapper">
-                  <img key={logo.id} src={logo.url} alt={logo.alt} loading="lazy" />
-                </div>
-              ))}
-              {[...column3, ...column3].map((logo) => (
-                <div className="logo-wrapper">
-                  <img key={logo.id} src={logo.url} alt={logo.alt} loading="lazy" />
+              {shuffledLogos.map((logo, index) => (
+                <div className="logo-wrapper" key={index}>
+                  <img src={logo.url} alt={logo.alt} loading="lazy" />
                 </div>
               ))}
             </Slider>
