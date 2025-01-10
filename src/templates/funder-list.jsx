@@ -11,6 +11,14 @@ import FadeIn from '../ui/transitions/fade';
 const FunderList = ({ data: { funderList, funders, donors, breadcrumb, favicon } }) => {
   const { title, introduction, blocks = [], seo } = funderList;
 
+  const sortedFunders = funders.edges
+    .map((e) => e.node)
+    .sort((a, b) => {
+      const nameA = a.name.replace(/^The\s+/i, '');
+      const nameB = b.name.replace(/^The\s+/i, '');
+      return nameA.localeCompare(nameB);
+    });
+
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
@@ -24,7 +32,7 @@ const FunderList = ({ data: { funderList, funders, donors, breadcrumb, favicon }
         )}
 
         <div className="row mb-5">
-          {funders.edges.map(({ node: funder }) => (
+          {sortedFunders.map((funder) => (
             <div key={funder.id} className="col-12 col-md-6 col-lg-3">
               <FadeIn>
                 <FunderCard funder={funder} />
@@ -72,7 +80,7 @@ export const FunderListQuery = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
     }
-    funders: allDatoCmsFunderLogo(sort: { name: ASC }) {
+    funders: allDatoCmsFunderLogo {
       edges {
         node {
           id
