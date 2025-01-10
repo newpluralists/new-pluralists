@@ -1,0 +1,81 @@
+.ui-team-card {
+  .image-wrapper {
+    max-width: 408px;
+    max-height: 408px;
+    margin-bottom: 22px;
+    overflow: hidden;
+
+    * {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  h4 {
+    color: var(--neutral-black);
+    font-family: var(--main-font);
+    font-size: 31px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    margin-bottom: 20px;
+  }
+
+  .position {
+    color: var(--neutral-black);
+    font-family: var(--main-font);
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    display: block;
+  }
+
+  a.email {
+    color: var(--neutral-black);
+    font-family: var(--main-font);
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    text-decoration: underline;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .ui-team-card {
+    h4 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .position,
+    a.email {
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .ui-team-card {
+    margin-bottom: 1rem;
+
+    .image-wrapper {
+      max-width: 100%;
+      max-height: 100%;
+      margin-bottom: 10px;
+    }
+
+    h4 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .position,
+    a.email {
+      font-size: 16px;
+    }
+
+  }
+}

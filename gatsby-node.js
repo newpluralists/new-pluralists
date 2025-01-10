@@ -26,7 +26,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const builderListTemplate = path.resolve('./src/templates/builder-list.jsx');
   const builderTemplate = path.resolve('./src/templates/builder.jsx');
   const teamListTemplate = path.resolve('./src/templates/team-list.jsx');
-  const teamTemplate = path.resolve('./src/templates/team.jsx');
+  // const teamTemplate = path.resolve('./src/templates/team.jsx');
   const eventListTemplate = path.resolve('./src/templates/events-list.jsx');
   const eventTemplate = path.resolve('./src/templates/event.jsx');
   const thePromiseOfPluralismTemplate = path.resolve('./src/templates/the-promise-of-pluralism.jsx');
@@ -126,14 +126,6 @@ exports.createPages = async ({ actions, graphql }) => {
       datoCmsTeamList {
         id
         slug
-      }
-      allDatoCmsTeam {
-        edges {
-          node {
-            id
-            slug
-          }
-        }
       }
       datoCmsEventList {
         id
@@ -399,24 +391,24 @@ exports.createPages = async ({ actions, graphql }) => {
   }
 
   // Team Pages
-  result.data.allDatoCmsTeam.edges.forEach(({ node }) => {
-    const { id, slug, oldUrl } = node;
+  // result.data.allDatoCmsTeam.edges.forEach(({ node }) => {
+  //   const { id, slug, oldUrl } = node;
 
-    createPage({
-      path: `/team/${slug}`,
-      component: teamTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
-    });
+  //   createPage({
+  //     path: `/team/${slug}`,
+  //     component: teamTemplate,
+  //     context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+  //   });
 
-    // Redirects
-    if (oldUrl) {
-      createRedirect({
-        fromPath: getURL(oldUrl),
-        toPath: `/team/${slug}`,
-        isPermanent: true,
-      });
-    }
-  });
+  //   // Redirects
+  //   if (oldUrl) {
+  //     createRedirect({
+  //       fromPath: getURL(oldUrl),
+  //       toPath: `/team/${slug}`,
+  //       isPermanent: true,
+  //     });
+  //   }
+  // });
 
   // Events List
   if (result.data.datoCmsEventList) {

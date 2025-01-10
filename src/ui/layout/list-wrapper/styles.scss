@@ -130,6 +130,13 @@
       padding-top: 50px;
     }
   }
+
+  &.team-list .children {
+    .row {
+      --bs-gutter-x: 24px;
+      --bs-gutter-y: 50px;
+    }
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -196,6 +203,10 @@
         margin-top: 0;
         --bs-gutter-x: 1rem;
       }
+    }
+
+    &.team-list .children .row {
+      --bs-gutter-y: 15px;
     }
   }
 }

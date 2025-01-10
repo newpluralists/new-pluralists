@@ -369,10 +369,6 @@ export const DatoCMS = graphql`
       }
       ... on DatoCmsTeam {
         id
-        slug
-        model {
-          apiKey
-        }
       }
       ... on DatoCmsOurImpact {
         id
@@ -824,6 +820,19 @@ export const DatoCMS = graphql`
     }
     model {
       apiKey
+    }
+  }
+
+  fragment TeamCard on DatoCmsTeam {
+    id
+    name
+    memberPosition
+    email
+    image {
+      url
+      width
+      height
+      alt
     }
   }
 `;
