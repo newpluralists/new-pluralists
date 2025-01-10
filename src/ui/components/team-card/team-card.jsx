@@ -5,7 +5,7 @@ import placeholderImg from '../../../images/placeholder-team.png';
 import './styles.scss';
 
 const TeamCard = ({ team }) => {
-  const { name, memberPosition, email, image } = team;
+  const { name, lastName, memberPosition, email, image } = team;
 
   return (
     <article className="ui-team-card">
@@ -14,7 +14,11 @@ const TeamCard = ({ team }) => {
       ) : (
         <img className="image-wrapper" src={placeholderImg} alt="Placeholder team image" />
       )}
-      {name && <h4>{name}</h4>}
+      {name && (
+        <h4>
+          {name} {lastName}
+        </h4>
+      )}
       {memberPosition && <span className="position">{memberPosition}</span>}
       {email && (
         <a className="email" href={`mailto:${email}`}>

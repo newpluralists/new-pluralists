@@ -826,6 +826,7 @@ export const DatoCMS = graphql`
   fragment TeamCard on DatoCmsTeam {
     id
     name
+    lastName
     memberPosition
     email
     image {

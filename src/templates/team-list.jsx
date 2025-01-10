@@ -46,7 +46,7 @@ export const TeamListQuery = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
     }
-    teams: allDatoCmsTeam(sort: { position: ASC }) {
+    teams: allDatoCmsTeam(sort: { lastName: ASC }) {
       edges {
         node {
           ...TeamCard
