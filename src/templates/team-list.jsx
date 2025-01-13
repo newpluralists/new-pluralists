@@ -11,7 +11,7 @@ const TeamList = ({ data: { teamList, leads, staff, favicon } }) => {
   return (
     <>
       <SeoDatoCMS seo={seo} favicon={favicon} />
-      <ListWrapper variant="lavander team-list">
+      <ListWrapper variant="lavander team-list exec">
         <h1>{title}</h1>
         {introduction && (
           <div className="basic-content">
