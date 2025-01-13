@@ -131,10 +131,21 @@
     }
   }
 
-  &.team-list .children {
-    .row {
-      --bs-gutter-x: 24px;
-      --bs-gutter-y: 50px;
+  &.team-list {
+    .children {
+      .row {
+        --bs-gutter-x: 24px;
+        --bs-gutter-y: 0px;
+      }
+
+      h4.heading {
+        color: var(--neutral-black);
+        font-size: 31px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%;
+        margin-top: 50px;
+      }
     }
   }
 }
@@ -205,8 +216,20 @@
       }
     }
 
-    &.team-list .children .row {
-      --bs-gutter-y: 15px;
+    &.team-list {
+      .children {
+        .row {
+          --bs-gutter-y: 15px;
+          margin-top: .5rem !important;
+          padding-bottom: 1rem !important;
+        }
+
+        h4.heading {
+          margin-top: 40px;
+          font-size: 25px;
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }

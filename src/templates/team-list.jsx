@@ -3,8 +3,9 @@ import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import TeamCard from '../ui/components/team-card/team-card';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
+import { isArrayAndNotEmpty } from 'tectonica-ui';
 
-const TeamList = ({ data: { teamList, teams, favicon } }) => {
+const TeamList = ({ data: { teamList, leads, staff, favicon } }) => {
   const { title, introduction, seo } = teamList;
 
   return (
@@ -18,13 +19,31 @@ const TeamList = ({ data: { teamList, teams, favicon } }) => {
           </div>
         )}
 
-        <div className="row g-5 mt-4">
-          {teams.edges.map(({ node }) => (
-            <div key={node.id} className="col-12 col-md-6 col-lg-4">
-              <TeamCard team={node} />
+        {isArrayAndNotEmpty(staff.edges) && (
+          <>
+            <h4 className="heading">Staff</h4>
+            <div className="row g-5 mt-4 pb-5">
+              {staff.edges.map(({ node }) => (
+                <div key={node.id} className="col-12 col-md-6 col-lg-4">
+                  <TeamCard team={node} />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </>
+        )}
+
+        {isArrayAndNotEmpty(leads.edges) && (
+          <>
+            <h4 className="heading">Co-Leads</h4>
+            <div className="row g-5 mt-4">
+              {leads.edges.map(({ node }) => (
+                <div key={node.id} className="col-12 col-md-6 col-lg-4">
+                  <TeamCard team={node} />
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </ListWrapper>
     </>
   );
@@ -46,7 +65,14 @@ export const TeamListQuery = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
     }
-    teams: allDatoCmsTeam(sort: { lastName: ASC }) {
+    leads: allDatoCmsTeam(sort: { lastName: ASC }, filter: { category: { eq: "co-leads" } }) {
+      edges {
+        node {
+          ...TeamCard
+        }
+      }
+    }
+    staff: allDatoCmsTeam(sort: { lastName: ASC }, filter: { category: { eq: "staff" } }) {
       edges {
         node {
           ...TeamCard
