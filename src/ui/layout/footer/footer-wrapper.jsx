@@ -24,6 +24,8 @@ const FooterWrapper = () => {
           url
           socialNetwork
         }
+        formIntroduction
+        formLegalText
       }
     }
   `);
@@ -32,7 +34,7 @@ const FooterWrapper = () => {
     <footer className="footer-wrapper">
       <div className="container">
         <div className="row">
-          <div className="col-lg-9 meta">
+          <div className="col-lg-8 meta">
             <Link className="logo" to="/">
               <img src={footer.logo.url} alt={footer.logo.alt} loading="lazy" />
             </Link>
@@ -63,10 +65,12 @@ const FooterWrapper = () => {
             </div>
           </div>
 
-          <div className="col-lg-3 form-wrapper">
+          <div className="col-lg-4 form-wrapper">
             <div className="form">
               <h4>Stay informed</h4>
+              <div className="description" dangerouslySetInnerHTML={{ __html: footer.formIntroduction }} />
               <MailchimpForm />
+              <div className="legal-text" dangerouslySetInnerHTML={{ __html: footer.formLegalText }} />
             </div>
           </div>
         </div>
@@ -112,5 +116,16 @@ const MailchimpForm = () => (
     </div>
   </div>
 );
+
+const AxiosForm = () => {
+  return (
+    <iframe
+      src="https://new-pluralists.read.axioshq.com/signup/new-pluralists-news"
+      width="100%"
+      height="790px"
+      style={{ border: 0 }}
+    />
+  );
+};
 
 export default FooterWrapper;
