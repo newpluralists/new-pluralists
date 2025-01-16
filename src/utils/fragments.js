@@ -836,4 +836,28 @@ export const DatoCMS = graphql`
       alt
     }
   }
+
+  fragment DonorCard on DatoCmsIndividualDonor {
+    id
+    fullname
+    information
+    category {
+      ...FunderCategory
+    }
+  }
+
+  fragment FunderCard on DatoCmsFunderLogo {
+    id
+    name
+    logo {
+      width
+      height
+      alt
+      url
+    }
+    category {
+      ...FunderCategory
+    }
+    url
+  }
 `;

@@ -83,29 +83,14 @@ export const FunderListQuery = graphql`
     funders: allDatoCmsFunderLogo {
       edges {
         node {
-          id
-          name
-          logo {
-            width
-            height
-            alt
-            url
-          }
-          category {
-            ...FunderCategory
-          }
+          ...FunderCard
         }
       }
     }
     donors: allDatoCmsIndividualDonor {
       edges {
         node {
-          id
-          fullname
-          information
-          category {
-            ...FunderCategory
-          }
+          ...DonorCard
         }
       }
     }

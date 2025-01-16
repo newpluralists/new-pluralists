@@ -2,14 +2,24 @@ import React from 'react';
 import './styles.scss';
 
 const FunderCard = ({ funder }) => {
-  const { name, logo } = funder;
+  const { name, logo, url } = funder;
 
-  return (
-    <div className="funder-card">
+  const renderContent = () => (
+    <>
       <img src={logo.url} alt={logo.alt} width={logo.width} height={logo.height} className="img-full" loading="lazy" />
       {name && <span>{name}</span>}
-    </div>
+    </>
   );
+
+  if (url) {
+    return (
+      <a className="funder-card" href={url} target="_blank" rel="noreferrer">
+        {renderContent()}
+      </a>
+    );
+  }
+
+  return <div className="funder-card">{renderContent()}</div>;
 };
 
 export default FunderCard;
