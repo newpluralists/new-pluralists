@@ -28,6 +28,13 @@ const ProtectedView = ({ config, favicon }) => {
         setMsgError('The password entered is incorrect.');
       } else {
         document.cookie = 'access_granted=true; path=/; max-age=86400';
+
+        const navbar = document.querySelector('.ui-navbar');
+        navbar.style.display = 'flex';
+
+        const footer = document.querySelector('.footer-wrapper');
+        footer.style.display = 'block';
+
         navigate('/');
       }
     } catch (error) {
