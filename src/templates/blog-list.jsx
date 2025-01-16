@@ -6,8 +6,9 @@ import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import { Breadcrumbs, Dropdown } from 'tectonica-ui';
 import FilterableList from '../ui/components/filterable-list/filterable-list';
 import FadeIn from '../ui/transitions/fade';
+import PageLoader from '../ui/components/page-loader/page-loader';
 
-const BlogList = ({ data: { blogList, blogs, favicon } }) => {
+const BlogList = ({ pageContext, data: { blogList, blogs, favicon } }) => {
   const { title, seo } = blogList;
 
   const yearsForFilter = React.useMemo(() => {
@@ -77,7 +78,7 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
   ];
 
   return (
-    <>
+    <PageLoader context={pageContext} favicon={favicon}>
       <SeoDatoCMS seo={seo} favicon={favicon} />
 
       <ListWrapper id="blog-list" variant="blue">
@@ -97,7 +98,7 @@ const BlogList = ({ data: { blogList, blogs, favicon } }) => {
           scrollToId="blog-list"
         />
       </ListWrapper>
-    </>
+    </PageLoader>
   );
 };
 

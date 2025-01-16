@@ -4,12 +4,13 @@ import SeoDatoCMS from '../ui/components/seo-datocms';
 import BlockBuilder from '../ui/components/block-builder';
 import { Hero } from 'tectonica-ui';
 import BuilderCard from '../ui/components/builder-card/builder-card';
+import PageLoader from '../ui/components/page-loader/page-loader';
 
-const BuilderList = ({ data: { builderList, builders, favicon } }) => {
+const BuilderList = ({ pageContext, data: { builderList, builders, favicon } }) => {
   const { title, seo } = builderList;
 
   return (
-    <>
+    <PageLoader context={pageContext} favicon={favicon}>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <Hero title={title} />
 
@@ -24,7 +25,7 @@ const BuilderList = ({ data: { builderList, builders, favicon } }) => {
 
         <BlockBuilder components={[]} />
       </div>
-    </>
+    </PageLoader>
   );
 };
 

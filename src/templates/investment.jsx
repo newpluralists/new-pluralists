@@ -2,15 +2,16 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import { Hero } from 'tectonica-ui';
+import PageLoader from '../ui/components/page-loader/page-loader';
 
-const InvestmentDetail = ({ data: { investment, favicon } }) => {
+const InvestmentDetail = ({ pageContext, data: { investment, favicon } }) => {
   const { title, seo } = investment;
 
   return (
-    <>
+    <PageLoader context={pageContext} favicon={favicon}>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <Hero title={title} />
-    </>
+    </PageLoader>
   );
 };
 

@@ -2,15 +2,16 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import BlogDetail from '../ui/layout/details/blog-detail';
+import PageLoader from '../ui/components/page-loader/page-loader';
 
-const BlogDetailPage = ({ data: { blog, related, blogList, favicon } }) => {
+const BlogDetailPage = ({ pageContext, data: { blog, related, blogList, favicon } }) => {
   const { seo } = blog;
 
   return (
-    <>
+    <PageLoader context={pageContext} favicon={favicon}>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <BlogDetail blog={blog} related={related} listLink={blogList} />
-    </>
+    </PageLoader>
   );
 };
 

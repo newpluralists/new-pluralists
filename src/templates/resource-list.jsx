@@ -7,8 +7,9 @@ import FilterableList from '../ui/components/filterable-list/filterable-list';
 import ResourceCard from '../ui/components/resource-card/resource-card';
 import SpecialHero from '../ui/layout/special-hero/special-hero';
 import FadeIn from '../ui/transitions/fade';
+import PageLoader from '../ui/components/page-loader/page-loader';
 
-const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }) => {
+const ResourceList = ({ pageContext, data: { resourceList, resources, breadcrumb, favicon } }) => {
   const { title, introduction, image, seo } = resourceList;
 
   const topicsForFilter = React.useMemo(() => {
@@ -51,7 +52,7 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
   ];
 
   return (
-    <>
+    <PageLoader context={pageContext} favicon={favicon}>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <SpecialHero
         title={title}
@@ -80,7 +81,7 @@ const ResourceList = ({ data: { resourceList, resources, breadcrumb, favicon } }
           scrollToId="resource-list"
         />
       </ListWrapper>
-    </>
+    </PageLoader>
   );
 };
 

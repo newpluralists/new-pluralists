@@ -1,4 +1,5 @@
 const path = require('path');
+const bcrypt = require('bcryptjs');
 const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
 
 const getURL = (rawUrl) => {
@@ -37,6 +38,10 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const result = await graphql(`
     query AllBasicPages {
+      configuration: datoCmsConfiguration {
+        protected
+        password
+      }
       redirects: allDatoCmsRedirect {
         edges {
           node {
@@ -223,8 +228,20 @@ exports.createPages = async ({ actions, graphql }) => {
   `);
   const navTree = result.data.navTree.nodes;
 
+  // Configuration options
+  const config = {
+    protected: result.data.configuration.protected,
+    password: bcrypt.hashSync(result.data.configuration.password, 10),
+  };
+
   // Home page
-  createPage({ path: '/', component: homeTemplate });
+  createPage({
+    path: '/',
+    component: homeTemplate,
+    context: {
+      config,
+    },
+  });
 
   // Basic pages
   result.data.allDatoCmsBasicPage.edges.forEach(({ node }) => {
@@ -233,7 +250,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: pageTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
   });
 
@@ -244,7 +261,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: blogListTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
   }
 
@@ -255,7 +272,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `/blogs/${slug}`,
       component: blogTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
 
     // Redirects
@@ -275,7 +292,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: funderListTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
   }
 
@@ -286,7 +303,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `/funders/${slug}`,
       component: funderTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
 
     // Redirects
@@ -306,7 +323,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: investmentListTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
   }
 
@@ -317,7 +334,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `/investments/${slug}`,
       component: investmentTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
   });
 
@@ -328,7 +345,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: resourceListTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
   }
 
@@ -344,6 +361,7 @@ exports.createPages = async ({ actions, graphql }) => {
         slug: slug,
         topicIds: topics.map((t) => t.id),
         menuPos: getMenuPosition(navTree, id),
+        config,
       },
     });
   });
@@ -355,7 +373,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: builderListTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
   }
 
@@ -366,7 +384,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `/builders/${slug}`,
       component: builderTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
 
     // Redirects
@@ -386,7 +404,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: teamListTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
   }
 
@@ -397,7 +415,7 @@ exports.createPages = async ({ actions, graphql }) => {
   //   createPage({
   //     path: `/team/${slug}`,
   //     component: teamTemplate,
-  //     context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+  //     context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config, },
   //   });
 
   //   // Redirects
@@ -417,7 +435,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: eventListTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
   }
 
@@ -428,7 +446,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `/events/${slug}`,
       component: eventTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
 
     // Redirects
@@ -447,7 +465,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: thePromiseOfPluralismTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
   }
 
@@ -457,7 +475,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: ourImpactTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
   }
 
@@ -468,7 +486,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `/stories/${slug}`,
       component: storiesTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
   });
 
@@ -479,7 +497,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: slug,
       component: granteeListTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id) },
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
     });
   }
 

@@ -7,8 +7,9 @@ import { Breadcrumbs, isArrayAndNotEmpty } from 'tectonica-ui';
 import BlocksBuilder from '../ui/components/block-builder';
 import DonorCard from '../ui/components/donor-card/donor-card';
 import FadeIn from '../ui/transitions/fade';
+import PageLoader from '../ui/components/page-loader/page-loader';
 
-const FunderList = ({ data: { funderList, funders, donors, breadcrumb, favicon } }) => {
+const FunderList = ({ pageContext, data: { funderList, funders, donors, breadcrumb, favicon } }) => {
   const { title, introduction, blocks = [], seo } = funderList;
 
   const sortedFunders = funders.edges
@@ -20,7 +21,7 @@ const FunderList = ({ data: { funderList, funders, donors, breadcrumb, favicon }
     });
 
   return (
-    <>
+    <PageLoader context={pageContext} favicon={favicon}>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <ListWrapper variant="funder-list">
         {/* <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} /> */}
@@ -56,7 +57,7 @@ const FunderList = ({ data: { funderList, funders, donors, breadcrumb, favicon }
         {/* Extra Blocks */}
         {blocks && <BlocksBuilder components={blocks} />}
       </ListWrapper>
-    </>
+    </PageLoader>
   );
 };
 

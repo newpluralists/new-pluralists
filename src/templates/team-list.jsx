@@ -4,12 +4,13 @@ import SeoDatoCMS from '../ui/components/seo-datocms';
 import TeamCard from '../ui/components/team-card/team-card';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import { isArrayAndNotEmpty } from 'tectonica-ui';
+import PageLoader from '../ui/components/page-loader/page-loader';
 
-const TeamList = ({ data: { teamList, leads, staff, favicon } }) => {
+const TeamList = ({ pageContext, data: { teamList, leads, staff, favicon } }) => {
   const { title, introduction, seo } = teamList;
 
   return (
-    <>
+    <PageLoader context={pageContext} favicon={favicon}>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <ListWrapper variant="lavander team-list exec">
         <h1>{title}</h1>
@@ -45,7 +46,7 @@ const TeamList = ({ data: { teamList, leads, staff, favicon } }) => {
           </>
         )}
       </ListWrapper>
-    </>
+    </PageLoader>
   );
 };
 

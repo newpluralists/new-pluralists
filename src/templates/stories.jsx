@@ -4,12 +4,13 @@ import SeoDatoCMS from '../ui/components/seo-datocms';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import StructuredTextDefault from '../ui/components/structured-text-default';
 import { CustomImage, Tags } from 'tectonica-ui';
+import PageLoader from '../ui/components/page-loader/page-loader';
 
-const StoryImpactPage = ({ data: { page, favicon } }) => {
+const StoryImpactPage = ({ pageContext, data: { page, favicon } }) => {
   const { title, image, content, tags, seo } = page;
 
   return (
-    <>
+    <PageLoader context={pageContext} favicon={favicon}>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <ListWrapper variant="lavander stories">
         <h1>{title}</h1>
@@ -19,7 +20,7 @@ const StoryImpactPage = ({ data: { page, favicon } }) => {
           <Tags tags={tags} />
         </div>
       </ListWrapper>
-    </>
+    </PageLoader>
   );
 };
 

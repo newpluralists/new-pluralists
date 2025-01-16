@@ -3,12 +3,13 @@ import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import { CustomImage, Hero } from 'tectonica-ui';
 import StructuredTextDefault from '../ui/components/structured-text-default';
+import PageLoader from '../ui/components/page-loader/page-loader';
 
-const FunderDetail = ({ data: { funder, favicon } }) => {
+const FunderDetail = ({ pageContext, data: { funder, favicon } }) => {
   const { title, funderPosition, image, content, seo } = funder;
 
   return (
-    <>
+    <PageLoader context={pageContext} favicon={favicon}>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <Hero title={title} />
 
@@ -23,7 +24,7 @@ const FunderDetail = ({ data: { funder, favicon } }) => {
           </div>
         </div>
       </div>
-    </>
+    </PageLoader>
   );
 };
 

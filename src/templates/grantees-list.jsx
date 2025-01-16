@@ -5,10 +5,11 @@ import { Accordion, Breadcrumbs } from 'tectonica-ui';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import ScrollToTop from '../ui/components/scroll-to-top/scroll-to-top';
 import FadeIn from '../ui/transitions/fade';
+import PageLoader from '../ui/components/page-loader/page-loader';
 
 const ITEMS_PAGINATION = 25;
 
-const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) => {
+const GranteeList = ({ pageContext, data: { granteeList, grantees, breadcrumb, favicon } }) => {
   const { title, introduction, seo } = granteeList;
   const [visibleItems, setVisibleItems] = React.useState(ITEMS_PAGINATION);
 
@@ -17,7 +18,7 @@ const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) =
   };
 
   return (
-    <>
+    <PageLoader context={pageContext} favicon={favicon}>
       <SeoDatoCMS seo={seo} favicon={favicon} />
 
       <ListWrapper id="grantee-list" variant="lavander">
@@ -72,7 +73,7 @@ const GranteeList = ({ data: { granteeList, grantees, breadcrumb, favicon } }) =
         </div>
       </ListWrapper>
       <ScrollToTop to="grantee-list" />
-    </>
+    </PageLoader>
   );
 };
 

@@ -5,13 +5,14 @@ import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
 import { Breadcrumbs } from 'tectonica-ui';
 import StructuredTextDefault from '../ui/components/structured-text-default';
 import SpecialHero from '../ui/layout/special-hero/special-hero';
+import PageLoader from '../ui/components/page-loader/page-loader';
 
-const BasicPage = ({ data: { page, breadcrumb, favicon } }) => {
+const BasicPage = ({ pageContext, data: { page, breadcrumb, favicon } }) => {
   const { title, introduction, variant, backgroundImage, backgroundColor, content, seo } = page;
 
   if (variant === 'special') {
     return (
-      <>
+      <PageLoader context={pageContext} favicon={favicon}>
         <SeoDatoCMS seo={seo} favicon={favicon} />
         <SpecialHero title={title} introduction={introduction} image={backgroundImage} variant={backgroundColor} />
         <ListWrapper hideSvg variant="basic-page with-header">
@@ -19,12 +20,12 @@ const BasicPage = ({ data: { page, breadcrumb, favicon } }) => {
             <StructuredTextDefault content={content} />
           </div>
         </ListWrapper>
-      </>
+      </PageLoader>
     );
   }
 
   return (
-    <>
+    <PageLoader context={pageContext} favicon={favicon}>
       <SeoDatoCMS seo={seo} favicon={favicon} />
       <ListWrapper variant="lavander basic-page">
         {/* <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} /> */}
@@ -34,7 +35,7 @@ const BasicPage = ({ data: { page, breadcrumb, favicon } }) => {
           <StructuredTextDefault content={content} />
         </div>
       </ListWrapper>
-    </>
+    </PageLoader>
   );
 };
 

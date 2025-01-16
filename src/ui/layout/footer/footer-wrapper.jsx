@@ -106,7 +106,7 @@ const MailchimpForm = () => (
             <div className="response" id="mce-success-response" style={{ display: 'none' }}></div>
           </div>
           <div aria-hidden="true" style={{ position: 'absolute', left: '-5000px', display: 'none' }}>
-            <input type="text" name="b_e47af12b3e9793c2089db0c53_84b7d8e357" tabindex="-1" value="" />
+            <input type="text" name="b_e47af12b3e9793c2089db0c53_84b7d8e357" tabIndex="-1" value="" />
           </div>
           <div className="clear">
             <input type="submit" name="subscribe" id="mc-embedded-subscribe" className="button" value="Subscribe" />
