@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import SeoDatoCMS from '../seo-datocms';
 import bcrypt from 'bcryptjs';
 import { navigate } from 'gatsby';
+import ListWrapper from '../../layout/list-wrapper/list-wrapper';
 
 import './styles.scss';
-import ListWrapper from '../../layout/list-wrapper/list-wrapper';
-import { Button } from 'tectonica-ui';
 
 const ProtectedView = ({ config, favicon }) => {
   const [password, setPassword] = useState();
   const [msgError, setMsgError] = useState();
+
+  useLayoutEffect(() => {
+    const navbar = document.querySelector('.ui-navbar');
+    navbar.style.display = 'none';
+
+    const footer = document.querySelector('.footer-wrapper');
+    footer.style.display = 'none';
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
