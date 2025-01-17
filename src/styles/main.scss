@@ -332,6 +332,19 @@ html {
       }
     }
 
+    &.white {
+      color: var(--lavander-alternative);
+      background-color: var(--neutral-white);
+
+      &::after {
+        background-image: url('../images/button-icon-purple.svg');
+      }
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+
     &::after {
       content: '';
       display: inline-flex;
