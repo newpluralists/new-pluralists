@@ -15,8 +15,8 @@ const FunderList = ({ pageContext, data: { funderList, funders, donors, breadcru
   const sortedFunders = funders.edges
     .map((e) => e.node)
     .sort((a, b) => {
-      const nameA = a.name.replace(/^The\s+/i, '');
-      const nameB = b.name.replace(/^The\s+/i, '');
+      const nameA = a.lastName.replace(/^The\s+/i, '');
+      const nameB = b.lastName.replace(/^The\s+/i, '');
       return nameA.localeCompare(nameB);
     });
 

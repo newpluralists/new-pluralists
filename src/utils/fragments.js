@@ -849,6 +849,7 @@ export const DatoCMS = graphql`
   fragment FunderCard on DatoCmsFunderLogo {
     id
     name
+    lastName
     logo {
       width
       height
