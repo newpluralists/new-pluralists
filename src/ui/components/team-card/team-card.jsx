@@ -20,11 +20,7 @@ const TeamCard = ({ team }) => {
         </h4>
       )}
       {memberPosition && <span className="position">{memberPosition}</span>}
-      {email && (
-        <a className="email" href={`mailto:${email}`}>
-          {email}
-        </a>
-      )}
+      {email && <span className="email">{email}</span>}
     </article>
   );
 };
