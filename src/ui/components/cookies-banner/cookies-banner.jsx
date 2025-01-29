@@ -8,9 +8,10 @@ const CookiesBanner = () => {
 
   useEffect(() => {
     const cookies = document.cookie.split(';').map((cookie) => cookie.trim());
-    const hasAcceptedCookies = cookies.some((cookie) => cookie.startsWith('acceptCookiesNP='));
+    const cookieEntry = cookies.find((cookie) => cookie.startsWith('acceptCookiesNP='));
+    const cookieValue = cookieEntry ? cookieEntry.split('=')[1] : null;
 
-    if (!hasAcceptedCookies) {
+    if (!cookieValue) {
       setShowBanner(true);
 
       if (typeof window.gtag === 'function') {
@@ -21,7 +22,7 @@ const CookiesBanner = () => {
           analytics_storage: 'denied',
         });
       }
-    } else {
+    } else if (cookieValue === 'accepted') {
       if (typeof window.gtag === 'function') {
         window.gtag('consent', 'update', {
           ad_user_data: 'granted',
@@ -35,7 +36,7 @@ const CookiesBanner = () => {
 
   const handleAccept = () => {
     const ONE_YEAR_DURATION = 60 * 60 * 24 * 365;
-    document.cookie = 'acceptCookiesNP=true; path=/; max-age=' + ONE_YEAR_DURATION;
+    document.cookie = 'acceptCookiesNP=accepted; path=/; max-age=' + ONE_YEAR_DURATION;
     setShowBanner(false);
 
     if (typeof window.gtag === 'function') {
@@ -50,7 +51,7 @@ const CookiesBanner = () => {
 
   const handleReject = () => {
     const ONE_YEAR_DURATION = 60 * 60 * 24 * 365;
-    document.cookie = 'acceptCookies=false; path=/; max-age=' + ONE_YEAR_DURATION;
+    document.cookie = 'acceptCookiesNP=decline; path=/; max-age=' + ONE_YEAR_DURATION;
     setShowBanner(false);
 
     if (typeof window.gtag === 'function') {

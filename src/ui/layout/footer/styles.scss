@@ -177,6 +177,8 @@
 
 @media screen and (max-width: 992px) {
   .footer-wrapper {
+    overflow-x: hidden;
+
     .row {
       flex-direction: column-reverse;
     }
