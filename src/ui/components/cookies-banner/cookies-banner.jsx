@@ -11,7 +11,7 @@ const CookiesBanner = () => {
     const cookieEntry = cookies.find((cookie) => cookie.startsWith('acceptCookiesNP='));
     const cookieValue = cookieEntry ? cookieEntry.split('=')[1] : null;
 
-    if (!cookieValue) {
+    if (!cookieValue || cookieValue === 'true') {
       setShowBanner(true);
 
       if (typeof window.gtag === 'function') {
