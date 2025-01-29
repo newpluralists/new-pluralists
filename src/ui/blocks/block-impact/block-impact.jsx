@@ -1,8 +1,8 @@
 import React from 'react';
 import { ButtonList } from 'tectonica-ui';
+import FadeIn from '../../transitions/fade';
 
 import './styles.scss';
-import FadeIn from '../../transitions/fade';
 
 const BlockImpact = ({ block }) => {
   const { headline, introduction, ctas = [], leftTitles = [] } = block;
