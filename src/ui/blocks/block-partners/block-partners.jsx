@@ -43,6 +43,9 @@ const BlockPartners = ({ block }) => {
 
   const shuffledLogos = shuffleArrayAvoidConsecutive(partners.map((partner) => partner.logo));
 
+  const REPEAT_COUNT = 6;
+  const logos = Array(REPEAT_COUNT).fill(shuffledLogos).flat();
+
   return (
     <section className="block-partners">
       <div className="container">
@@ -59,9 +62,9 @@ const BlockPartners = ({ block }) => {
 
           <div className="col-lg-7 logos">
             <Slider {...settings}>
-              {shuffledLogos.map((logo, index) => (
+              {logos.map((logo, index) => (
                 <div className="logo-wrapper" key={index}>
-                  <img src={logo.url} alt={logo.alt} loading="lazy" />
+                  <img src={logo.url} alt={logo.alt || 'Logo'} loading="lazy" />
                 </div>
               ))}
             </Slider>
