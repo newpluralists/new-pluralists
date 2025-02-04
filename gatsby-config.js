@@ -107,14 +107,6 @@ module.exports = {
                 publishedAt
               }
             }
-            allDatoCmsInvestment {
-              nodes {
-                slug
-                meta {
-                  publishedAt
-                }
-              }
-            }
             datoCmsResourcesList {
               slug
               meta {
@@ -149,20 +141,6 @@ module.exports = {
                 publishedAt
               }
             }
-            datoCmsEventList {
-              slug
-              meta {
-                publishedAt
-              }
-            }
-            allDatoCmsEvent {
-              nodes {
-                slug
-                meta {
-                  publishedAt
-                }
-              }
-            }
             datoCmsThePromiseOfPluralism {
               slug
               meta {
@@ -173,14 +151,6 @@ module.exports = {
               slug
               meta {
                 publishedAt
-              }
-            }
-            allDatoCmsStoriesImpact {
-              nodes {
-                slug
-                meta {
-                  publishedAt
-                }
               }
             }
             datoCmsGranteesList {
@@ -200,17 +170,13 @@ module.exports = {
             datoCmsFundersList,
             allDatoCmsFunder,
             datoCmsInvestmentsList,
-            allDatoCmsInvestment,
             datoCmsResourcesList,
             allDatoCmsResource,
             datoCmsFieldBuildersList,
             allDatoCmsBuilder,
             datoCmsTeamList,
-            datoCmsEventList,
-            allDatoCmsEvent,
             datoCmsThePromiseOfPluralism,
             datoCmsOurImpact,
-            allDatoCmsStoriesImpact,
             datoCmsGranteesList,
           } = resolve;
 
@@ -245,10 +211,6 @@ module.exports = {
                   lastMod: datoCmsInvestmentsList.meta.publishedAt,
                 }
               : null,
-            ...allDatoCmsInvestment.nodes.map((node) => ({
-              path: `/${node.slug}`,
-              lastMod: node.meta.publishedAt,
-            })),
             datoCmsResourcesList.slug
               ? {
                   path: `/${datoCmsResourcesList.slug}`,
@@ -275,16 +237,6 @@ module.exports = {
                   lastMod: datoCmsTeamList.meta.publishedAt,
                 }
               : null,
-            datoCmsEventList.slug
-              ? {
-                  path: `/${datoCmsEventList.slug}`,
-                  lastMod: datoCmsEventList.meta.publishedAt,
-                }
-              : null,
-            ...allDatoCmsEvent.nodes.map((node) => ({
-              path: `/events/${node.slug}`,
-              lastMod: node.meta.publishedAt,
-            })),
             datoCmsThePromiseOfPluralism.slug
               ? {
                   path: `/${datoCmsThePromiseOfPluralism.slug}`,
@@ -297,10 +249,6 @@ module.exports = {
                   lastMod: datoCmsOurImpact.meta.publishedAt,
                 }
               : null,
-            ...allDatoCmsStoriesImpact.nodes.map((node) => ({
-              path: `/stories/${node.slug}`,
-              lastMod: node.meta.publishedAt,
-            })),
             datoCmsGranteesList.slug
               ? {
                   path: `/${datoCmsGranteesList.slug}`,
