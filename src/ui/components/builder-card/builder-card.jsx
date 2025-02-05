@@ -6,7 +6,7 @@ const BuilderCard = ({ builder }) => {
     <div className="funder-card">
       <img
         src={builder.image.url}
-        alt={builder.image.alt}
+        alt={builder.image.alt || 'Builder image'}
         width={builder.image.width}
         height={builder.image.height}
         className="img-full"

@@ -37,7 +37,7 @@ const FooterWrapper = () => {
         <div className="row">
           <div className="col-lg-8 meta">
             <Link className="logo" to="/">
-              <img src={footer.logo.url} alt={footer.logo.alt} loading="lazy" />
+              <img src={footer.logo.url} alt={footer.logo.alt || 'New Pluralists Logo'} loading="lazy" />
             </Link>
 
             <div className="links-wrapper">

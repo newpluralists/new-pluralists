@@ -108,7 +108,7 @@ const BlogDetail = ({ blog, related, listLink }) => {
 
             {mainImage?.url && (
               <div className="main-image">
-                <img src={mainImage.url} alt={mainImage.alt} loading="lazy" />
+                <img src={mainImage.url} alt={mainImage.alt || 'Blog image'} loading="lazy" />
 
                 {mainImage.title && (
                   <div className="caption">

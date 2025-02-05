@@ -75,7 +75,7 @@ const SpecialHero = ({ title, introduction, image, variant = 'default' }) => {
       <div className="container">
         <div className="row">
           <div className="col-lg-6 image-wrapper">
-            <img src={defaultBgUrlImg} />
+            <img src={defaultBgUrlImg} alt="New Pluralists image" />
           </div>
           <div className="col-lg-6 intro-wrapper">
             {title && <h1>{title}</h1>}

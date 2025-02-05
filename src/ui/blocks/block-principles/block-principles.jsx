@@ -71,7 +71,11 @@ const BlockPrinciples = ({ block }) => {
             {image?.url && (
               <div className="image">
                 <FadeIn transition={{ duration: 1 }}>
-                  <img src={image.url} alt={image.alt} loading="lazy" />
+                  <img
+                    src={image.url}
+                    alt={image.alt || 'Woman representing the priorities of New Pluralists'}
+                    loading="lazy"
+                  />
                 </FadeIn>
               </div>
             )}
@@ -81,7 +85,11 @@ const BlockPrinciples = ({ block }) => {
             {boxImage?.url && (
               <div className="image">
                 <FadeIn>
-                  <img src={boxImage.url} alt={boxImage.alt} loading="lazy" />
+                  <img
+                    src={boxImage.url}
+                    alt={boxImage.alt || 'Chart on the principles of New Pluralists'}
+                    loading="lazy"
+                  />
                 </FadeIn>
               </div>
             )}
