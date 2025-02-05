@@ -50,7 +50,7 @@ const CookiesBanner = () => {
 
   const handleReject = () => {
     const ONE_YEAR_DURATION = 60 * 60 * 24 * 365;
-    document.cookie = 'acceptCookies=false; path=/; max-age=' + ONE_YEAR_DURATION;
+    document.cookie = 'acceptCookiesNP=false; path=/; max-age=' + ONE_YEAR_DURATION;
     setShowBanner(false);
 
     if (typeof window.gtag === 'function') {
