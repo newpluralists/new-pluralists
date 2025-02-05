@@ -268,5 +268,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: 'gatsby-plugin-preconnect',
+      options: {
+        domains: ['https://use.typekit.net', 'https://www.datocms-assets.com'],
+      },
+    },
   ],
 };
