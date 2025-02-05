@@ -6,7 +6,14 @@ const FunderCard = ({ funder }) => {
 
   const renderContent = () => (
     <>
-      <img src={logo.url} alt={logo.alt} width={logo.width} height={logo.height} className="img-full" loading="lazy" />
+      <img
+        src={logo.url}
+        alt={logo.alt || 'Funder Logo'}
+        width={logo.width}
+        height={logo.height}
+        className="img-full"
+        loading="lazy"
+      />
       {name && <span>{name}</span>}
     </>
   );
