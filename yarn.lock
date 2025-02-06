@@ -6286,6 +6286,15 @@ gatsby-plugin-fix-fouc@^1.0.5:
   dependencies:
     camel-case "^4"
 
+gatsby-plugin-google-analytics@^5.14.0:
+  version "5.14.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-5.14.0.tgz#836104491938710d1e19ad15020ee43302a08713"
+  integrity sha512-mzUXk+0nmRKYJilKtZFaajO05MYM1aDd3LkJYDH7kDhgiiAjHo9n404n3I2D7/3G7ikxmlY31zg7y6EsIzZX7w==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    minimatch "^3.1.2"
+    web-vitals "^1.1.2"
+
 gatsby-plugin-google-gtag@^5.13.1:
   version "5.13.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-gtag/-/gatsby-plugin-google-gtag-5.13.1.tgz#81b294f2ab12dad5ba5e9946e4b78cd315676bbc"

@@ -32,6 +32,14 @@ module.exports = {
     //   },
     // },
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: '241966890',
+        head: false,
+        enableWebVitalsTracking: true,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         icon: 'src/images/icon.png',
