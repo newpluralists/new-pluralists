@@ -22,16 +22,15 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sass',
-    'gatsby-plugin-sitemap',
     'gatsby-plugin-fix-fouc',
-    {
-      resolve: 'gatsby-plugin-google-tagmanager',
-      options: {
-        id: process.env.GTM_ID,
-        includeInDevelopment: false,
-        enableWebVitalsTracking: true,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-google-tagmanager',
+    //   options: {
+    //     id: process.env.GTM_ID,
+    //     includeInDevelopment: false,
+    //     enableWebVitalsTracking: true,
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
