@@ -23,18 +23,20 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sass',
     'gatsby-plugin-fix-fouc',
-    // {
-    //   resolve: 'gatsby-plugin-google-tagmanager',
-    //   options: {
-    //     id: process.env.GTM_ID,
-    //     includeInDevelopment: false,
-    //     enableWebVitalsTracking: true,
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        // id: process.env.GTM_ID,
+        id: 'GTM-N56XXCX',
+        includeInDevelopment: false,
+        enableWebVitalsTracking: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: '241966890',
+        // trackingId: process.env.GA4_ID,
+        trackingId: 'G-K65VQ8B9SK',
         head: false,
         enableWebVitalsTracking: true,
       },
