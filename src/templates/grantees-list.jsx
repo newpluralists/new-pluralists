@@ -10,7 +10,7 @@ import PageLoader from '../ui/components/page-loader/page-loader';
 const ITEMS_PAGINATION = 25;
 
 const GranteeList = ({ pageContext, data: { granteeList, grantees, breadcrumb, favicon } }) => {
-  const { title, introduction, seo } = granteeList;
+  const { slug, title, introduction, seo } = granteeList;
   const [visibleItems, setVisibleItems] = React.useState(ITEMS_PAGINATION);
 
   const loadMoreItems = () => {
@@ -19,7 +19,14 @@ const GranteeList = ({ pageContext, data: { granteeList, grantees, breadcrumb, f
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: slug,
+          model: 'basicPage',
+        }}
+      />
 
       <ListWrapper id="grantee-list" variant="lavander">
         {/* <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} /> */}
@@ -87,6 +94,7 @@ export const GranteeListQuery = graphql`
       }
     }
     granteeList: datoCmsGranteesList {
+      slug
       title
       introduction
       seo: seoMetaTags {

@@ -5,11 +5,18 @@ import BlogDetail from '../ui/layout/details/blog-detail';
 import PageLoader from '../ui/components/page-loader/page-loader';
 
 const BlogDetailPage = ({ pageContext, data: { blog, related, blogList, favicon } }) => {
-  const { seo } = blog;
+  const { slug, seo } = blog;
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: slug,
+          model: 'post',
+        }}
+      />
       <BlogDetail blog={blog} related={related} listLink={blogList} />
     </PageLoader>
   );
@@ -25,6 +32,7 @@ export const BlogDetailQuery = graphql`
       }
     }
     blog: datoCmsPost(id: { eq: $id }) {
+      slug
       title
       date
       mainImage {

@@ -5,11 +5,18 @@ import { Hero } from 'tectonica-ui';
 import PageLoader from '../ui/components/page-loader/page-loader';
 
 const InvestmentDetail = ({ pageContext, data: { investment, favicon } }) => {
-  const { title, seo } = investment;
+  const { slug, title, seo } = investment;
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: slug,
+          model: 'basicPage',
+        }}
+      />
       <Hero title={title} />
     </PageLoader>
   );
@@ -25,6 +32,7 @@ export const InvestmentDetailQuery = graphql`
       }
     }
     investment: datoCmsInvestment(id: { eq: $id }) {
+      slug
       title
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags

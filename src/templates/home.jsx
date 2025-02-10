@@ -10,7 +10,15 @@ const IndexPage = ({ pageContext, data: { homepage, favicon } }) => {
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} homepage />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: '',
+          model: 'homepage',
+        }}
+        homepage
+      />
       <HomeHero
         title={title}
         introduction={introduction}

@@ -1,10 +1,19 @@
 import React from 'react';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
+import { getPathFromModel } from '../../config';
 
-const SeoDatoCMS = ({ seo, favicon = null, homepage = false, children }) => {
+const SeoDatoCMS = ({ seo, favicon = null, homepage = false, canonicalMetadata, children }) => {
+  const siteUrl = process.env.SITE_URL || 'https://newpluralists.org';
+  const currentUrl = canonicalMetadata
+    ? `${siteUrl}${getPathFromModel({
+        slug: canonicalMetadata.slug,
+        model: canonicalMetadata.model,
+      })}`
+    : '';
+
   return (
     <HelmetDatoCms seo={seo} favicon={favicon?.faviconMetaTags}>
-      <link rel="canonical" href="https://newpluralists.org" />
+      {canonicalMetadata && <link rel="canonical" href={currentUrl} />}
       {homepage && (
         <meta
           name="keywords"

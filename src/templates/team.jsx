@@ -6,7 +6,7 @@ import StructuredTextDefault from '../ui/components/structured-text-default';
 import PageLoader from '../ui/components/page-loader/page-loader';
 
 const TeamDetail = ({ pageContext, data: { team, favicon } }) => {
-  const { name, seo, content } = team;
+  const { slug, name, seo, content } = team;
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>

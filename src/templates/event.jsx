@@ -6,11 +6,18 @@ import StructuredTextDefault from '../ui/components/structured-text-default';
 import PageLoader from '../ui/components/page-loader/page-loader';
 
 const EventDetail = ({ pageContext, data: { event, favicon } }) => {
-  const { name, seo, content } = event;
+  const { slug, name, seo, content } = event;
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: slug,
+          model: 'event',
+        }}
+      />
       <Hero title={name} />
       <div className="container">{/* <StructuredTextDefault content={content} /> */}</div>
     </PageLoader>
@@ -28,6 +35,7 @@ export const EventDetailQuery = graphql`
     }
     event: datoCmsEvent(id: { eq: $id }) {
       id
+      slug
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }

@@ -7,11 +7,18 @@ import { isArrayAndNotEmpty } from 'tectonica-ui';
 import PageLoader from '../ui/components/page-loader/page-loader';
 
 const TeamList = ({ pageContext, data: { teamList, leads, staff, favicon } }) => {
-  const { title, introduction, seo } = teamList;
+  const { slug, title, introduction, seo } = teamList;
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: slug,
+          model: 'basicPage',
+        }}
+      />
       <ListWrapper variant="lavander team-list exec">
         <h1>{title}</h1>
         {introduction && (
@@ -60,6 +67,7 @@ export const TeamListQuery = graphql`
       }
     }
     teamList: datoCmsTeamList {
+      slug
       title
       introduction
       seo: seoMetaTags {

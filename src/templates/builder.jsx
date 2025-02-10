@@ -6,11 +6,18 @@ import StructuredTextDefault from '../ui/components/structured-text-default';
 import PageLoader from '../ui/components/page-loader/page-loader';
 
 const BuilderDetail = ({ pageContext, data: { builder, favicon } }) => {
-  const { title, builderPosition, image, content, seo } = builder;
+  const { slug, title, builderPosition, image, content, seo } = builder;
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: slug,
+          model: 'builder',
+        }}
+      />
       <Hero title={title} />
 
       <div className="container">
@@ -38,6 +45,7 @@ export const BuilderDetailQuery = graphql`
       }
     }
     builder: datoCmsBuilder(id: { eq: $id }) {
+      slug
       title
       builderPosition
       image {

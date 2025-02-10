@@ -6,11 +6,18 @@ import SpecialHero from '../ui/layout/special-hero/special-hero';
 import PageLoader from '../ui/components/page-loader/page-loader';
 
 const OurImpact = ({ pageContext, data: { page, breadcrumb, favicon } }) => {
-  const { title, introduction, backgroundImage, content, seo } = page;
+  const { slug, title, introduction, backgroundImage, content, seo } = page;
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: slug,
+          model: 'basicPage',
+        }}
+      />
       <SpecialHero
         title={title}
         introduction={introduction}
@@ -33,6 +40,7 @@ export const OurImpactListQuery = graphql`
       }
     }
     page: datoCmsOurImpact {
+      slug
       title
       introduction
       backgroundImage {

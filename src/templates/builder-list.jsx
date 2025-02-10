@@ -7,11 +7,18 @@ import BuilderCard from '../ui/components/builder-card/builder-card';
 import PageLoader from '../ui/components/page-loader/page-loader';
 
 const BuilderList = ({ pageContext, data: { builderList, builders, favicon } }) => {
-  const { title, seo } = builderList;
+  const { slug, title, seo } = builderList;
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: slug,
+          model: 'basicPage',
+        }}
+      />
       <Hero title={title} />
 
       <div className="container">
@@ -39,6 +46,7 @@ export const BuilderListQuery = graphql`
       }
     }
     builderList: datoCmsFieldBuildersList {
+      slug
       title
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags

@@ -10,7 +10,7 @@ import FadeIn from '../ui/transitions/fade';
 import PageLoader from '../ui/components/page-loader/page-loader';
 
 const ResourceList = ({ pageContext, data: { resourceList, resources, breadcrumb, favicon } }) => {
-  const { title, introduction, image, seo } = resourceList;
+  const { slug, title, introduction, image, seo } = resourceList;
 
   const topicsForFilter = React.useMemo(() => {
     const topicsMap = new Map();
@@ -53,7 +53,14 @@ const ResourceList = ({ pageContext, data: { resourceList, resources, breadcrumb
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: slug,
+          model: 'basicPage',
+        }}
+      />
       <SpecialHero
         title={title}
         introduction={introduction}
@@ -95,6 +102,7 @@ export const ResourceListQuery = graphql`
       }
     }
     resourceList: datoCmsResourcesList {
+      slug
       title
       introduction
       image {

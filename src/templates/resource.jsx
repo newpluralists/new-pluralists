@@ -5,11 +5,18 @@ import ResourceDetail from '../ui/layout/details/resource-detail';
 import PageLoader from '../ui/components/page-loader/page-loader';
 
 const ResourceDetailPage = ({ pageContext, data: { resource, relatedResources, resourceList, favicon } }) => {
-  const { seo } = resource;
+  const { slug, seo } = resource;
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: slug,
+          model: 'resource',
+        }}
+      />
       <ResourceDetail resource={resource} listLink={resourceList} related={relatedResources} />
     </PageLoader>
   );
@@ -25,6 +32,7 @@ export const ResourceDetailQuery = graphql`
       }
     }
     resource: datoCmsResource(id: { eq: $id }) {
+      slug
       title
       date
       externalUrl

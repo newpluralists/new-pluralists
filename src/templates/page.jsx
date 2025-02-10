@@ -2,18 +2,24 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import ListWrapper from '../ui/layout/list-wrapper/list-wrapper';
-import { Breadcrumbs } from 'tectonica-ui';
 import StructuredTextDefault from '../ui/components/structured-text-default';
 import SpecialHero from '../ui/layout/special-hero/special-hero';
 import PageLoader from '../ui/components/page-loader/page-loader';
 
 const BasicPage = ({ pageContext, data: { page, breadcrumb, favicon } }) => {
-  const { title, introduction, variant, backgroundImage, backgroundColor, content, seo } = page;
+  const { slug, title, introduction, variant, backgroundImage, backgroundColor, content, seo } = page;
 
   if (variant === 'special') {
     return (
       <PageLoader context={pageContext} favicon={favicon}>
-        <SeoDatoCMS seo={seo} favicon={favicon} />
+        <SeoDatoCMS
+          seo={seo}
+          favicon={favicon}
+          canonicalMetadata={{
+            slug: slug,
+            model: 'basicPage',
+          }}
+        />
         <SpecialHero title={title} introduction={introduction} image={backgroundImage} variant={backgroundColor} />
         <ListWrapper hideSvg variant="basic-page with-header">
           <div className="basic-content">
@@ -26,9 +32,15 @@ const BasicPage = ({ pageContext, data: { page, breadcrumb, favicon } }) => {
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: slug,
+          model: 'basicPage',
+        }}
+      />
       <ListWrapper variant="lavander basic-page">
-        {/* <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} /> */}
         <h1>{title}</h1>
 
         <div className="basic-content">
@@ -49,6 +61,7 @@ export const PageQuery = graphql`
       }
     }
     page: datoCmsBasicPage(id: { eq: $id }) {
+      slug
       title
       introduction
       variant

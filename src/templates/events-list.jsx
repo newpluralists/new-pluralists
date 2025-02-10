@@ -7,11 +7,18 @@ import EventCard from '../ui/components/event-card/event-card';
 import PageLoader from '../ui/components/page-loader/page-loader';
 
 const EventsList = ({ pageContext, data: { eventsList, events, favicon } }) => {
-  const { title, seo } = eventsList;
+  const { slug, title, seo } = eventsList;
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: slug,
+          model: 'basicPage',
+        }}
+      />
       <Hero title={title} />
       <div className="container">
         <div className="row g-5 mt-5">
@@ -38,6 +45,7 @@ export const EventsListQuery = graphql`
       }
     }
     eventsList: datoCmsEventList {
+      slug
       title
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags

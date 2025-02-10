@@ -10,7 +10,7 @@ import FadeIn from '../ui/transitions/fade';
 import PageLoader from '../ui/components/page-loader/page-loader';
 
 const FunderList = ({ pageContext, data: { funderList, funders, donors, breadcrumb, favicon } }) => {
-  const { title, introduction, blocks = [], seo } = funderList;
+  const { slug, title, introduction, blocks = [], seo } = funderList;
 
   const sortedFunders = funders.edges
     .map((e) => e.node)
@@ -22,7 +22,14 @@ const FunderList = ({ pageContext, data: { funderList, funders, donors, breadcru
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: slug,
+          model: 'basicPage',
+        }}
+      />
       <ListWrapper variant="funder-list">
         {/* <Breadcrumbs breadcrumb={breadcrumb} currentPage={title} /> */}
         <h1 className="small">{title}</h1>
@@ -71,6 +78,7 @@ export const FunderListQuery = graphql`
       }
     }
     funderList: datoCmsFundersList {
+      slug
       title
       introduction
       blocks {

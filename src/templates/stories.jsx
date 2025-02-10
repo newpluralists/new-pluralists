@@ -7,11 +7,18 @@ import { CustomImage, Tags } from 'tectonica-ui';
 import PageLoader from '../ui/components/page-loader/page-loader';
 
 const StoryImpactPage = ({ pageContext, data: { page, favicon } }) => {
-  const { title, image, content, tags, seo } = page;
+  const { slug, title, image, content, tags, seo } = page;
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: slug,
+          model: 'basicPage',
+        }}
+      />
       <ListWrapper variant="lavander stories">
         <h1>{title}</h1>
         <div className="basic-content">
@@ -34,6 +41,7 @@ export const StoryImpactPageQuery = graphql`
       }
     }
     page: datoCmsStoriesImpact(id: { eq: $id }) {
+      slug
       title
       image {
         width

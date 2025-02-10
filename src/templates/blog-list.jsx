@@ -9,7 +9,7 @@ import FadeIn from '../ui/transitions/fade';
 import PageLoader from '../ui/components/page-loader/page-loader';
 
 const BlogList = ({ pageContext, data: { blogList, blogs, favicon } }) => {
-  const { title, seo } = blogList;
+  const { slug, title, seo } = blogList;
 
   const yearsForFilter = React.useMemo(() => {
     const years = new Set();
@@ -79,7 +79,14 @@ const BlogList = ({ pageContext, data: { blogList, blogs, favicon } }) => {
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: slug,
+          model: 'basicPage',
+        }}
+      />
 
       <ListWrapper id="blog-list" variant="blue">
         <Breadcrumbs currentPage={title} />
@@ -112,6 +119,7 @@ export const BlogListQuery = graphql`
       }
     }
     blogList: datoCmsBlogPostsList {
+      slug
       title
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags

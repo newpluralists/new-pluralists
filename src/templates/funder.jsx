@@ -6,11 +6,18 @@ import StructuredTextDefault from '../ui/components/structured-text-default';
 import PageLoader from '../ui/components/page-loader/page-loader';
 
 const FunderDetail = ({ pageContext, data: { funder, favicon } }) => {
-  const { title, funderPosition, image, content, seo } = funder;
+  const { slug, title, funderPosition, image, content, seo } = funder;
 
   return (
     <PageLoader context={pageContext} favicon={favicon}>
-      <SeoDatoCMS seo={seo} favicon={favicon} />
+      <SeoDatoCMS
+        seo={seo}
+        favicon={favicon}
+        canonicalMetadata={{
+          slug: slug,
+          model: 'funder',
+        }}
+      />
       <Hero title={title} />
 
       <div className="container">
@@ -38,6 +45,7 @@ export const FunderDetailQuery = graphql`
       }
     }
     funder: datoCmsFunder(id: { eq: $id }) {
+      slug
       title
       funderPosition
       image {
