@@ -297,46 +297,46 @@ exports.createPages = async ({ actions, graphql }) => {
   }
 
   // Funder Pages
-  result.data.allDatoCmsFunder.edges.forEach(({ node }) => {
-    const { id, slug, oldUrl } = node;
+  // result.data.allDatoCmsFunder.edges.forEach(({ node }) => {
+  //   const { id, slug, oldUrl } = node;
 
-    createPage({
-      path: `/funders/${slug}`,
-      component: funderTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
-    });
+  //   createPage({
+  //     path: `/funders/${slug}`,
+  //     component: funderTemplate,
+  //     context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
+  //   });
 
-    // Redirects
-    if (oldUrl) {
-      createRedirect({
-        fromPath: getURL(oldUrl),
-        toPath: `/funders/${slug}`,
-        isPermanent: true,
-      });
-    }
-  });
+  //   // Redirects
+  //   if (oldUrl) {
+  //     createRedirect({
+  //       fromPath: getURL(oldUrl),
+  //       toPath: `/funders/${slug}`,
+  //       isPermanent: true,
+  //     });
+  //   }
+  // });
 
   // Investment List
-  if (result.data.datoCmsInvestmentsList) {
-    const { id, slug } = result.data.datoCmsInvestmentsList;
+  // if (result.data.datoCmsInvestmentsList) {
+  //   const { id, slug } = result.data.datoCmsInvestmentsList;
 
-    createPage({
-      path: slug,
-      component: investmentListTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
-    });
-  }
+  //   createPage({
+  //     path: slug,
+  //     component: investmentListTemplate,
+  //     context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
+  //   });
+  // }
 
   // Investment Pages
-  result.data.allDatoCmsInvestment.edges.forEach(({ node }) => {
-    const { id, slug } = node;
+  // result.data.allDatoCmsInvestment.edges.forEach(({ node }) => {
+  //   const { id, slug } = node;
 
-    createPage({
-      path: `/investments/${slug}`,
-      component: investmentTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
-    });
-  });
+  //   createPage({
+  //     path: `/investments/${slug}`,
+  //     component: investmentTemplate,
+  //     context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
+  //   });
+  // });
 
   // Resource List
   if (result.data.datoCmsResourcesList) {
@@ -378,24 +378,24 @@ exports.createPages = async ({ actions, graphql }) => {
   }
 
   // Field Builders Pages
-  result.data.allDatoCmsBuilder.edges.forEach(({ node }) => {
-    const { id, slug, oldUrl } = node;
+  // result.data.allDatoCmsBuilder.edges.forEach(({ node }) => {
+  //   const { id, slug, oldUrl } = node;
 
-    createPage({
-      path: `/builders/${slug}`,
-      component: builderTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
-    });
+  //   createPage({
+  //     path: `/builders/${slug}`,
+  //     component: builderTemplate,
+  //     context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
+  //   });
 
-    // Redirects
-    if (oldUrl) {
-      createRedirect({
-        fromPath: getURL(oldUrl),
-        toPath: `/builders/${slug}`,
-        isPermanent: true,
-      });
-    }
-  });
+  //   // Redirects
+  //   if (oldUrl) {
+  //     createRedirect({
+  //       fromPath: getURL(oldUrl),
+  //       toPath: `/builders/${slug}`,
+  //       isPermanent: true,
+  //     });
+  //   }
+  // });
 
   // Team List
   if (result.data.datoCmsTeamList) {
@@ -429,35 +429,35 @@ exports.createPages = async ({ actions, graphql }) => {
   // });
 
   // Events List
-  if (result.data.datoCmsEventList) {
-    const { id, slug } = result.data.datoCmsEventList;
+  // if (result.data.datoCmsEventList) {
+  //   const { id, slug } = result.data.datoCmsEventList;
 
-    createPage({
-      path: slug,
-      component: eventListTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
-    });
-  }
+  //   createPage({
+  //     path: slug,
+  //     component: eventListTemplate,
+  //     context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
+  //   });
+  // }
 
   // Events Pages
-  result.data.allDatoCmsEvent.edges.forEach(({ node }) => {
-    const { id, slug, oldUrl } = node;
+  // result.data.allDatoCmsEvent.edges.forEach(({ node }) => {
+  //   const { id, slug, oldUrl } = node;
 
-    createPage({
-      path: `/events/${slug}`,
-      component: eventTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
-    });
+  //   createPage({
+  //     path: `/events/${slug}`,
+  //     component: eventTemplate,
+  //     context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
+  //   });
 
-    // Redirects
-    if (oldUrl) {
-      createRedirect({
-        fromPath: getURL(oldUrl),
-        toPath: `/events/${slug}`,
-        isPermanent: true,
-      });
-    }
-  });
+  //   // Redirects
+  //   if (oldUrl) {
+  //     createRedirect({
+  //       fromPath: getURL(oldUrl),
+  //       toPath: `/events/${slug}`,
+  //       isPermanent: true,
+  //     });
+  //   }
+  // });
 
   // The Promise of Pluralism
   if (result.data.datoCmsThePromiseOfPluralism) {
@@ -507,7 +507,6 @@ exports.createPages = async ({ actions, graphql }) => {
     redirects.forEach((redirect) => {
       const { from, to } = redirect.node;
       createRedirect({ fromPath: from, toPath: to, isPermanent: true });
-      console.log(`Creating redirect from ${from} to ${to}`);
     });
   }
 };
