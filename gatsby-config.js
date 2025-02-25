@@ -9,6 +9,7 @@ module.exports = {
     title: `New Pluralists`,
     siteUrl: `https://newpluralists.org/`,
   },
+  trailingSlash: 'ignore',
   plugins: [
     {
       resolve: 'gatsby-source-datocms',
@@ -102,20 +103,6 @@ module.exports = {
                 publishedAt
               }
             }
-            allDatoCmsFunder {
-              nodes {
-                slug
-                meta {
-                  publishedAt
-                }
-              }
-            }
-            datoCmsInvestmentsList {
-              slug
-              meta {
-                publishedAt
-              }
-            }
             datoCmsResourcesList {
               slug
               meta {
@@ -134,14 +121,6 @@ module.exports = {
               slug
               meta {
                 publishedAt
-              }
-            }
-            allDatoCmsBuilder {
-              nodes {
-                slug
-                meta {
-                  publishedAt
-                }
               }
             }
             datoCmsTeamList {
@@ -177,12 +156,9 @@ module.exports = {
             datoCmsBlogPostsList,
             allDatoCmsPost,
             datoCmsFundersList,
-            allDatoCmsFunder,
-            datoCmsInvestmentsList,
             datoCmsResourcesList,
             allDatoCmsResource,
             datoCmsFieldBuildersList,
-            allDatoCmsBuilder,
             datoCmsTeamList,
             datoCmsThePromiseOfPluralism,
             datoCmsOurImpact,
@@ -210,16 +186,6 @@ module.exports = {
                   lastMod: datoCmsFundersList.meta.publishedAt,
                 }
               : null,
-            ...allDatoCmsFunder.nodes.map((node) => ({
-              path: `/funders/${node.slug}`,
-              lastMod: node.meta.publishedAt,
-            })),
-            datoCmsInvestmentsList.slug
-              ? {
-                  path: `/${datoCmsInvestmentsList.slug}`,
-                  lastMod: datoCmsInvestmentsList.meta.publishedAt,
-                }
-              : null,
             datoCmsResourcesList.slug
               ? {
                   path: `/${datoCmsResourcesList.slug}`,
@@ -236,10 +202,6 @@ module.exports = {
                   lastMod: datoCmsFieldBuildersList.meta.publishedAt,
                 }
               : null,
-            ...allDatoCmsBuilder.nodes.map((node) => ({
-              path: `/builders/${node.slug}`,
-              lastMod: node.meta.publishedAt,
-            })),
             datoCmsTeamList.slug
               ? {
                   path: `/${datoCmsTeamList.slug}`,
