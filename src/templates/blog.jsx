@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import BlogDetail from '../ui/layout/details/blog-detail';
 import PageLoader from '../ui/components/page-loader/page-loader';
+import { TextSizeProvider } from '../context/text-size-context';
 
 const BlogDetailPage = ({ pageContext, data: { blog, related, blogList, favicon } }) => {
   const { slug, seo } = blog;
@@ -17,7 +18,9 @@ const BlogDetailPage = ({ pageContext, data: { blog, related, blogList, favicon 
           model: 'post',
         }}
       />
-      <BlogDetail blog={blog} related={related} listLink={blogList} />
+      <TextSizeProvider>
+        <BlogDetail blog={blog} related={related} listLink={blogList} />
+      </TextSizeProvider>
     </PageLoader>
   );
 };

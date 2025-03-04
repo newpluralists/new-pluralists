@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import SeoDatoCMS from '../ui/components/seo-datocms';
 import ResourceDetail from '../ui/layout/details/resource-detail';
 import PageLoader from '../ui/components/page-loader/page-loader';
+import { TextSizeProvider } from '../context/text-size-context';
 
 const ResourceDetailPage = ({ pageContext, data: { resource, relatedResources, resourceList, favicon } }) => {
   const { slug, seo } = resource;
@@ -17,7 +18,9 @@ const ResourceDetailPage = ({ pageContext, data: { resource, relatedResources, r
           model: 'resource',
         }}
       />
-      <ResourceDetail resource={resource} listLink={resourceList} related={relatedResources} />
+      <TextSizeProvider>
+        <ResourceDetail resource={resource} listLink={resourceList} related={relatedResources} />
+      </TextSizeProvider>
     </PageLoader>
   );
 };

@@ -5,11 +5,14 @@ import BlockResources from '../../blocks/block-resources/block-resources';
 import Tooltip from '../../components/tooltip/tooltip';
 import { useLocation } from '@reach/router';
 import AnimateLines from '../../transitions/animate-lines';
+import { useTextSize } from '../../../context/text-size-context';
+import TextSizeAdjuster from '../../components/text-resize/text-resize';
 
 import './styles.scss';
 
 const ResourceDetail = ({ resource, related, listLink }) => {
   const location = useLocation();
+  const { scaleClass } = useTextSize();
   const { title, content, authorName, date, tags, externalUrl } = resource;
 
   const paths = [
@@ -91,11 +94,11 @@ const ResourceDetail = ({ resource, related, listLink }) => {
             />
 
             <div className="inner-container">
-              <h1>{title}</h1>
+              <h1 className={scaleClass}>{title}</h1>
             </div>
           </div>
         </div>
-        <div className="tags-wrapper">
+        <div className={`tags-wrapper ${scaleClass}`}>
           <div className="container">
             <span className="label">Tags</span>
             <div className="resource-tags">
@@ -109,18 +112,21 @@ const ResourceDetail = ({ resource, related, listLink }) => {
         <div className="container">
           <div className="share-buttons">
             <FloatingShareButtons />
+            <TextSizeAdjuster />
           </div>
           <div className="inner-container">
-            <div className="author-name">
-              {authorName && (
-                <p>
-                  BY <span>{authorName}</span>
-                </p>
-              )}
-              {date && <p className="date">{formatDate(date)}</p>}
-            </div>
+            {(authorName || date) && (
+              <div className={`author-name ${scaleClass}`}>
+                {authorName && (
+                  <p>
+                    BY <span>{authorName}</span>
+                  </p>
+                )}
+                {date && <p className={`date ${scaleClass}`}>{formatDate(date)}</p>}
+              </div>
+            )}
 
-            <div className="main-content">
+            <div className={`main-content ${scaleClass}`}>
               <StructuredTextDefault content={content} />
 
               <div className="view-resource">

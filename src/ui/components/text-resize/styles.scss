@@ -1,0 +1,56 @@
+.ui-text-resize {
+  border-radius: 5px;
+  background: var(--np-neutral-2);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  span {
+    padding: 0 15px;
+  }
+
+  button {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: unset;
+    padding: 15px;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .ui-text-resize {
+
+    .increase {
+      order: 1
+    }
+
+    .decrease {
+      order: 2;
+    }
+
+    span {
+      padding: 0 15px 15px 15px;
+      cursor: pointer;
+      order: 3;
+    }
+
+    &.hide {
+      button {
+        display: none;
+      }
+
+      span {
+        padding: 15px;
+      }
+    }
+  }
+}

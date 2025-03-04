@@ -35,6 +35,26 @@
         font-weight: 700;
         line-height: 105%;
         margin-bottom: 27px;
+
+        &.scale-1 {
+          font-size: 50px;
+        }
+
+        &.scale-2 {
+          font-size: 55px;
+        }
+
+        &.scale-3 {
+          // Default size (sin cambios)
+        }
+
+        &.scale-4 {
+          font-size: 66px;
+        }
+
+        &.scale-5 {
+          font-size: 72px;
+        }
       }
     }
 
@@ -42,6 +62,11 @@
       position: absolute;
       bottom: 75px;
       z-index: 1;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 28px;
     }
   }
 
@@ -123,6 +148,54 @@
         }
       }
     }
+
+    &.scale-1 {
+
+      .label,
+      .inner-tag,
+      .tooltip,
+      .tooltip-text,
+      .tooltip-content {
+        font-size: 14px;
+      }
+    }
+
+    &.scale-2 {
+
+      .label,
+      .inner-tag,
+      .tooltip,
+      .tooltip-text,
+      .tooltip-content {
+        font-size: 15px;
+      }
+    }
+
+    &.scale-3 {
+      // Default size (sin cambios)
+    }
+
+    &.scale-4 {
+
+      .label,
+      .inner-tag,
+      .tooltip,
+      .tooltip-text,
+      .tooltip-content {
+        font-size: 17px;
+      }
+    }
+
+    &.scale-5 {
+
+      .label,
+      .inner-tag,
+      .tooltip,
+      .tooltip-text,
+      .tooltip-content {
+        font-size: 18px;
+      }
+    }
   }
 
   .inner-container {
@@ -138,6 +211,26 @@
       font-weight: 700;
       line-height: 105%;
       margin-bottom: 27px;
+
+      &.scale-1 {
+        font-size: 50px;
+      }
+
+      &.scale-2 {
+        font-size: 55px;
+      }
+
+      &.scale-3 {
+        // Default size (sin cambios)
+      }
+
+      &.scale-4 {
+        font-size: 66px;
+      }
+
+      &.scale-5 {
+        font-size: 72px;
+      }
     }
 
     .date {
@@ -148,6 +241,26 @@
       font-weight: 400;
       line-height: 135%;
       margin-bottom: 18px;
+
+      &.scale-1 {
+        font-size: 18px;
+      }
+
+      &.scale-2 {
+        font-size: 20px;
+      }
+
+      &.scale-3 {
+        // Default size (sin cambios)
+      }
+
+      &.scale-4 {
+        font-size: 24px;
+      }
+
+      &.scale-5 {
+        font-size: 26px;
+      }
     }
 
     .main-image {
@@ -199,6 +312,34 @@
         margin: 0;
         margin-top: 13px;
       }
+
+      &.scale-1 {
+        p {
+          font-size: 16px;
+        }
+      }
+
+      &.scale-2 {
+        p {
+          font-size: 18px;
+        }
+      }
+
+      &.scale-3 {
+        // Default size (sin cambios)
+      }
+
+      &.scale-4 {
+        p {
+          font-size: 22px;
+        }
+      }
+
+      &.scale-5 {
+        p {
+          font-size: 24px;
+        }
+      }
     }
 
     .main-content {
@@ -231,14 +372,10 @@
 
       a {
         font-family: var(--main-font);
-        // color: var(--neutral-white);
-        // text-decoration: none !important;
-        // background-color: var(--lavander-alternative);
         color: var(--lavander-alternative);
         text-decoration: underline;
 
         &:hover {
-          // opacity: 0.8;
           color: var(--neutral-black);
         }
       }
@@ -293,6 +430,74 @@
       img {
         margin-bottom: 1rem;
       }
+
+      &.scale-1 {
+
+        h1,
+        h2 {
+          font-size: 1.6rem;
+        }
+
+        p {
+          font-size: 18px;
+        }
+
+        blockquote p {
+          font-size: 28px;
+        }
+      }
+
+      &.scale-2 {
+
+        h1,
+        h2 {
+          font-size: 1.8rem;
+        }
+
+        p {
+          font-size: 20px;
+        }
+
+        blockquote p {
+          font-size: 30px;
+        }
+      }
+
+      &.scale-3 {
+        // Default size (no changes)
+      }
+
+      &.scale-4 {
+
+        h1,
+        h2 {
+          font-size: 2.2rem;
+        }
+
+        p {
+          font-size: 24px;
+        }
+
+        blockquote p {
+          font-size: 38px;
+        }
+      }
+
+      &.scale-5 {
+
+        h1,
+        h2 {
+          font-size: 2.5rem;
+        }
+
+        p {
+          font-size: 26px;
+        }
+
+        blockquote p {
+          font-size: 40px;
+        }
+      }
     }
 
     .tags {
@@ -333,6 +538,11 @@
 
     .share-buttons {
       position: absolute;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 28px;
 
       .ui-floating-share-buttons {
         align-items: flex-start !important;
@@ -382,7 +592,6 @@
 
 @media screen and (max-width: 992px) {
   .blog-detail {
-
     .waves-decorator {
       svg {
         width: 100%;
@@ -408,6 +617,26 @@
         h1 {
           font-size: 35px;
           margin-bottom: 20px;
+
+          &.scale-1 {
+            font-size: 25px;
+          }
+
+          &.scale-2 {
+            font-size: 31px;
+          }
+
+          &.scale-3 {
+            // Default size (sin cambios)
+          }
+
+          &.scale-4 {
+            font-size: 38px;
+          }
+
+          &.scale-5 {
+            font-size: 42px;
+          }
         }
       }
 
@@ -416,6 +645,13 @@
         bottom: 15px;
         left: 15px;
         z-index: 50;
+
+        flex-direction: column-reverse;
+        gap: 19px;
+
+        .ui-floating-share-buttons {
+          height: 60px;
+        }
       }
     }
 
@@ -426,11 +662,51 @@
       h1 {
         font-size: 35px;
         margin-bottom: 20px;
+
+        &.scale-1 {
+          font-size: 25px;
+        }
+
+        &.scale-2 {
+          font-size: 31px;
+        }
+
+        &.scale-3 {
+          // Default size (sin cambios)
+        }
+
+        &.scale-4 {
+          font-size: 38px;
+        }
+
+        &.scale-5 {
+          font-size: 42px;
+        }
       }
 
       .date {
         font-size: 16px;
         margin-bottom: 10px;
+
+        &.scale-1 {
+          font-size: 14px;
+        }
+
+        &.scale-2 {
+          font-size: 15px;
+        }
+
+        &.scale-3 {
+          // Default size (sin cambios)
+        }
+
+        &.scale-4 {
+          font-size: 17px;
+        }
+
+        &.scale-5 {
+          font-size: 18px;
+        }
       }
 
       .main-image {
@@ -443,6 +719,34 @@
 
         p {
           font-size: 18px;
+        }
+
+        &.scale-1 {
+          p {
+            font-size: 16px;
+          }
+        }
+
+        &.scale-2 {
+          p {
+            font-size: 17px;
+          }
+        }
+
+        &.scale-3 {
+          // Default size (sin cambios)
+        }
+
+        &.scale-4 {
+          p {
+            font-size: 19px;
+          }
+        }
+
+        &.scale-5 {
+          p {
+            font-size: 20px;
+          }
         }
       }
 
@@ -464,6 +768,74 @@
 
           footer {
             font-size: 14px;
+          }
+        }
+
+        &.scale-1 {
+
+          h1,
+          h2 {
+            font-size: 1.3rem;
+          }
+
+          p {
+            font-size: 14px;
+          }
+
+          blockquote p {
+            font-size: 20px;
+          }
+        }
+
+        &.scale-2 {
+
+          h1,
+          h2 {
+            font-size: 1.84rem;
+          }
+
+          p {
+            font-size: 16px;
+          }
+
+          blockquote p {
+            font-size: 22px;
+          }
+        }
+
+        &.scale-3 {
+          // Default size (no changes)
+        }
+
+        &.scale-4 {
+
+          h1,
+          h2 {
+            font-size: 2.2rem;
+          }
+
+          p {
+            font-size: 20px;
+          }
+
+          blockquote p {
+            font-size: 38px;
+          }
+        }
+
+        &.scale-5 {
+
+          h1,
+          h2 {
+            font-size: 2.5rem;
+          }
+
+          p {
+            font-size: 22px;
+          }
+
+          blockquote p {
+            font-size: 40px;
           }
         }
       }
@@ -522,7 +894,12 @@
         left: 15px;
         z-index: 50;
 
+        flex-direction: column-reverse;
+        gap: 19px;
+
         .ui-floating-share-buttons {
+          height: 60px;
+
           align-items: flex-end !important;
         }
       }

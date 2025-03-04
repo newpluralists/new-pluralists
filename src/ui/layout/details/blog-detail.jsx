@@ -4,11 +4,14 @@ import StructuredTextDefault from '../../components/structured-text-default';
 import BlockUpdates from '../../blocks/block-updates/block-updates';
 import { useLocation } from '@reach/router';
 import AnimateLines from '../../transitions/animate-lines';
+import TextSizeAdjuster from '../../components/text-resize/text-resize';
+import { useTextSize } from '../../../context/text-size-context';
 
 import './styles.scss';
 
 const BlogDetail = ({ blog, related, listLink }) => {
   const location = useLocation();
+  const { scaleClass } = useTextSize();
   const { title, authorName, content, date, mainImage, tags = [], topics = [] } = blog;
 
   const paths = [
@@ -91,20 +94,21 @@ const BlogDetail = ({ blog, related, listLink }) => {
 
             {!mainImage?.url && (
               <div className="main-title">
-                <h1>{title}</h1>
+                <h1 className={scaleClass}>{title}</h1>
               </div>
             )}
 
             <div className="share-buttons">
               <FloatingShareButtons />
+              <TextSizeAdjuster />
             </div>
           </div>
         </div>
 
         <div className="container">
           <div className={`inner-container ${mainImage?.url ? 'with-image' : ''}`}>
-            {mainImage?.url && <h1>{title}</h1>}
-            <p className="date">{formatDate(date)}</p>
+            {mainImage?.url && <h1 className={scaleClass}>{title}</h1>}
+            <p className={`date ${scaleClass}`}>{formatDate(date)}</p>
 
             {mainImage?.url && (
               <div className="main-image">
@@ -125,16 +129,15 @@ const BlogDetail = ({ blog, related, listLink }) => {
             )}
 
             {authorName && (
-              <div className="author-name">
+              <div className={`author-name ${scaleClass}`}>
                 <p>
                   By <span>{authorName}</span>
                 </p>
               </div>
             )}
 
-            <div className="main-content">
+            <div className={`main-content ${scaleClass}`}>
               <StructuredTextDefault content={content} />
-
               {topics && <Tags tags={topics} />}
             </div>
           </div>
