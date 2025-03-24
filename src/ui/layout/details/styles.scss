@@ -866,6 +866,7 @@
         padding-bottom: 20px;
 
         .container {
+          max-width: 720px;
           padding-right: calc(var(--bs-gutter-x)* .5);
           padding-left: calc(var(--bs-gutter-x)* .5);
         }
@@ -913,5 +914,17 @@
     .block-updates {
       padding: 50px 0;
     }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .blog-detail.resource-variant .tags-wrapper .container {
+    max-width: 540px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .blog-detail.resource-variant .tags-wrapper .container {
+    max-width: 100%;
   }
 }
