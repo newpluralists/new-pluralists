@@ -32,7 +32,7 @@ const BlockUpdates = ({ block }) => {
 
           <div className="row">
             {posts.map((post) => (
-              <div className="col-md-4" key={post.id}>
+              <div className="col-lg-4 col-sm-6" key={post.id}>
                 <BlogCard blog={post} />
               </div>
             ))}

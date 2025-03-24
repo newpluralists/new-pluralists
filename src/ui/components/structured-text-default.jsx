@@ -1,6 +1,6 @@
 import React from 'react';
 import { renderNodeRule, StructuredText } from 'react-datocms';
-import { Button, CustomImage, CustomLink } from 'tectonica-ui';
+import { Accordion, Button, CustomImage, CustomLink } from 'tectonica-ui';
 import BlockGridCards from '../blocks/block-grid-cards/block-grid-cards';
 import BlockNarrativeGrid from '../blocks/block-narrative-grid/block-narrative-grid';
 import { isHeading, isBlockquote, isParagraph, isRoot, isList } from 'datocms-structured-text-utils';
@@ -28,6 +28,9 @@ const StructuredTextDefault = ({ content, withCustomRules = false }) => {
               );
             }
             return <Button block={record} key={record.id} />;
+
+          case 'DatoCmsAcordion':
+            return <Accordion block={record} key={record.id} />;
 
           case 'DatoCmsImage':
             return <CustomImage image={record.image} key={record.id} />;
