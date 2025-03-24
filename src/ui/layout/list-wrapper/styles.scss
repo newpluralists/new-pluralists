@@ -198,7 +198,7 @@
         justify-content: flex-end;
 
         svg {
-          width: 50%;
+          width: 72%;
         }
       }
     }
@@ -243,7 +243,7 @@
   }
 }
 
-@media screen and (max-width: 465px) {
+@media screen and (max-width: 540px) {
   .list-wrapper {
     &.basic-page {
       .waves-decorator {

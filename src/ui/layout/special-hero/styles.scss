@@ -120,7 +120,7 @@
       justify-content: flex-end;
 
       svg {
-        width: 50%;
+        width: 70%;
         height: auto;
       }
     }
@@ -135,7 +135,7 @@
   }
 }
 
-@media screen and (max-width: 475px) {
+@media screen and (max-width: 540px) {
   .special-hero {
     .waves-decorator {
       display: block;

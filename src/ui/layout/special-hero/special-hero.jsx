@@ -1,6 +1,7 @@
 import React from 'react';
-import './styles.scss';
 import AnimateLines from '../../transitions/animate-lines';
+
+import './styles.scss';
 
 const SpecialHero = ({ title, introduction, image, variant = 'default' }) => {
   const defaultBgUrlImg = image?.url;
