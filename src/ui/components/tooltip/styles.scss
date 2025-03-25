@@ -51,7 +51,6 @@
 @media screen and (max-width: 992px) {
   .tooltip-container {
     display: block;
-    width: 100%;
 
     .tooltip-text {
       display: block;
@@ -62,5 +61,11 @@
       width: auto;
       max-width: 100%;
     }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .tooltip-container {
+    width: 100%;
   }
 }
