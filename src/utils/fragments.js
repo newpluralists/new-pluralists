@@ -418,6 +418,12 @@ export const DatoCMS = graphql`
     code
   }
 
+  fragment BlockList on DatoCmsListBlock {
+    id: originalId
+    headline
+    list
+  }
+
   fragment BlockCta on DatoCmsCta {
     id: originalId
     title

@@ -58,6 +58,7 @@ export const BlogDetailQuery = graphql`
           __typename
           ...BlockImage
           ...BlockEmbedIframe
+          ...BlockList
         }
       }
       seo: seoMetaTags {

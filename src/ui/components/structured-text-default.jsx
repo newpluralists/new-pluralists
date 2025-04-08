@@ -10,6 +10,7 @@ import BlockHeadlinesGrid from '../blocks/block-headlines-grid/block-headlines-g
 import BlockResources from '../blocks/block-resources/block-resources';
 import BlockStories from '../blocks/block-stories/block-stories';
 import BlockStats from '../blocks/block-stats/block-stats';
+import BlockList from '../blocks/block-list/block-list';
 
 const StructuredTextDefault = ({ content, withCustomRules = false }) => {
   if (!content || !content?.value) return null;
@@ -82,6 +83,16 @@ const StructuredTextDefault = ({ content, withCustomRules = false }) => {
               );
             }
             return <BlockStats block={record} key={record.id} />;
+
+          case 'DatoCmsListBlock':
+            if (withCustomRules) {
+              return (
+                <div className="max-container-840 center" key={record.id}>
+                  <BlockList block={record} />
+                </div>
+              );
+            }
+            return <BlockList block={record} key={record.id} />;
 
           default:
             return null;
