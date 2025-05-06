@@ -117,12 +117,6 @@ module.exports = {
                 }
               }
             }
-            datoCmsFieldBuildersList {
-              slug
-              meta {
-                publishedAt
-              }
-            }
             datoCmsTeamList {
               slug
               meta {
@@ -158,7 +152,6 @@ module.exports = {
             datoCmsFundersList,
             datoCmsResourcesList,
             allDatoCmsResource,
-            datoCmsFieldBuildersList,
             datoCmsTeamList,
             datoCmsThePromiseOfPluralism,
             datoCmsOurImpact,
@@ -196,12 +189,6 @@ module.exports = {
               path: `/resources/${node.slug}`,
               lastMod: node.meta.publishedAt,
             })),
-            datoCmsFieldBuildersList.slug
-              ? {
-                  path: `/${datoCmsFieldBuildersList.slug}`,
-                  lastMod: datoCmsFieldBuildersList.meta.publishedAt,
-                }
-              : null,
             datoCmsTeamList.slug
               ? {
                   path: `/${datoCmsTeamList.slug}`,
