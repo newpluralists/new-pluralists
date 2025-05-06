@@ -19,17 +19,17 @@ exports.createPages = async ({ actions, graphql }) => {
   const blogListTemplate = path.resolve('./src/templates/blog-list.jsx');
   const blogTemplate = path.resolve('./src/templates/blog.jsx');
   const funderListTemplate = path.resolve('./src/templates/funder-list.jsx');
-  const funderTemplate = path.resolve('./src/templates/funder.jsx');
-  const investmentListTemplate = path.resolve('./src/templates/investment-list.jsx');
-  const investmentTemplate = path.resolve('./src/templates/investment.jsx');
+  // const funderTemplate = path.resolve('./src/templates/funder.jsx');
+  // const investmentListTemplate = path.resolve('./src/templates/investment-list.jsx');
+  // const investmentTemplate = path.resolve('./src/templates/investment.jsx');
   const resourceListTemplate = path.resolve('./src/templates/resource-list.jsx');
   const resourceTemplate = path.resolve('./src/templates/resource.jsx');
   const builderListTemplate = path.resolve('./src/templates/builder-list.jsx');
-  const builderTemplate = path.resolve('./src/templates/builder.jsx');
+  // const builderTemplate = path.resolve('./src/templates/builder.jsx');
   const teamListTemplate = path.resolve('./src/templates/team-list.jsx');
   // const teamTemplate = path.resolve('./src/templates/team.jsx');
-  const eventListTemplate = path.resolve('./src/templates/events-list.jsx');
-  const eventTemplate = path.resolve('./src/templates/event.jsx');
+  // const eventListTemplate = path.resolve('./src/templates/events-list.jsx');
+  // const eventTemplate = path.resolve('./src/templates/event.jsx');
   const thePromiseOfPluralismTemplate = path.resolve('./src/templates/the-promise-of-pluralism.jsx');
   const ourImpactTemplate = path.resolve('./src/templates/our-impact.jsx');
   const storiesTemplate = path.resolve('./src/templates/stories.jsx');
@@ -367,15 +367,15 @@ exports.createPages = async ({ actions, graphql }) => {
   });
 
   // Field Builders List
-  if (result.data.datoCmsFieldBuildersList) {
-    const { id, slug } = result.data.datoCmsFieldBuildersList;
+  // if (result.data.datoCmsFieldBuildersList) {
+  //   const { id, slug } = result.data.datoCmsFieldBuildersList;
 
-    createPage({
-      path: slug,
-      component: builderListTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
-    });
-  }
+  //   createPage({
+  //     path: slug,
+  //     component: builderListTemplate,
+  //     context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
+  //   });
+  // }
 
   // Field Builders Pages
   // result.data.allDatoCmsBuilder.edges.forEach(({ node }) => {
