@@ -11,6 +11,8 @@ import BlockResources from '../blocks/block-resources/block-resources';
 import BlockStories from '../blocks/block-stories/block-stories';
 import BlockStats from '../blocks/block-stats/block-stats';
 import BlockList from '../blocks/block-list/block-list';
+import BlockImageGrid from '../blocks/block-image-grid/block-image-grid';
+import BlockUpdates from '../blocks/block-updates/block-updates';
 
 const StructuredTextDefault = ({ content, withCustomRules = false }) => {
   if (!content || !content?.value) return null;
@@ -93,6 +95,26 @@ const StructuredTextDefault = ({ content, withCustomRules = false }) => {
               );
             }
             return <BlockList block={record} key={record.id} />;
+
+          case 'DatoCmsImageGrid':
+            if (withCustomRules) {
+              return (
+                <div className="max-container-840 center" key={record.id}>
+                  <BlockImageGrid block={record} />
+                </div>
+              );
+            }
+            return <BlockImageGrid block={record} key={record.id} />;
+
+          case 'DatoCmsUpdatesBlock':
+            if (withCustomRules) {
+              return (
+                <div className="max-container-840 center" key={record.id}>
+                  <BlockUpdates block={record} />
+                </div>
+              );
+            }
+            return <BlockUpdates block={record} key={record.id} />;
 
           default:
             return null;

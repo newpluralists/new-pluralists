@@ -11,7 +11,8 @@ export default function BlocksBuilder({ components }) {
   return (
     <>
       {components
-        .filter((c) => !c.hideBlock)
+        .filter((c) => !c.hideBlock || process.env.NODE_ENV === 'development')
+
         .map((block) => {
           switch (block.__typename) {
             case 'DatoCmsNarrativeBlock':

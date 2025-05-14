@@ -418,7 +418,7 @@ html {
       line-height: 135%;
     }
 
-    a {
+    a:not(.ui-card) {
       font-family: var(--main-font);
       color: var(--lavander-alternative);
       text-decoration: underline;

@@ -27,7 +27,7 @@ const BlockUpdates = ({ block }) => {
     <section className="block-updates">
       <div className="container">
         <FadeIn>
-          {headline && <h3>{headline}</h3>}
+          {headline && <h3 className="title">{headline}</h3>}
           {introduction && <div className="introduction" dangerouslySetInnerHTML={{ __html: introduction }} />}
 
           <div className="row">

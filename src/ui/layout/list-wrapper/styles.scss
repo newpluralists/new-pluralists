@@ -118,8 +118,145 @@
   }
 
   &.stories {
-    img {
-      margin-bottom: 1.5rem;
+    background-color: var(--np-neutral-2-alternative);
+
+    .share-buttons {
+      position: absolute;
+      z-index: 1;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 28px;
+
+      .ui-floating-share-buttons {
+        align-items: flex-start !important;
+      }
+    }
+
+    .basic-content {
+      margin: 0 auto;
+
+      h2 {
+        font-size: 25px !important;
+        margin-bottom: 20px;
+      }
+
+      blockquote {
+        border-radius: 4px;
+        background: #FFF0D2;
+        padding: 30px;
+
+        p {
+          font-size: 30px !important;
+        }
+      }
+
+      .block-resources,
+      .block-updates {
+        padding: 0;
+        background-color: transparent;
+        margin-bottom: 60px;
+
+        h3.title {
+          color: var(--neutral-black);
+          font-size: 39px;
+        }
+
+        .ui-card:hover {
+          box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.15);
+
+          .card-content .card-data h3 {
+            color: var(--neutral-black);
+          }
+        }
+
+        .container {
+          padding: 0;
+        }
+
+        .ui-card {
+          background-color: var(--neutral-white);
+        }
+
+        .col-md-4,
+        .col-lg-4 {
+          width: 50%;
+        }
+      }
+
+      .change-story-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+
+        a {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          color: #706CDB;
+          font-size: 22px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 135%;
+          text-decoration: none !important;
+          border-bottom: 1px solid transparent;
+          transition: all .3s ease;
+
+          &.prev img {
+            transform: rotate(180deg);
+          }
+
+          &:hover {
+            color: #706CDB !important;
+            border-bottom: 1px solid #706CDB;
+          }
+        }
+      }
+    }
+
+    .story-image-wrapper {
+      position: relative;
+      margin-bottom: 200px;
+
+      .image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover !important;
+      }
+
+      .metadata-wrapper {
+        position: absolute;
+        bottom: -30%;
+        right: 0;
+        border-radius: 4px 0px 4px 4px;
+        background: var(--yellow);
+        padding: 35px 22px 40px 22px;
+        max-width: 624px;
+
+        h1 {
+          color: var(--neutral-black);
+          font-family: var(--main-font);
+          font-size: 39px !important;
+          margin-bottom: 30px;
+        }
+
+        span {
+          display: block;
+          font-size: 20px;
+          font-family: var(--main-font);
+          font-style: normal;
+          font-weight: 400;
+          line-height: 135%;
+        }
+
+        .introduction {
+          margin-top: 20px;
+          font-family: var(--main-font);
+        }
+      }
     }
   }
 
@@ -128,6 +265,16 @@
 
     .children {
       padding-top: 50px;
+    }
+  }
+
+  &.impact {
+    .children {
+      padding-top: 50px;
+
+      .filterable-list .filters .filter .custom-dropdown {
+        min-width: 300px;
+      }
     }
   }
 
@@ -152,6 +299,19 @@
         margin-bottom: 66px !important;
       }
     }
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+  .list-wrapper.stories {
+    .share-buttons {
+      position: unset;
+      padding: 0 0 1rem 1rem;
+    }
+  }
+
+  .list-wrapper.impact .children .filterable-list .filters .filter .custom-dropdown {
+    min-width: 200px;
   }
 }
 
@@ -237,6 +397,73 @@
 
         .introduction {
           margin-bottom: 40px !important;
+        }
+      }
+    }
+
+    &.stories {
+      .story-image-wrapper {
+        margin-bottom: 50px;
+
+        .metadata-wrapper {
+          position: unset;
+          max-width: 100%;
+          padding: 20px 15px;
+
+          h1 {
+            font-size: 30px !important;
+            margin-bottom: 15px;
+          }
+
+          span {
+            font-size: 16px;
+          }
+
+          .introduction {
+            margin-top: 10px;
+          }
+        }
+      }
+
+      .basic-content {
+        blockquote {
+          padding: 15px;
+
+          p {
+            font-size: 20px !important;
+          }
+        }
+
+        .block-resources,
+        .block-updates {
+          h3.title {
+            font-size: 1.5rem !important;
+          }
+
+          .col-md-4,
+          .col-lg-4 {
+            width: 100%;
+          }
+        }
+
+        .change-story-wrapper a {
+          font-size: 18px;
+        }
+      }
+
+      .share-buttons {
+        position: fixed;
+        bottom: 15px;
+        left: 15px;
+        z-index: 50;
+
+        flex-direction: column-reverse;
+        gap: 19px;
+
+        .ui-floating-share-buttons {
+          height: 60px;
+
+          align-items: flex-end !important;
         }
       }
     }

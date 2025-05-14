@@ -25,7 +25,7 @@ const BlockResources = ({ block }) => {
   return (
     <section className="block-resources">
       <div className="container">
-        {headline && <h3>{headline}</h3>}
+        {headline && <h3 className="title">{headline}</h3>}
 
         <div className="row">
           {items.map((resource) => (
@@ -35,7 +35,7 @@ const BlockResources = ({ block }) => {
           ))}
         </div>
 
-        {ctas && <ButtonList buttons={ctas} />}
+        {Array.isArray(ctas) && ctas.length > 0 && <ButtonList buttons={ctas} />}
       </div>
     </section>
   );

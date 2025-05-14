@@ -577,7 +577,6 @@ export const DatoCMS = graphql`
           height
           alt
           url
-          # gatsbyImageData
         }
         slug
         model {
@@ -710,6 +709,17 @@ export const DatoCMS = graphql`
     ctas {
       ...BlockCta
     }
+  }
+
+  fragment BlockImageGrid on DatoCmsImageGrid {
+    id: originalId
+    images {
+      url
+      width
+      height
+      alt
+    }
+    caption
   }
 
   fragment BlockResources on DatoCmsResourcesBlock {
@@ -866,5 +876,23 @@ export const DatoCMS = graphql`
       ...FunderCategory
     }
     url
+  }
+
+  fragment StoryImpactCard on DatoCmsStoriesImpact {
+    id
+    title
+    slug
+    model {
+      apiKey
+    }
+    introduction
+    region
+    sector
+    image {
+      width
+      height
+      alt
+      url
+    }
   }
 `;

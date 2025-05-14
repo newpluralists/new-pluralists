@@ -35,6 +35,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const storiesTemplate = path.resolve('./src/templates/stories.jsx');
   const granteeListTemplate = path.resolve('./src/templates/grantees-list.jsx');
   const homeTemplate = path.resolve('./src/templates/home.jsx');
+  const storiesImpactListTemplate = path.resolve('./src/templates/stories-of-impact-list.jsx');
 
   const result = await graphql(`
     query AllBasicPages {
@@ -149,6 +150,10 @@ exports.createPages = async ({ actions, graphql }) => {
         slug
       }
       datoCmsOurImpact {
+        id
+        slug
+      }
+      datoCmsStoriesOfImpactList {
         id
         slug
       }
@@ -479,14 +484,35 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   }
 
+  if (result.data.datoCmsStoriesOfImpactList) {
+    const { id, slug } = result.data.datoCmsStoriesOfImpactList;
+
+    createPage({
+      path: slug,
+      component: storiesImpactListTemplate,
+      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
+    });
+  }
+
   // Stories Impact
-  result.data.allDatoCmsStoriesImpact.edges.forEach(({ node }) => {
+  const edges = result.data.allDatoCmsStoriesImpact.edges;
+  edges.forEach(({ node }, index) => {
     const { id, slug } = node;
+
+    const prevNode = edges[index - 1]?.node;
+    const nextNode = edges[index + 1]?.node;
 
     createPage({
       path: `/stories/${slug}`,
       component: storiesTemplate,
-      context: { id: id, slug: slug, menuPos: getMenuPosition(navTree, id), config },
+      context: {
+        id: id,
+        slug: slug,
+        menuPos: getMenuPosition(navTree, id),
+        prevLink: prevNode ? `/stories/${prevNode.slug}` : null,
+        nextLink: nextNode ? `/stories/${nextNode.slug}` : null,
+        config,
+      },
     });
   });
 

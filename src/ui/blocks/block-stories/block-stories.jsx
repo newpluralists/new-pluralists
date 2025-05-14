@@ -15,7 +15,7 @@ const BlockStories = ({ block }) => {
         <div className="row">
           <Carousel
             items={stories}
-            renderItem={(story) => <StoryCard story={story} />}
+            renderItem={(story) => <StoryCard story={story} minimal />}
             slidesToShow={2}
             swipeToSlide={true}
           />
