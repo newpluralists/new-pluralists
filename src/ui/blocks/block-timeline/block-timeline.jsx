@@ -18,19 +18,26 @@ export default function BlockTimeline({ block }) {
     const sorted = [...milestones].sort((a, b) => (sortOrder === 'desc' ? b.year - a.year : a.year - b.year));
     setSortedMilestones(sorted);
 
-    console.log({ year: sorted[0].year }, activeYear);
-
-    // Set active year to the first year in the sorted list
-    if (sorted.length > 0 && !activeYear) {
+    // When sort order changes, update the active year to the first year in the new sorted list
+    if (sorted.length > 0) {
       setActiveYear(sorted[0].year);
     }
-  }, [milestones, sortOrder, activeYear]);
+  }, [milestones, sortOrder]);
 
+  // Set initial active year if not set yet
+  useEffect(() => {
+    if (sortedMilestones.length > 0 && !activeYear) {
+      setActiveYear(sortedMilestones[0].year);
+    }
+  }, [sortedMilestones, activeYear]);
+
+  // Handle scroll to set active year based on scroll position
   useEffect(() => {
     const handleScroll = () => {
       const yearElements = document.querySelectorAll('[data-year]');
+      if (yearElements.length === 0) return;
 
-      if (yearElements.length > 0 && window.scrollY < 100) {
+      if (window.scrollY < 100) {
         const firstYear = Number(yearElements[0].dataset.year);
         setActiveYear(firstYear);
         return;
@@ -63,11 +70,13 @@ export default function BlockTimeline({ block }) {
         }
       }
     };
-    handleScroll();
+
+    // Initial check on mount and whenever sort order changes
+    setTimeout(handleScroll, 100);
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [sortOrder]);
 
   return (
     <div className="ui-block-timeline">
