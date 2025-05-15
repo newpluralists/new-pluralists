@@ -214,6 +214,10 @@
             border-bottom: 1px solid #706CDB;
           }
         }
+
+        &.next-only {
+          justify-content: flex-end;
+        }
       }
     }
 

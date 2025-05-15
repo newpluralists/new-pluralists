@@ -63,7 +63,9 @@ const StoryImpactPage = ({ pageContext, data: { page, storiesList, favicon } }) 
           </div>
           <StructuredTextDefault content={content} />
 
-          <div className="change-story-wrapper">
+          <div
+            className={`change-story-wrapper ${prevLink && nextLink ? 'both' : prevLink && !nextLink ? 'prev-only' : 'next-only'}`}
+          >
             {prevLink && (
               <Link to={prevLink} className="prev">
                 <img src={arrowIcon} alt="Previous story" />
