@@ -12,6 +12,13 @@ export const DatoCMS = graphql`
     }
     path {
       __typename
+      ... on DatoCmsStoriesOfImpactList {
+        id
+        slug
+        model {
+          apiKey
+        }
+      }
       ... on DatoCmsBasicPage {
         id
         slug
@@ -139,6 +146,13 @@ export const DatoCMS = graphql`
         position
         path {
           __typename
+          ... on DatoCmsStoriesOfImpactList {
+            id
+            slug
+            model {
+              apiKey
+            }
+          }
           ... on DatoCmsBasicPage {
             id
             slug
@@ -269,6 +283,13 @@ export const DatoCMS = graphql`
     externalUrl
     path: content {
       __typename
+      ... on DatoCmsStoriesOfImpactList {
+        id
+        slug
+        model {
+          apiKey
+        }
+      }
       ... on DatoCmsBasicPage {
         id
         slug
