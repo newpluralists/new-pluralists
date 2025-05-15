@@ -6,12 +6,17 @@ import BlockStories from '../blocks/block-stories/block-stories';
 import BlockUpdates from '../blocks/block-updates/block-updates';
 import BlockPartners from '../blocks/block-partners/block-partners';
 import BlockNarrativeFull from '../blocks/block-narrative-full/block-narrative-full';
+import { useLocation } from '@reach/router';
 
 export default function BlocksBuilder({ components }) {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const isDevMode = process.env.NODE_ENV === 'development' || searchParams.get('mode') === 'dev';
+
   return (
     <>
       {components
-        .filter((c) => !c.hideBlock || process.env.NODE_ENV === 'development')
+        .filter((c) => !c.hideBlock || isDevMode)
 
         .map((block) => {
           switch (block.__typename) {
