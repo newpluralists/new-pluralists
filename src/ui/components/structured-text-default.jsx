@@ -13,6 +13,7 @@ import BlockStats from '../blocks/block-stats/block-stats';
 import BlockList from '../blocks/block-list/block-list';
 import BlockImageGrid from '../blocks/block-image-grid/block-image-grid';
 import BlockUpdates from '../blocks/block-updates/block-updates';
+import BlockTimeline from '../blocks/block-timeline/block-timeline';
 
 const StructuredTextDefault = ({ content, withCustomRules = false }) => {
   if (!content || !content?.value) return null;
@@ -115,6 +116,9 @@ const StructuredTextDefault = ({ content, withCustomRules = false }) => {
               );
             }
             return <BlockUpdates block={record} key={record.id} />;
+
+          case 'DatoCmsTimelineBlock':
+            return <BlockTimeline key={record.id} block={record} />;
 
           default:
             return null;

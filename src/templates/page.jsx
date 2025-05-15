@@ -92,6 +92,7 @@ export const PageQuery = graphql`
           ...BlockAccordion
           ...BlockNarrativeBlock
           ...BlockGridCards
+          ...BlockTimeline
         }
       }
       seo: seoMetaTags {

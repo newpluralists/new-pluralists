@@ -698,6 +698,27 @@ export const DatoCMS = graphql`
     title
   }
 
+  fragment BlockTimeline on DatoCmsTimelineBlock {
+    id: originalId
+    internalTitle
+    milestones {
+      id
+      year
+      title
+      image {
+        url
+        alt
+        width
+        height
+      }
+      headline
+      description
+      cta {
+        ...BlockCta
+      }
+    }
+  }
+
   fragment BlockGridCards on DatoCmsGridOfCard {
     id: originalId
     headline
