@@ -70,7 +70,7 @@ const SpecialHero = ({ title, introduction, image, variant = 'default' }) => {
   return (
     <section className={`special-hero ${introduction ? 'with-intro' : 'no-intro'} ${variant ? variant : ''}`}>
       <div className="waves-decorator">
-        <AnimateLines paths={paths} color="#7D7DF0" />
+        <AnimateLines paths={paths} color="#46469E" />
       </div>
 
       <div className="container">

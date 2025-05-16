@@ -66,7 +66,7 @@
     background-color: rgba(227, 227, 255, .7);
 
     .waves-decorator svg path {
-      fill: #7D7DF0;
+      fill: var(--lavander-alternative);
     }
   }
 

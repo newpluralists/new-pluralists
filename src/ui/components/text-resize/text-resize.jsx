@@ -29,7 +29,7 @@ const TextSizeAdjuster = () => {
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
           <path
             d="M14.375 5V23.75M23.75 14.375H5"
-            stroke="#7D7DF0"
+            stroke="#46469E"
             strokeWidth="3"
             strokeLinecap="square"
             strokeLinejoin="round"
@@ -46,7 +46,7 @@ const TextSizeAdjuster = () => {
       </span>
       <button className="decrease" onClick={decreaseSize}>
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <path d="M6.25 15H23.75" stroke="#7D7DF0" strokeWidth="3" strokeLinecap="square" strokeLinejoin="round" />
+          <path d="M6.25 15H23.75" stroke="#46469E" strokeWidth="3" strokeLinecap="square" strokeLinejoin="round" />
         </svg>
       </button>
     </div>
