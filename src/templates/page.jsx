@@ -22,7 +22,7 @@ const BasicPage = ({ pageContext, data: { page, breadcrumb, favicon } }) => {
         />
         <SpecialHero title={title} introduction={introduction} image={backgroundImage} variant={backgroundColor} />
         <ListWrapper hideSvg variant="basic-page with-header">
-          <div className="basic-content">
+          <div className={`basic-content ${slug}`}>
             <StructuredTextDefault content={content} />
           </div>
         </ListWrapper>

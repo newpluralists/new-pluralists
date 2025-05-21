@@ -1,9 +1,8 @@
 .ui-story-card {
   height: 100%;
+  transition: all 0.3s ease-in-out;
 
   .ui-card {
-    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.09);
-
     .image {
       height: 230px;
 
@@ -109,7 +108,15 @@
   }
 
   &:hover {
-    opacity: 0.9;
+    opacity: .8;
+  }
+
+  &:not(.minimal):hover {
+    opacity: 1;
+
+    .ui-card .card-content {
+      background: var(--np-neutral-2-alternative);
+    }
   }
 }
 

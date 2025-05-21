@@ -29,21 +29,12 @@ const StoryImpactPage = ({ pageContext, data: { page, storiesList, favicon } }) 
             title: storiesList.title,
             path: { ...storiesList, slug: `${storiesList.slug}` },
           }}
-          // breadcrumb={{
-          //   id: 1,
-          //   title: 'Stories of Impact',
-          //   path: {
-          //     id: 2,
-          //     slug,
-          //     path: '',
-          //   },
-          // }}
         />
         <div className="share-buttons">
           <FloatingShareButtons />
         </div>
 
-        <div className="basic-content">
+        <div className="basic-content story">
           <div className="story-image-wrapper">
             <CustomImage image={image} />
             <div className="metadata-wrapper">
