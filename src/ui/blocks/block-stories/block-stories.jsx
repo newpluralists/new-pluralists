@@ -18,6 +18,7 @@ const BlockStories = ({ block }) => {
             renderItem={(story) => <StoryCard story={story} minimal />}
             slidesToShow={2}
             swipeToSlide={true}
+            showDefaultActions
           />
         </div>
 

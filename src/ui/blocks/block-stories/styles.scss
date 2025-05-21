@@ -1,6 +1,7 @@
 .block-stories {
-  padding: 50px 0 0 0;
+  padding: 50px 0 100px 0;
   background-color: rgba(247, 247, 247, .5);
+  position: relative;
 
   h3 {
     color: var(--neutral-black);
@@ -13,8 +14,49 @@
   }
 
   .button-list {
-    padding-top: 56px;
-    padding-bottom: 90px;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    bottom: 12%;
+    z-index: 10;
+  }
+
+  .ui-carousel .carousel-actions {
+    justify-content: flex-end !important;
+    margin-top: 39px !important;
+
+    span {
+      width: 70px;
+      height: 70px;
+      padding: 20px;
+      border-radius: 100px;
+      background: var(--C2-Neutral-4, #E3E3FF);
+
+      svg {
+        width: 30px !important;
+        height: 30px !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1250px) {
+  .block-stories .ui-story-card.minimal .ui-card {
+    height: 700px;
+  }
+}
+
+@media screen and (max-width: 1250px) and (min-width: 992px) {
+  .block-stories .ui-story-card.minimal .ui-card {
+    height: 700px;
+  }
+
+  .ui-story-card.minimal .ui-card .card-content .card-data h3 {
+    font-size: 30px;
+  }
+
+  .ui-story-card.minimal .ui-card .card-content .card-data .introduction {
+    font-size: 18px;
   }
 }
 
@@ -30,6 +72,13 @@
     .button-list {
       padding: 0;
       padding-top: 20px;
+      justify-content: center;
+      position: unset;
+    }
+
+    .ui-carousel .carousel-actions {
+      margin-top: 0px !important;
+      justify-content: center !important;
     }
 
     &__background-image {
