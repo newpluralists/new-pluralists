@@ -121,7 +121,7 @@
     line-height: 105%;
     color: $primary-color;
     margin-left: 3rem;
-    margin-bottom: 6rem;
+    margin-bottom: 5rem;
     padding: .5rem 0;
     position: relative;
     top: -20px;
@@ -265,12 +265,17 @@
 
       .year-navigation {
         order: 2;
-        padding: 0;
-        margin-bottom: 20px;
+        position: sticky;
+        top: 80px;
+        background: var(--neutral-white);
+        width: 100%;
+        z-index: 101;
+        padding: 20px 0 !important;
 
         .year-navigation-sticky {
           display: flex;
           gap: 28px;
+          overflow-x: auto;
 
           .year-navigation-item {
             margin: 0;
@@ -368,6 +373,10 @@
       p {
         font-size: 16px !important;
       }
+    }
+
+    .timeline-content .year-navigation {
+      top: 60px;
     }
   }
 }
