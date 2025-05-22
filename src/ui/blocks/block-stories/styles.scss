@@ -47,6 +47,14 @@
 }
 
 @media screen and (max-width: 1250px) and (min-width: 992px) {
+  .ui-carousel .slick-track {
+    width: 2000px !important;
+  }
+
+  .ui-carousel .carousel .slick-slide {
+    width: 40dvw !important;
+  }
+
   .block-stories .ui-story-card.minimal .ui-card {
     height: 700px;
   }
