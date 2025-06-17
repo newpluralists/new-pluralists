@@ -37,7 +37,11 @@ const StructuredTextDefault = ({ content, withCustomRules = false }) => {
             return <Accordion block={record} key={record.id} />;
 
           case 'DatoCmsImage':
-            return <CustomImage image={record.image} key={record.id} />;
+            return (
+              <div key={record.id} className={`img-alignment-${record.alignment}`}>
+                <CustomImage image={record.image} />
+              </div>
+            );
 
           case 'DatoCmsGridOfCard':
             return <BlockGridCards block={record} key={record.id} />;

@@ -542,6 +542,25 @@ html {
   .introduction {
     margin-bottom: 30px;
   }
+
+  // Image alignment
+  .img-alignment-left {
+    max-width: 50%;
+    height: auto;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+    clear: left;
+    float: left;
+  }
+
+  .img-alignment-right {
+    max-width: 50%;
+    height: auto;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    clear: right;
+    float: right;
+  }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 992px) {
@@ -820,6 +839,14 @@ html {
       --bs-gutter-y: 0;
       padding-left: calc(var(--bs-gutter-x) * .5);
       padding-right: calc(var(--bs-gutter-x) * .5);
+    }
+
+    .img-alignment-right,
+    .img-alignment-left {
+      max-width: 100%;
+      margin: 0;
+      clear: unset;
+      float: unset;
     }
   }
 }

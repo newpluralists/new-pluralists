@@ -57,8 +57,8 @@ export const BlogDetailQuery = graphql`
         blocks {
           __typename
           ...BlockImage
-          ...BlockEmbedIframe
-          ...BlockList
+          ...BlockCta
+          ...BlockAccordion
         }
       }
       seo: seoMetaTags {
