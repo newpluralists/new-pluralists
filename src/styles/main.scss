@@ -555,6 +555,11 @@ html {
     margin-bottom: 1rem;
     clear: left;
     float: left;
+
+    img {
+      max-height: 500px;
+      object-fit: cover;
+    }
   }
 
   .img-alignment-right {
@@ -564,6 +569,11 @@ html {
     margin-bottom: 1rem;
     clear: right;
     float: right;
+
+    img {
+      max-height: 500px;
+      object-fit: cover;
+    }
   }
 }
 
@@ -851,6 +861,10 @@ html {
       margin: 0;
       clear: unset;
       float: unset;
+
+      img {
+        max-height: fit-content;
+      }
     }
   }
 }
