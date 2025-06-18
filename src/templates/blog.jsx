@@ -59,6 +59,7 @@ export const BlogDetailQuery = graphql`
           ...BlockImage
           ...BlockCta
           ...BlockAccordion
+          ...BlockList
         }
       }
       seo: seoMetaTags {
