@@ -146,6 +146,10 @@ html {
 
     &+.ui-navbar {
       top: 120px;
+
+      @media screen and (max-width: 1406px) and (min-width: 992px) {
+        top: 135px;
+      }
     }
   }
 

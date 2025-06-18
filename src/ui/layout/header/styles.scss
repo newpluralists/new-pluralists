@@ -1,0 +1,24 @@
+.ui-notification-wrapper {
+  .information {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 2rem;
+
+    p {
+      &:nth-child(2) {
+        font-size: 15px !important;
+      }
+    }
+
+    @media screen and (max-width: 992px) {
+      align-items: flex-start;
+      padding: 0;
+
+      p {
+        &:nth-child(2) {
+          font-size: 14px !important;
+        }
+      }
+    }
+  }
+}

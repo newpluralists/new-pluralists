@@ -2,6 +2,8 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Header, Notification } from 'tectonica-ui';
 
+import './styles.scss';
+
 const HeaderWrapper = () => {
   const menus = useStaticQuery(graphql`
     query {
@@ -36,7 +38,11 @@ const HeaderWrapper = () => {
   return (
     <>
       {menus.configuration.showTopAlert && (
-        <Notification variant="blue" block={{ content: menus.configuration.content.value }} />
+        <Notification
+          variant="blue"
+          block={{ content: menus.configuration.content.value }}
+          classNames="ui-notification-wrapper"
+        />
       )}
       <Header menu={menus.mainMenu} logo={menus.configuration.logo} location={{}} />
     </>
