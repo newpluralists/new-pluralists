@@ -854,3 +854,23 @@ html {
     }
   }
 }
+
+// Blog list fixes
+@media screen and (max-width: 1400px) {
+  #blog-list.list-wrapper .children .row {
+    --bs-gutter-x: 10px;
+    --bs-gutter-y: 20px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #blog-list.list-wrapper .children .row .col-lg-4 {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #blog-list.list-wrapper .children .row .col-lg-4 {
+    width: 100%;
+  }
+}
