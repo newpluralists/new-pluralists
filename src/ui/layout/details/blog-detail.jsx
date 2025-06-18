@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumbs, FloatingShareButtons, formatDate, Tags, truncateText } from 'tectonica-ui';
+import { Breadcrumbs, FloatingShareButtons, Tags, truncateText } from 'tectonica-ui';
 import StructuredTextDefault from '../../components/structured-text-default';
 import BlockUpdates from '../../blocks/block-updates/block-updates';
 import { useLocation } from '@reach/router';
@@ -74,6 +74,16 @@ const BlogDetail = ({ blog, related, listLink }) => {
     { d: 'M866.709 219.007L861.829 1.40764L856.949 219.007H866.709Z' },
     { d: 'M882.007 213.206L877.127 10.0661L872.247 213.206H882.007Z' },
   ];
+
+  function formatDate(dateString) {
+    const [year, month, day] = dateString.split('-').map(Number);
+    const date = new Date(year, month - 1, day); // month es base 0
+    return new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(date);
+  }
 
   return (
     <>

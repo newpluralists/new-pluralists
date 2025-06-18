@@ -42,6 +42,23 @@
   }
 }
 
+@media screen and (max-width: 1400px) and (min-width: 1200px) {
+  .block-updates .row {
+    --bs-gutter-x: 10px;
+    --bs-gutter-x: 10px;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+  .block-updates .col-lg-4 {
+    width: 50%;
+  }
+
+  .block-updates .row {
+    --bs-gutter-y: 1rem;
+  }
+}
+
 @media screen and (max-width: 992px) {
   .block-updates {
     padding: 50px 0;
