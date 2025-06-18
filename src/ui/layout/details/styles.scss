@@ -380,6 +380,10 @@
         }
       }
 
+      p:has(em) {
+        clear: both;
+      }
+
       blockquote {
         margin: 40px 0;
         max-width: 624px;
