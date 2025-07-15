@@ -896,6 +896,24 @@ export const DatoCMS = graphql`
     }
   }
 
+  fragment VideoBlock on DatoCmsVideoModal {
+    id: originalId
+    video {
+      url
+      video {
+        streamingUrl
+        thumbnailUrl
+      }
+    }
+    thumbnailImage {
+      url
+      alt
+    }
+    externalVideo {
+      url
+    }
+  }
+
   fragment DonorCard on DatoCmsIndividualDonor {
     id
     fullname

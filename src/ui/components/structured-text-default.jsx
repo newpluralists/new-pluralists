@@ -14,6 +14,7 @@ import BlockList from '../blocks/block-list/block-list';
 import BlockImageGrid from '../blocks/block-image-grid/block-image-grid';
 import BlockUpdates from '../blocks/block-updates/block-updates';
 import BlockTimeline from '../blocks/block-timeline/block-timeline';
+import VideoBlock from '../blocks/block-video/block-video';
 
 const StructuredTextDefault = ({ content, withCustomRules = false }) => {
   if (!content || !content?.value) return null;
@@ -123,6 +124,9 @@ const StructuredTextDefault = ({ content, withCustomRules = false }) => {
 
           case 'DatoCmsTimelineBlock':
             return <BlockTimeline key={record.id} block={record} />;
+
+          case 'DatoCmsVideoModal':
+            return <VideoBlock key={record.id} block={record} />;
 
           default:
             return null;

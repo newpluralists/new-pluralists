@@ -52,6 +52,7 @@ export const ResourceDetailQuery = graphql`
           __typename
           ...BlockImage
           ...BlockEmbedIframe
+          ...VideoBlock
         }
       }
       seo: seoMetaTags {
