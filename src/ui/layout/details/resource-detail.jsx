@@ -129,9 +129,11 @@ const ResourceDetail = ({ resource, related, listLink }) => {
             <div className={`main-content ${scaleClass}`}>
               <StructuredTextDefault content={content} />
 
-              <div className="view-resource">
-                <Button block={{ title: 'View Resource', link: { externalUrl } }} />
-              </div>
+              {externalUrl && (
+                <div className="view-resource">
+                  <Button block={{ title: 'View Resource', link: { externalUrl } }} />
+                </div>
+              )}
             </div>
           </div>
         </div>
