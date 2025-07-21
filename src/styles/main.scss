@@ -33,6 +33,16 @@ html {
 }
 
 #np-layout {
+  .caption {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    img {
+      margin-bottom: 0;
+    }
+  }
+
   .search-engine {
     background: var(--np-neutral-4);
 
