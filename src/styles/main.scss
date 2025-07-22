@@ -33,12 +33,20 @@ html {
 }
 
 #np-layout {
+  .structured-image .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
   .caption {
     display: flex;
     align-items: center;
     gap: 5px;
+    margin-bottom: 1rem;
 
     img {
+      width: auto !important;
       margin-bottom: 0;
     }
   }
