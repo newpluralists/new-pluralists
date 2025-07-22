@@ -35,8 +35,9 @@ html {
 #np-layout {
 
   .button-wrapper .button-block.default,
-  #np-layout .button-block.primary {
+  .button-block.primary {
     color: var(--neutral-white);
+    text-decoration: none;
   }
 
   .structured-image .image-wrapper img {
