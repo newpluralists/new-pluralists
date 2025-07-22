@@ -32,7 +32,11 @@ const StructuredTextDefault = ({ content, withCustomRules = false }) => {
                 </div>
               );
             }
-            return <Button block={record} key={record.id} />;
+            return (
+              <div key={record.id} className="button-wrapper">
+                <Button block={record} />
+              </div>
+            );
 
           case 'DatoCmsAcordion':
             return <Accordion block={record} key={record.id} />;

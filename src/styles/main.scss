@@ -33,6 +33,12 @@ html {
 }
 
 #np-layout {
+
+  .button-wrapper .button-block.default,
+  #np-layout .button-block.primary {
+    color: var(--neutral-white);
+  }
+
   .structured-image .image-wrapper img {
     width: 100%;
     height: auto;
