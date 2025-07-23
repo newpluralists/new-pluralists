@@ -33,6 +33,10 @@ html {
 }
 
 #np-layout {
+  .image-caption {
+    font-family: var(--main-font);
+    color: var(--neutral-black);
+  }
 
   .button-wrapper .button-block.default,
   .button-wrapper .button-block.primary {

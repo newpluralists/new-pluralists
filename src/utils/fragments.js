@@ -912,6 +912,7 @@ export const DatoCMS = graphql`
     externalVideo {
       url
     }
+    captionCredit
   }
 
   fragment DonorCard on DatoCmsIndividualDonor {

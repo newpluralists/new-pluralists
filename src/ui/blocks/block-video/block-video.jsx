@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import './styles.scss';
 
 const VideoBlock = ({ block }) => {
-  const { id, video, thumbnailImage, externalVideo } = block;
+  const { id, video, thumbnailImage, externalVideo, captionCredit } = block;
 
   const streamingUrl = video?.video?.streamingUrl;
   const internalThumbnail = video?.video?.thumbnailUrl;
@@ -34,14 +35,19 @@ const VideoBlock = ({ block }) => {
   const renderPlayer = () => {
     if (streamingUrl) {
       return (
-        <video controls autoPlay poster={thumbnail || undefined} style={{ width: '100%', borderRadius: '8px' }}>
+        <video
+          controls
+          autoPlay
+          poster={thumbnail || undefined}
+          style={{ width: '100%', borderRadius: '8px', marginBottom: '.5rem' }}
+        >
           <source src={streamingUrl} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       );
     } else if (externalVideo?.url) {
       return (
-        <div style={{ position: 'relative', paddingTop: '56.25%' }}>
+        <div style={{ position: 'relative', paddingTop: '56.25%', marginBottom: '.5rem' }}>
           <iframe
             src={getEmbedUrl(externalVideo.url)}
             title={`Video ${id}`}
@@ -72,7 +78,11 @@ const VideoBlock = ({ block }) => {
         display: 'inline-block',
       }}
     >
-      <img src={thumbnail} alt={thumbnailAlt} style={{ width: '100%', borderRadius: '8px', display: 'block' }} />
+      <img
+        src={thumbnail}
+        alt={thumbnailAlt}
+        style={{ width: '100%', borderRadius: '8px', display: 'block', marginBottom: 0 }}
+      />
       <div
         style={{
           position: 'absolute',
@@ -96,8 +106,9 @@ const VideoBlock = ({ block }) => {
   );
 
   return (
-    <div id={`video-${id}`}>
+    <div id={`video-${id}`} style={{ marginBottom: '1.5rem' }}>
       {isPlaying ? renderPlayer() : thumbnail ? renderThumbnail() : <p>No video available.</p>}
+      {captionCredit && <p className="video-caption-credit">{captionCredit}</p>}
     </div>
   );
 };
