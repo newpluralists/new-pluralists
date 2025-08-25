@@ -6,6 +6,7 @@ import { useLocation } from '@reach/router';
 import AnimateLines from '../../transitions/animate-lines';
 import TextSizeAdjuster from '../../components/text-resize/text-resize';
 import { useTextSize } from '../../../context/text-size-context';
+import { formatDateAsLong } from '../../../utils/date.utils';
 
 import './styles.scss';
 
@@ -75,16 +76,6 @@ const BlogDetail = ({ blog, related, listLink }) => {
     { d: 'M882.007 213.206L877.127 10.0661L872.247 213.206H882.007Z' },
   ];
 
-  function formatDate(dateString) {
-    const [year, month, day] = dateString.split('-').map(Number);
-    const date = new Date(year, month - 1, day); // month es base 0
-    return new Intl.DateTimeFormat('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    }).format(date);
-  }
-
   return (
     <>
       <article className="blog-detail">
@@ -118,7 +109,7 @@ const BlogDetail = ({ blog, related, listLink }) => {
         <div className="container">
           <div className={`inner-container ${mainImage?.url ? 'with-image' : ''}`}>
             {mainImage?.url && <h1 className={scaleClass}>{title}</h1>}
-            <p className={`date ${scaleClass}`}>{formatDate(date)}</p>
+            <p className={`date ${scaleClass}`}>{formatDateAsLong(date)}</p>
 
             {mainImage?.url && (
               <div className="main-image">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumbs, Button, FloatingShareButtons, formatDate, isArrayAndNotEmpty, truncateText } from 'tectonica-ui';
+import { Breadcrumbs, Button, FloatingShareButtons, isArrayAndNotEmpty, truncateText } from 'tectonica-ui';
 import StructuredTextDefault from '../../components/structured-text-default';
 import BlockResources from '../../blocks/block-resources/block-resources';
 import Tooltip from '../../components/tooltip/tooltip';
@@ -7,6 +7,7 @@ import { useLocation } from '@reach/router';
 import AnimateLines from '../../transitions/animate-lines';
 import { useTextSize } from '../../../context/text-size-context';
 import TextSizeAdjuster from '../../components/text-resize/text-resize';
+import { formatDateAsLong } from '../../../utils/date.utils';
 
 import './styles.scss';
 
@@ -122,7 +123,7 @@ const ResourceDetail = ({ resource, related, listLink }) => {
                     BY <span>{authorName}</span>
                   </p>
                 )}
-                {date && <p className={`date ${scaleClass}`}>{formatDate(date)}</p>}
+                {date && <p className={`date ${scaleClass}`}>{formatDateAsLong(date)}</p>}
               </div>
             )}
 
