@@ -433,6 +433,9 @@ export const DatoCMS = graphql`
       height
     }
     alignment
+    link {
+      ...GlobalLink
+    }
   }
 
   fragment BlockEmbedIframe on DatoCmsEmbedIframe {

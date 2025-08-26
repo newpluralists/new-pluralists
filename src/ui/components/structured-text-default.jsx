@@ -44,7 +44,13 @@ const StructuredTextDefault = ({ content, withCustomRules = false }) => {
           case 'DatoCmsImage':
             return (
               <div key={record.id} className={`structured-image img-alignment-${record.alignment}`}>
-                <CustomImage image={record.image} />
+                {record.link ? (
+                  <CustomLink to={record.link}>
+                    <CustomImage image={record.image} />
+                  </CustomLink>
+                ) : (
+                  <CustomImage image={record.image} />
+                )}
               </div>
             );
 
