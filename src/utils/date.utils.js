@@ -21,6 +21,7 @@ export const formatDateAsMonthYear = (date) => {
 };
 
 export const formatDateAsLong = (dateString) => {
+  if (!dateString) return '';
   const [year, month, day] = dateString.split('-');
 
   const months = [
